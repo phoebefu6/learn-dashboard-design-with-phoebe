@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 2 of 6. Visual weight as size times contrast times position, the reading order a layout imposes, the one number that leads, the squint test, the F-pattern read at NN/g with Pernice's caveat, and Miller's seven read for what the paper never claimed about screens.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Hierarchy and the first glance - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 2 of 6. Where the eye lands first is a design decision: weight, order, the one number, the squint test.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/02-hierarchy-first-glance.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hierarchy and the first glance - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 2 of 6. Size times contrast times position decides what is read first. Spend the thirty seconds on purpose.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 2 · Hierarchy and the first glance - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 2 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 2 of 6</div>
+    <h1>Hierarchy and the first <span class="accent">glance</span></h1>
+    <p class="sub">Session 1 ended with a sentence Nia should be able to say thirty seconds after the screen opens. Tonight is about where her eyes go in those thirty seconds, because they go somewhere whether or not the designer chose it. Every tile on a screen has a weight, made of its size, its contrast against the ground and its position, and the heaviest tile is read first no matter what the title says. We take that weight apart, use it to set a reading order on purpose, pick the one number that leads, and learn the squint test that shows the order a layout really has. Along the way we read two famous claims at source, the F-pattern and Miller's seven, and find that neither says what dashboards are usually told it says.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Core</span>
+      <span class="chip audience">Analysts and designers who build the screen</span>
+      <span class="chip audience">Leaders who read it on Monday</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Weight, reading order, the squint test</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the first-glance layout</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Saltmarsh is an invented home-goods retailer; Tomas, the analyst, is designing the weekly operations dashboard that Nia, the operations lead, opens at the Monday 09:00 stand-up with Kofi from the warehouse. Session 1 produced the brief: four questions, four decisions, one screen, six tiles, and a glance measured once at about thirty seconds. Tonight Tomas lays those six tiles out so that the glance is spent in the order the questions deserve. Where a Saltmarsh tile shows a number, the number is a real daily aggregate from the Brazilian E-Commerce Public Dataset by Olist, and the page says so each time.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = write it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A three-part account of visual weight you can score on any tile in a minute, a reading order written down as a numbered route before the layout is drawn, one number chosen to lead and a reason for it, the squint test you can run on your own screen tonight, and an honest reading of the F-pattern and Miller's seven so nobody on your team quotes either at you as a law again.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers visual weight: size x contrast x position</span>
+      <h2>What the eye lands on, and why</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Open any screen and your eyes land somewhere before you have decided anything. What they land on is the element with the most visual weight, and weight is not mysterious: it is the product of how big a thing is, how strongly it contrasts with what surrounds it, and where it sits on the page. Three dials, one product. A designer who leaves the dials on their defaults has still set them, and the tool's defaults make every tile the same weight, which means the eye picks at random and the glance is spent finding instead of reading.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn dials stacked on the left, labelled size, contrast and position, each with a needle turned up. Three arrows run from the dials into one large tile on the right, filled signal green, that reads late deliveries this week with the value 4.9 percent, Olist's median late share. Below the tile three small pale tiles stand for the rest of the screen, smaller, lighter and lower. A small eye doodle sits above the big tile with the note the eye lands here first. A note says the three dials multiply: a big, dark, top-left tile outweighs everything else on the screen.">
+        <defs>
+          <filter id="f2aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="52" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="f2aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f2aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f2aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f2aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f2aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f2aV { font: 800 20px Inter, sans-serif; fill: #163C8A; }
+          .f2aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f2aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f2aH" x="30" y="26">VISUAL WEIGHT IS A PRODUCT: SIZE x CONTRAST x POSITION, THREE DIALS FEEDING ONE TILE</text>
+
+        <g filter="url(#f2aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="90" cy="86" r="30" fill="#FFFFFF"/>
+          <path d="M90 86 L108 64"/>
+          <circle cx="90" cy="166" r="30" fill="#FFFFFF"/>
+          <path d="M90 166 L110 148"/>
+          <circle cx="90" cy="246" r="30" fill="#FFFFFF"/>
+          <path d="M90 246 L106 222"/>
+          <path d="M340 86 C430 86 470 130 550 140" marker-end="url(#f2aAr)"/>
+          <path d="M340 166 L550 160" marker-end="url(#f2aAr)"/>
+          <path d="M340 246 C430 246 470 200 550 180" marker-end="url(#f2aAr)"/>
+          <rect x="560" y="100" width="260" height="120" rx="10" transform="rotate(0.6 690 160)" fill="#2DBE7A"/>
+          <rect x="560" y="262" width="76" height="28" rx="5" transform="rotate(-1.5 598 276)" fill="#EDF3FD"/>
+          <rect x="652" y="262" width="76" height="28" rx="5" transform="rotate(1.2 690 276)" fill="#EDF3FD"/>
+          <rect x="744" y="262" width="76" height="28" rx="5" transform="rotate(-0.8 782 276)" fill="#EDF3FD"/>
+          <path d="M640 62 Q660 48 680 62 Q660 76 640 62"/>
+          <circle cx="660" cy="62" r="4" fill="#141C2E"/>
+        </g>
+
+        <text class="f2aL" x="132" y="82">SIZE</text>
+        <text class="f2aS" x="132" y="98">bigger is read before smaller</text>
+        <text class="f2aL" x="132" y="162">CONTRAST</text>
+        <text class="f2aS" x="132" y="178">dark ink on a light ground</text>
+        <text class="f2aL" x="132" y="242">POSITION</text>
+        <text class="f2aS" x="132" y="258">top and left before bottom and right</text>
+        <text class="f2aB" x="690" y="48" text-anchor="middle">the eye lands here first</text>
+        <text class="f2aL" x="580" y="130">LATE DELIVERIES, THIS WEEK</text>
+        <text class="f2aV" x="580" y="166">4.9%</text>
+        <text class="f2aS" x="580" y="186">Olist median late share, named as Olist's</text>
+        <text class="f2aB" x="580" y="206">weight: all three dials turned up</text>
+        <text class="f2aS" x="690" y="248" text-anchor="middle">the rest: smaller, lighter, lower</text>
+
+        <text class="f2aN" x="30" y="314">Saltmarsh is constructed. The dials multiply: a tile that is big, dark and top-left outweighs the rest of the screen.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - weight is set whether or not you set it; a screen of same-size tiles has turned all three dials to the same place and left the eye to guess</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three dials, one product<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Size</strong> is the dial everyone knows. A bigger number is read before a smaller one, and a tile twice the area of its neighbours is read first unless the other two dials are turned against it. <strong>Contrast</strong> is the dial most tools quietly disable: when every tile is a white card on a white page with the same grey label, nothing stands out from anything, and a bold value in dark ink on a light ground is the cheapest way to turn it back up. <strong>Position</strong> is the dial that works without any ink at all. In a left-to-right reading culture the top-left of a screen is read first and the bottom-right last, and the tool's grid gives the top-left slot to whichever tile was created first, which is rarely the one that should lead.</p>
+        <p>The word that matters is <em>product</em>. A tile that is big but pale and bottom-right loses to a tile that is medium, dark and top-left. At Saltmarsh (constructed) Tomas's first draft had six identical cards in creation order, so the tile that led was "carrier share of late orders", the last one anyone needed on Monday. Nothing was wrong with the data. The dials were on their defaults.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The one number, and the tiles that compete with it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every dashboard has one number that is read first, and the honest question is whether it is the right one. Nia's sentence from session 1 starts with deliveries, because the carrier call is the decision with the shortest fuse, so the one number is the late share of deliveries this week. On the figure it carries Olist's median late share of 4.9 percent, named as Olist's, because no Saltmarsh number is a measurement. Once the one number is chosen, every other tile is scored against it: nothing else on the screen may be bigger, darker or further up-left than the one number, or the layout is arguing with the brief.</p>
+        <p>Two tiles will try to compete. The first is the one the sponsor likes, which at Saltmarsh (constructed) is revenue, because Priya asked for the dashboard and reads it on Monday evening. It stays on the screen, in the second row, at the second weight, and the reason is said out loud: the money question decides whether to act at all, but it is asked after the deliveries question, not before. The second competitor is the prettiest chart, which is usually the delivery days trend, and a pretty chart with a low weight is a fine thing. Charts themselves, which chart for which data and how to draw the marks, belong to Dataviz: https://phoebefu6.github.io/learn-dataviz-with-phoebe/ . Tonight is only about how much of the glance each one is allowed to take.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"Why does everyone look at the wrong number?"</strong> A familiar pattern: a leader opens the weekly screen, reads the first big figure out loud, and the team spends five minutes on it before someone points out that the figure that mattered is lower down. The leader was not careless. Their eyes went to the heaviest tile, which was the one the tool put top-left and the designer never moved. The fix costs nothing: swap two tiles and make the one that matters a size larger. The meeting changes the following week.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers reading order, and the F-pattern read at source</span>
+      <h2>Reading order is yours to set</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Weight decides where the eye lands first. The layout then decides where it goes next, and next, and next, and that route is the reading order. Nia's sentence has four slots in a fixed order: deliveries, demand, money, backlog. The screen should walk her eyes through the four in that order without her having to search, so the route is drawn as numbered stops before any tile is placed. This is also where the most quoted "law" of web layout gets read at source, because the F-pattern is not the route a dashboard should impose; it is the route eyes take when a page has imposed none.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn panels. Left: a dashboard laid out so that no F is needed. A large lead tile top-left reads late deliveries 4.9 percent and carries stop number 1; two slimmer tiles to its right, orders this week and revenue this week, carry stops 2 and 3; a row of three small hachured tiles along the bottom, delivery days, backlog and carrier share, carries stop 4. A dashed route joins the four numbered stops. Right: a wrong-way panel in universal red showing a wall of unformatted text lines with a thick F traced over them: a long bar across the top, a shorter bar lower down and a stem down the left. Captions say the eye walks 1 2 3 4 with no F needed, and that the F is what eyes do on an unformatted page.">
+        <defs>
+          <filter id="f2bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f2bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f2bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f2bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f2bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f2bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f2bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f2bV { font: 800 18px Inter, sans-serif; fill: #163C8A; }
+          .f2bW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .f2bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f2bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f2bH" x="30" y="26">THE ROUTE IS DRAWN BEFORE THE TILES: FOUR NUMBERED STOPS, AND NO F NEEDED</text>
+        <text class="f2bA" x="40" y="48">LAID OUT SO THAT NO F IS NEEDED</text>
+        <text class="f2bA" x="480" y="48">WRONG WAY: A WALL OF TEXT, WHERE THE F APPEARS</text>
+
+        <g filter="url(#f2bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="400" height="236" rx="10" transform="rotate(-0.4 240 174)" fill="#FFFFFF"/>
+          <rect x="60" y="76" width="180" height="100" rx="6" transform="rotate(0.5 150 126)" fill="#2DBE7A"/>
+          <rect x="256" y="76" width="164" height="46" rx="6" transform="rotate(-0.6 338 99)" fill="#EDF3FD"/>
+          <rect x="256" y="130" width="164" height="46" rx="6" transform="rotate(0.4 338 153)" fill="#EDF3FD"/>
+          <rect x="60" y="190" width="112" height="56" rx="6" transform="rotate(-0.7 116 218)" fill="url(#f2bHc)"/>
+          <rect x="184" y="190" width="112" height="56" rx="6" transform="rotate(0.6 240 218)" fill="url(#f2bHc)"/>
+          <rect x="308" y="190" width="112" height="56" rx="6" transform="rotate(-0.5 364 218)" fill="url(#f2bHc)"/>
+          <path d="M166 124 L384 101" stroke-dasharray="5 5" marker-end="url(#f2bAr)"/>
+          <path d="M400 112 L400 140" stroke-dasharray="5 5" marker-end="url(#f2bAr)"/>
+          <path d="M394 168 L370 233" stroke-dasharray="5 5" marker-end="url(#f2bAr)"/>
+          <circle cx="150" cy="126" r="13" fill="#163C8A" stroke="#163C8A"/>
+          <circle cx="400" cy="99" r="13" fill="#163C8A" stroke="#163C8A"/>
+          <circle cx="400" cy="153" r="13" fill="#163C8A" stroke="#163C8A"/>
+          <circle cx="364" cy="248" r="13" fill="#163C8A" stroke="#163C8A"/>
+
+          <rect x="480" y="56" width="360" height="236" rx="10" transform="rotate(0.3 660 174)" fill="#FEF2F2" stroke="#991B1B"/>
+          <path d="M500 100 L820 100 M500 114 L800 114 M500 128 L816 128 M500 142 L790 142 M500 156 L812 156 M500 170 L806 170 M500 184 L796 184 M500 198 L818 198 M500 212 L802 212 M500 226 L810 226 M500 240 L784 240 M500 254 L808 254 M500 268 L770 268" stroke="#FCA5A5" stroke-width="3"/>
+          <path d="M500 86 L806 86" stroke="#991B1B" stroke-width="6"/>
+          <path d="M500 150 L690 150" stroke="#991B1B" stroke-width="6"/>
+          <path d="M500 86 L500 276" stroke="#991B1B" stroke-width="6"/>
+        </g>
+
+        <text class="f2bL" x="70" y="100">LATE DELIVERIES</text>
+        <text class="f2bV" x="70" y="164">4.9%</text>
+        <text class="f2bS" x="266" y="92">orders this week</text>
+        <text class="f2bS" x="266" y="146">revenue this week</text>
+        <text class="f2bW" x="150" y="130" text-anchor="middle">1</text>
+        <text class="f2bW" x="400" y="103" text-anchor="middle">2</text>
+        <text class="f2bW" x="400" y="157" text-anchor="middle">3</text>
+        <text class="f2bW" x="364" y="252" text-anchor="middle">4</text>
+        <text class="f2bS" x="116" y="281" text-anchor="middle">delivery days</text>
+        <text class="f2bS" x="240" y="281" text-anchor="middle">backlog</text>
+        <text class="f2bS" x="364" y="281" text-anchor="middle">carrier share</text>
+        <text class="f2bB" x="40" y="312">the eye walks 1, 2, 3, 4: deliveries, demand, money, backlog</text>
+        <text class="f2bS" x="480" y="312">the F: eyes on an unformatted page, which NN/g calls bad for users</text>
+
+        <text class="f2bN" x="30" y="334">Saltmarsh is constructed; 4.9% is Olist's median late share. Nielsen 2006 and Pernice 2017 read at NN/g.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the left panel imposes a route, so the eye never has to draw one; the right panel is where the F comes from, and it is the thing to design away, not to design for</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What NN/g actually measured, and what it called it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>In 2006 Jakob Nielsen published an eyetracking study at the Nielsen Norman Group: 232 users, thousands of web pages, and a dominant pattern with three parts. A horizontal movement across the upper part of the content, a shorter second horizontal movement lower down, and a vertical scan down the left side. The shape is an F. The page's own conclusions are about writing, not layout: "Users won't read your text thoroughly", "The first two paragraphs must state the most important information", and "Start subheads, paragraphs, and bullet points with information-carrying words".</p>
+        <p>In 2017 Kara Pernice went back to it on the same site and named the conditions under which the F appears: a page with little or no formatting, a wall of text; a user trying to be efficient; and a user not committed to reading every word. Her verdict is verbatim and unambiguous: "the F-shaped scanning pattern is bad for users and businesses". The fix she prescribes is formatting that directs attention: headings, bullets, bold, front-loaded words, and cutting content. So the sentence "users read in an F, so put the important thing top-left" has a true half and a false half. The eye does start top-left. But the F is what eyes do when a page gives them nothing to hold, and a dashboard has almost no running text, so there is nothing for an F to form on. The usable lesson is the one NN/g draws: put the most important thing first, and make the structure visible so no scanning pattern is needed at all.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Drawing the route so no F is needed<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Tomas writes the route as four numbered stops taken straight from Nia's sentence, then places tiles so that weight falls in that order: stop 1 is the biggest and darkest tile, top-left; stops 2 and 3 are the next weight, to its right, one above the other so the eye drops rather than hunts; stop 4 is the bottom row, which at Saltmarsh (constructed) is the backlog by stage, Kofi's question, asked last because he answers it himself. The three small tiles along the bottom share the lowest weight because none of them is a question; they are the context a question's answer needs, and context is read only if the answer surprises.</p>
+        <p>Check the route with one question per arrow: when the eye finishes stop 1, is stop 2 the next heaviest thing in its field of view, and is nothing heavier in the way? A route breaks when a stop-4 tile is given a bright chart, because the chart outweighs the stop-2 number and the eye jumps the queue. The repair is never to brighten stop 2 as well; it is to quieten stop 4. Weight is relative, and turning everything up returns the screen to the tool's default, where every tile weighs the same and the glance is spent searching. How a leader reads such a screen once it is built is the Business Intelligence course's page: https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/courses/a2-reading-a-dashboard.html .</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Read the route out loud with a finger.</strong> Open the draft, say "one, two, three, four" and touch each tile in the order the sentence needs. If your finger has to cross back over a tile it already passed, or hovers while you look for the next stop, the layout has imposed a different order from the one you wrote, and the dials of the tile you hovered near need turning down.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the squint test, and Miller 1956 read for what it does not claim</span>
+      <h2>The squint test, and the seven that was never about screens</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">You cannot see your own layout's weight once you know what every tile says, because knowing where the number is feels the same as seeing it first. The squint test takes the knowing away. Blur the screen, by squinting, by stepping back three metres from the projector, or by shrinking the window until the labels are unreadable, and what remains is the layout's real hierarchy: blocks of weight with no words. If the blocks do not rank in the order of the route, the route is a wish. This is also the Part where the other famous number gets read at source, because "no more than seven tiles, Miller said so" is quoted in every dashboard review and the paper says no such thing.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 318" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn panels of the same Saltmarsh screen. Left, as built: six tiles with their labels and the lead value 4.9 percent. Right, squinted: the same six rectangles with no words, the lead tile a solid signal green block and the other five faded to pale shapes, so that one block and two faint groups are all that survive. A squinting eye doodle sits between the panels. Captions say as built, six tiles and their words, and squinted, one block leads and the rest is two groups. A note says a layout that survives the squint ranks its blocks in the order of the route.">
+        <defs>
+          <filter id="f2cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="73" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+        </defs>
+        <style>
+          .f2cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f2cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f2cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f2cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f2cV { font: 800 18px Inter, sans-serif; fill: #163C8A; }
+          .f2cA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f2cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f2cH" x="30" y="26">THE SQUINT TEST: TAKE THE WORDS AWAY AND SEE WHICH BLOCKS ARE LEFT, AND IN WHAT ORDER</text>
+        <text class="f2cA" x="40" y="48">AS BUILT</text>
+        <text class="f2cA" x="480" y="48">SQUINTED, OR SEEN FROM THREE METRES BACK</text>
+
+        <g filter="url(#f2cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="400" height="200" rx="10" transform="rotate(0.3 240 156)" fill="#FFFFFF"/>
+          <rect x="60" y="76" width="170" height="90" rx="6" transform="rotate(-0.5 145 121)" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="246" y="76" width="174" height="40" rx="6" transform="rotate(0.6 333 96)" fill="#EDF3FD"/>
+          <rect x="246" y="124" width="174" height="42" rx="6" transform="rotate(-0.4 333 145)" fill="#EDF3FD"/>
+          <rect x="60" y="176" width="110" height="60" rx="6" transform="rotate(0.5 115 206)" fill="#FFFFFF"/>
+          <rect x="180" y="176" width="110" height="60" rx="6" transform="rotate(-0.6 235 206)" fill="#FFFFFF"/>
+          <rect x="300" y="176" width="110" height="60" rx="6" transform="rotate(0.4 355 206)" fill="#FFFFFF"/>
+
+          <path d="M446 156 Q460 146 474 156 Q460 166 446 156"/>
+          <path d="M452 146 L449 140 M460 144 L460 137 M468 146 L471 140"/>
+
+          <rect x="480" y="56" width="400" height="200" rx="10" transform="rotate(-0.3 680 156)" fill="#FFFFFF"/>
+          <rect x="500" y="76" width="170" height="90" rx="6" transform="rotate(0.5 585 121)" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="686" y="76" width="174" height="40" rx="6" transform="rotate(-0.6 773 96)" fill="#E3E9F3" stroke="#C5CEDF"/>
+          <rect x="686" y="124" width="174" height="42" rx="6" transform="rotate(0.4 773 145)" fill="#E3E9F3" stroke="#C5CEDF"/>
+          <rect x="500" y="176" width="110" height="60" rx="6" transform="rotate(-0.5 555 206)" fill="#FBFCFE" stroke="#C5CEDF"/>
+          <rect x="620" y="176" width="110" height="60" rx="6" transform="rotate(0.6 675 206)" fill="#FBFCFE" stroke="#C5CEDF"/>
+          <rect x="740" y="176" width="110" height="60" rx="6" transform="rotate(-0.4 795 206)" fill="#FBFCFE" stroke="#C5CEDF"/>
+        </g>
+
+        <text class="f2cL" x="72" y="98">LATE DELIVERIES</text>
+        <text class="f2cV" x="72" y="134">4.9%</text>
+        <text class="f2cS" x="72" y="154">Olist median, named</text>
+        <text class="f2cS" x="256" y="100">orders this week</text>
+        <text class="f2cS" x="256" y="150">revenue this week</text>
+        <text class="f2cS" x="68" y="210">delivery days</text>
+        <text class="f2cS" x="188" y="210">backlog</text>
+        <text class="f2cS" x="308" y="210">carrier share</text>
+        <text class="f2cS" x="40" y="280">six tiles, their words and their values</text>
+        <text class="f2cB" x="480" y="280">one block leads; the rest is two groups, not five tiles</text>
+
+        <text class="f2cN" x="30" y="308">Saltmarsh is constructed. A layout passes the squint when its blocks rank in the order of the route, without a single word.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the right panel is what Nia's eyes get in the first second; if the lead block is not obvious there, no label will rescue it</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Squint, or step back three metres<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The test takes ten seconds and needs no tool. Put the draft on the meeting-room screen, stand at the back wall, half-close your eyes, and say which block you see first, second and third. Then compare that to the route. At Saltmarsh (constructed) Tomas's second draft failed it: the delivery days trend chart, a bright line on a white card, read as the first block from the back of the room, ahead of the late deliveries number it was meant to support. The chart was not wrong. It was too heavy for stop 4, so it got a lighter line and a smaller card, and the one number came back to the front.</p>
+        <p>The squint test also catches the opposite fault, which is a screen with no hierarchy at all: from three metres it is a grid of identical grey blocks, and that means the dials are on their defaults. Vision science reports that a handful of attributes, hue, size, orientation, position and intensity, are picked up in a glance before focused attention, while a conjunction of two of them is not (Healey and Enns 2012 and Ware 2012, reported; no millisecond figure is quoted because the primary pages were not read at source). Weight works because it is built from exactly those attributes: size and intensity and position are the three dials. A layout that depends on reading a label to find the lead has asked for focused attention before the glance has started.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Miller 1956, read: a span of judgment, not a tile count<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>George Miller's 1956 paper in <em>Psychological Review</em>, "The magical number seven, plus or minus two", is read here in full. The seven is two things. It is the span of absolute judgment for one-dimensional stimuli: how many loudnesses, pitches or line lengths people can tell apart without error, with channel capacities around 2.6 bits, about 6.5 categories. And it is the span of immediate memory, counted in chunks, where "recoding" lets one chunk carry more. The paper's visual-display measurements are laboratory judgments of line length and position. Kaufman and colleagues' dot patterns are in there too: no errors up to about five or six dots, which is subitizing, with Miller's own caution that the link to seven may be coincidence. His closing words are verbatim: "I suspect that it is only a pernicious, Pythagorean coincidence."</p>
+        <p>The paper says nothing about screens, displays of information, or how many items belong on one. "No more than seven tiles" is an extrapolation Miller did not make, and quoting him for it is quoting a paper for a claim it does not contain. What the paper does support is the chunking move: if the reader holds things in chunks, group the tiles so there are four groups to hold, not nineteen tiles. That is why the squinted panel in the figure shows one block and two groups rather than six shapes, and why session 3 spends its time on grouping by the question rather than counting tiles. Miller also notes that adding dimensions raises total capacity but lowers accuracy per attribute, which is a fair warning against a tile that encodes three things at once.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"Miller says seven, so cut it to seven."</strong> A familiar pattern in design reviews: a screen with nineteen tiles is sent back with "Miller's law" in the comment, the team deletes twelve tiles, and the seven that remain are still seven unranked blocks the eye picks between at random. The number was never the problem. A screen of seven tiles with no weight and no groups fails the squint test exactly as a screen of nineteen does. Rank them, group them, and the count takes care of itself.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Tomas's first-glance layout toy</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tomas builds the layout on paper before he opens a tool, with a scoring sheet that is constructed for teaching and says so: each tile gets a 1-to-3 score on each dial, the three scores multiply into a weight, the weights rank the tiles, and the rank places them on the screen. Then the draft is squinted at and the route is read out loud. Do the same for the six tiles of your own brief from session 1; if you have none in hand, use Saltmarsh (constructed). The scores are judgments, not measurements, and the point of writing them down is to make the judgments arguable.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 338" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left, a hand-drawn Saltmarsh screen on a faint grid: a large signal green lead tile top-left reading 1, late deliveries, 4.9 percent, Olist's median late share, weight 27; two slim tiles to its right, 2 orders this week weight 12 and 3 revenue this week weight 8; three small tiles along the bottom, 4 backlog weight 6, delivery days weight 2, carrier share weight 1. A small stopwatch doodle between the panels reads 30 s. Right, a hand-drawn weight ledger listing the six tiles with their size, contrast and position scores multiplied into a weight, ranked from 27 down to 1, and the instruction to place by rank, top-left first. A note says the scale is constructed for teaching and the numbers on the tiles are Olist's.">
+        <defs>
+          <filter id="f2dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="89" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f2dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f2dH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f2dL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f2dS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f2dB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f2dV { font: 800 20px Inter, sans-serif; fill: #163C8A; }
+          .f2dR { font: 800 14px Inter, sans-serif; fill: #163C8A; }
+          .f2dA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f2dN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f2dH" x="30" y="26">THE LAYOUT TOY: SCORE EACH DIAL 1 TO 3, MULTIPLY, RANK, PLACE BY RANK, THEN SQUINT</text>
+        <text class="f2dA" x="40" y="48">THE SALTMARSH SCREEN, PLACED BY WEIGHT</text>
+        <text class="f2dA" x="600" y="48">WEIGHT LEDGER, CONSTRUCTED SCALE</text>
+
+        <g filter="url(#f2dSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="520" height="250" rx="10" transform="rotate(0.2 300 181)" fill="#FFFFFF"/>
+          <rect x="60" y="80" width="250" height="120" rx="8" transform="rotate(-0.5 185 140)" fill="#2DBE7A"/>
+          <rect x="324" y="80" width="216" height="56" rx="8" transform="rotate(0.6 432 108)" fill="#EDF3FD"/>
+          <rect x="324" y="144" width="216" height="56" rx="8" transform="rotate(-0.4 432 172)" fill="#EDF3FD"/>
+          <rect x="60" y="212" width="150" height="76" rx="8" transform="rotate(0.5 135 250)" fill="#EDF3FD"/>
+          <rect x="222" y="212" width="150" height="76" rx="8" transform="rotate(-0.6 297 250)" fill="url(#f2dHc)"/>
+          <rect x="384" y="212" width="150" height="76" rx="8" transform="rotate(0.4 459 250)" fill="url(#f2dHc)"/>
+
+          <circle cx="580" cy="176" r="12" fill="#FFFFFF"/>
+          <path d="M580 160 L580 164 M576 160 L584 160 M580 176 L580 169"/>
+
+          <rect x="600" y="56" width="240" height="250" rx="8" transform="rotate(-0.6 720 181)" fill="#FFFFFF"/>
+          <path d="M616 90 L824 90 M616 118 L824 118 M616 146 L824 146 M616 174 L824 174 M616 202 L824 202 M616 230 L824 230 M616 258 L824 258" stroke="#C5CEDF" stroke-width="1.2"/>
+        </g>
+
+        <text class="f2dL" x="76" y="104">1 · LATE DELIVERIES</text>
+        <text class="f2dV" x="76" y="146">4.9%</text>
+        <text class="f2dS" x="76" y="168">Olist median late share, this week</text>
+        <text class="f2dB" x="76" y="188">weight 27 = 3 x 3 x 3</text>
+        <text class="f2dL" x="336" y="102">2 · orders this week</text>
+        <text class="f2dS" x="336" y="120">weight 12 = 2 x 2 x 3</text>
+        <text class="f2dL" x="336" y="166">3 · revenue this week</text>
+        <text class="f2dS" x="336" y="184">weight 8 = 2 x 2 x 2</text>
+        <text class="f2dL" x="72" y="236">4 · backlog</text>
+        <text class="f2dS" x="72" y="254">6 = 1 x 2 x 3</text>
+        <text class="f2dL" x="234" y="236">delivery days</text>
+        <text class="f2dS" x="234" y="254">2 = 1 x 2 x 1</text>
+        <text class="f2dL" x="396" y="236">carrier share</text>
+        <text class="f2dS" x="396" y="254">1 = 1 x 1 x 1</text>
+        <text class="f2dS" x="580" y="206" text-anchor="middle">30 s</text>
+
+        <text class="f2dA" x="616" y="78">TILE · SIZE x CONTRAST x POSITION</text>
+        <text class="f2dS" x="616" y="108">late deliveries · 3 x 3 x 3</text>
+        <text class="f2dR" x="824" y="110" text-anchor="end">27</text>
+        <text class="f2dS" x="616" y="136">orders this week · 2 x 2 x 3</text>
+        <text class="f2dR" x="824" y="138" text-anchor="end">12</text>
+        <text class="f2dS" x="616" y="164">revenue this week · 2 x 2 x 2</text>
+        <text class="f2dR" x="824" y="166" text-anchor="end">8</text>
+        <text class="f2dS" x="616" y="192">backlog by stage · 1 x 2 x 3</text>
+        <text class="f2dR" x="824" y="194" text-anchor="end">6</text>
+        <text class="f2dS" x="616" y="220">delivery days · 1 x 2 x 1</text>
+        <text class="f2dR" x="824" y="222" text-anchor="end">2</text>
+        <text class="f2dS" x="616" y="248">carrier share · 1 x 1 x 1</text>
+        <text class="f2dR" x="824" y="250" text-anchor="end">1</text>
+        <text class="f2dB" x="616" y="282">place by rank, top-left first</text>
+
+        <text class="f2dN" x="30" y="328">The 1-to-3 scale is constructed for teaching; the 30 s glance is Saltmarsh's, constructed; 4.9% is Olist's median late share.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the ledger is the argument, written down: anyone who wants revenue to lead has to say which dial they would turn, and what that costs the deliveries question</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Copy the route from the sentence.</strong> Line 4 of the brief already has the order. Write it as numbered stops, one per question, and give every tile on the screen a stop or the word "context". A tile with neither is a session 1 problem: it has no decision and should not be here.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · the route, from Nia's sentence</span>Stop 1  deliveries fine / slipping      -&gt; late deliveries this week
+Stop 2  demand up / down                -&gt; orders this week
+Stop 3  money up / down                 -&gt; revenue this week
+Stop 4  backlog in picking / packing    -&gt; backlog by stage
+context                                 -&gt; delivery days vs promise
+context                                 -&gt; carrier share of late orders
+
+Saltmarsh, constructed. Six tiles, four stops, two pieces of context.</div>
+      </div>
+      <div class="step">
+        <p><strong>Score the three dials on each tile.</strong> One to three on size, contrast and position, where 3 means "the most this screen will give to anything". The scale is a constructed teaching device, so say so when you use it, and argue about each score out loud: the argument is the design.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · the scoring sheet (scale constructed for teaching)</span>Tile                     Size  Contrast  Position   Weight
+late deliveries           3       3         3         27
+orders this week          2       2         3         12
+revenue this week         2       2         2          8
+backlog by stage          1       2         3          6
+delivery days             1       2         1          2
+carrier share             1       1         1          1
+
+Rule: no tile may out-score the stop-1 tile on any single dial.</div>
+      </div>
+      <div class="step">
+        <p><strong>Rank, and check the rank against the route.</strong> The weights should fall in stop order. Where they do not, the layout is arguing with the brief, and the fix is to turn a dial down on the tile that jumped the queue, never to turn everything else up.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · rank against route</span>Rank by weight:  late deliveries 27 &gt; orders 12 &gt; revenue 8 &gt; backlog 6 &gt; days 2 &gt; carrier 1
+Route order:     stop 1 deliveries, stop 2 demand, stop 3 money, stop 4 backlog, then context
+
+Match:  yes. First draft did not: delivery days had a bright line chart,
+        contrast 3, weight 1 x 3 x 1 = 3 and it read before backlog from the
+        back of the room. Line quietened: contrast 2, weight 2.</div>
+      </div>
+      <div class="step">
+        <p><strong>Place by rank on a grid.</strong> Heaviest top-left, then to its right, then down. Keep the stop-1 tile at least twice the area of any other and give it the darkest value on the screen. The number on the tile is Olist's, and the tile says so, because Saltmarsh measures nothing.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the placement</span>+-------------------------------+-----------------------+
+| 1  LATE DELIVERIES            | 2  orders this week   |
+|    4.9%  (Olist median late   +-----------------------+
+|    share, named as Olist's)   | 3  revenue this week  |
++-------------+-----------------+-----------------------+
+| 4 backlog   | delivery days   | carrier share         |
++-------------+-----------------+-----------------------+
+
+Stop 1 is twice the area of stop 2 and carries the darkest ink.</div>
+      </div>
+      <div class="step">
+        <p><strong>Run the squint test on the draft.</strong> Stand at the back of the room, half-close your eyes, and name the blocks in the order they appear. Write the order down before you compare it to the route, so the comparison is honest.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · squint log</span>Seen first:   one large block, top-left              = stop 1   ok
+Seen second:  a pair of slim blocks, right of it     = stops 2, 3   ok
+Seen third:   a row of three low blocks              = stop 4 + context   ok
+Seen at all?  the trend line in delivery days        = no, good
+
+Verdict: blocks rank in route order. Draft passes.</div>
+      </div>
+      <div class="step">
+        <p><strong>Read the route out loud with a finger, timed.</strong> Say Nia's sentence while touching stops 1 to 4. If the finger crosses back or pauses to search, note where, and turn down the dial of the tile it paused near. The time is Saltmarsh's and constructed; yours is the one to measure, and session 5 measures it with five readers.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · the read-back</span>"Deliveries are fine at 4.9% late (Olist's median), demand is up on last
+ week, money is up, and the backlog is in packing."
+
+Finger route: 1 -&gt; 2 -&gt; 3 -&gt; 4, no crossing back, no pause.
+Time: under the 30 s glance from session 1 (constructed; re-measure in session 5).</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the ledger next to the draft.</strong> When a stakeholder asks for their tile to be "a bit more prominent", put the ledger in front of them and ask which dial, by how much, and which tile it overtakes. Most requests end at "one step up on size, still below stop 1", which the layout can afford. The ledger turns a taste argument into an arithmetic one.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 3</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Score a screen you did not build.</strong> Take any dashboard your team uses and fill the scoring sheet for its tiles. Rank by weight and write down which tile leads. Then ask the person who opens it which number they read first. Note whether the two agree.</li>
+      <li><strong>Squint at your own draft.</strong> Put the layout from tonight's build-along on a screen, step back three metres, and log the blocks in the order they appear. Compare to your route. Fix one dial, not all of them.</li>
+      <li><strong>Find one F.</strong> Look for a page in your organisation, a wiki page or a long report, where your own eyes make the F that NN/g describes. Say which of Pernice's three conditions it meets, and what one formatting change would remove the need for the F.</li>
+      <li><strong>Count your groups, not your tiles.</strong> On your draft, draw a line around every set of tiles that answers one question. Bring the number of groups; session 3 starts from it.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 2 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · A revenue tile is the largest on the screen, but it is a pale grey chart in the bottom-right corner. The late deliveries tile is half the size, dark ink on a light card, top-left. Which is read first, and why?</p>
+      <button class="qopt" type="button">A · Revenue, because size is the strongest of the three dials and always wins</button>
+      <button class="qopt" type="button">B · Late deliveries, because weight is the product of size, contrast and position, and two dials turned up on a smaller tile outweigh one dial turned up on a larger one</button>
+      <button class="qopt" type="button">C · Neither can be known without an eyetracking study of at least 232 users</button>
+      <button class="qopt" type="button">D · Revenue, because the sponsor asked for the dashboard and the sponsor's number always leads</button>
+      <p class="qwhy">Weight multiplies. A big tile with low contrast in the lowest-weight position loses to a medium tile with high contrast top-left. The sponsor's preference is a reason to put a tile on the screen, not a reason for it to lead; the route from the brief decides that, and no study is needed to apply the three dials.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · Tomas's draft passes the scoring sheet, but from the back of the room the first block anyone sees is the delivery days chart. What has happened, and what is the fix?</p>
+      <button class="qopt" type="button">A · The squint test is unreliable in a bright room; trust the ledger and ship it</button>
+      <button class="qopt" type="button">B · The late deliveries tile needs a brighter colour so it can compete with the chart</button>
+      <button class="qopt" type="button">C · There are too many tiles; cut to seven, as Miller recommends</button>
+      <button class="qopt" type="button">D · The chart's contrast was scored too low on the sheet; its real weight jumps the queue, so turn that one dial down on the chart and leave the lead tile alone</button>
+      <p class="qwhy">The squint test is the check on the ledger, not the other way round. When they disagree, a score was wrong, almost always the contrast of a chart. Turning the lead tile up as well returns the screen towards the default where everything weighs the same. Miller's paper makes no recommendation about tile counts.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">3 · A reviewer writes "users read in an F pattern, so follow the F when laying out the dashboard". What did NN/g actually find, as read?</p>
+      <button class="qopt" type="button">A · That the F is the ideal reading path and layouts should trace it</button>
+      <button class="qopt" type="button">B · That the F applies to every screen including dashboards, with a 232-user study to prove it</button>
+      <button class="qopt" type="button">C · That the F is what eyes do on a page with little or no formatting, that Pernice calls it bad for users and businesses, and that the fix is structure that directs attention so no F is needed</button>
+      <button class="qopt" type="button">D · That the F was disproved in 2017 and should not be mentioned</button>
+      <p class="qwhy">Nielsen 2006 measured the F on text-heavy web pages; Pernice 2017 named the three conditions under which it appears and called the pattern "bad for users and businesses". A dashboard has almost no running text, so the usable lesson is NN/g's own: put the most important thing first and make the structure visible. The pattern is real and still relevant on walls of text; it is not a layout law.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Nielsen, J. (2006). F-Shaped Pattern For Reading Web Content (original study). Nielsen Norman Group, 17 April 2006</span><span class="note">Read: 232 users, the three movements of the F, "Users won't read your text thoroughly", "The first two paragraphs must state the most important information", "Start subheads, paragraphs, and bullet points with information-carrying words"</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Pernice, K. (2017). F-Shaped Pattern of Reading on the Web: Misunderstood, But Still Relevant (Even on Mobile). Nielsen Norman Group, 12 November 2017</span><span class="note">Read: the three conditions (little or no formatting, a user trying to be efficient, a user not committed to reading every word), "the F-shaped scanning pattern is bad for users and businesses", the formatting fix</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Miller, G. A. (1956). The magical number seven, plus or minus two. Psychological Review, 63, 81-97</span><span class="note">Read in full: span of absolute judgment (about 2.6 bits, about 6.5 categories), span of immediate memory in chunks, recoding, subitizing to five or six dots, "a pernicious, Pythagorean coincidence"; nothing about screens or how many items belong on one</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Healey, C. G. and Enns, J. T. (2012). Attention and Visual Memory in Visualization and Computer Graphics. IEEE TVCG 18(7); Ware, C. (2012). Information Visualization: Perception for Design, 3rd ed. Morgan Kaufmann</span><span class="note">Reported: hue, size, orientation, position and intensity picked up before focused attention, conjunctions not; the primary pages were not read at source, so no millisecond figure is quoted</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Olist and Sionek, A. (2018). Brazilian E-Commerce Public Dataset by Olist, v2. Kaggle. CC BY-NC-SA 4.0</span><span class="note">Read (dataset API) and computed: the 4.9 percent median late share shown on the Saltmarsh lead tile, named as Olist's wherever it appears</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Visual weight as size x contrast x position, the numbered route, the squint test and the 1-to-3 scoring sheet</span><span class="note">Common practice assembled here; no single source prescribes these exact dials or the scale, and the sheet is constructed for teaching</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, Nia, Tomas, Priya, Kofi, the six tiles, the weights and the thirty seconds</span><span class="note">Constructed for teaching; no number about them is a measurement</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Weight is a product</b><span>Size x contrast x position. The tool's defaults set all three the same, so the eye guesses. Turn one dial down before turning another up.</span></div>
+      <div class="cheat-item"><b>The one number</b><span>The first slot of the glance sentence. Nothing on the screen may be bigger, darker or further up-left than it.</span></div>
+      <div class="cheat-item"><b>The route</b><span>Numbered stops from the sentence, drawn before the tiles. Read it out loud with a finger; a crossing or a pause is a dial to turn down.</span></div>
+      <div class="cheat-item"><b>The F, as read</b><span>Nielsen 2006: eyes on text-heavy pages. Pernice 2017: appears on unformatted pages, "bad for users and businesses". Design so no F is needed.</span></div>
+      <div class="cheat-item"><b>Miller, as read</b><span>Seven is a span of judgment and of memory in chunks; nothing about screens. The lesson is grouping: four groups, not nineteen tiles.</span></div>
+      <div class="cheat-item"><b>The squint test</b><span>Three metres back, eyes half shut, name the blocks in order. Blocks must rank as the route does, with no words.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>The six tiles now have a weight, a route and a lead. Session 3 asks how much can sit on one screen at all: Few's single screen taken seriously, tiles against tables, grouping by the question rather than by the data source, and progressive disclosure so that what is one click away stays one click away. Tomas cuts Saltmarsh's 23 candidates to six in the open, and Tufte's data-ink ratio is reported as the idea behind the cuts.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 2 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="01-who-looks-what-they-decide.html">← Prev: Who looks, and what they decide</a> &nbsp;·&nbsp; <a href="03-density-grouping-white-space.html">Next: Density, grouping and white space →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

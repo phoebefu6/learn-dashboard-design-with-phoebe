@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 6 of 6. 581 real days of orders and deliveries from the Olist dataset, a late-deliveries card, and your red and amber thresholds scored in the browser: false-alarm days per month, missed changes, time in each colour. Launch thresholds, the series' spread, a context band, persistence, the scorecard, and two buttons that make it worse.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The red-amber-green bench - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 6 of 6. Set the thresholds on a real daily series and count what the colours cost: false alarms, misses, red time.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/06-the-red-amber-green-bench.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The red-amber-green bench - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 6 of 6. 581 real days, your thresholds, the false alarms counted live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 6 · The red-amber-green bench - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 6 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 6 of 6</div>
+    <h1>The <span class="accent">red-amber-green</span> bench</h1>
+    <p class="sub">A KPI card turns red because a number crossed a line someone drew. Tonight you draw the line. The bench holds 581 real days of orders, revenue and delivery performance from a Brazilian marketplace, shipped as daily aggregates, and a late-deliveries card for Saltmarsh's Monday screen. You set where amber and red begin, and the bench counts what that costs: how many days a month the card goes red or amber with nothing really wrong, how many sustained changes it never flagged, and how much of the year it spent in each colour. Five rungs make the card better. Two buttons make it worse, and the bench prints why.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Bench night</span>
+      <span class="chip audience">Everyone who has set a threshold</span>
+      <span class="chip audience">Browser only, nothing to install</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:3">3-14 · The card, the rule, the score</span>
+      <span class="a3" style="flex:6">14-40 · Build-along: the bench, rung by rung</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Saltmarsh is constructed; its numbers tonight are not. The late-deliveries card on Nia's Monday screen is fed by the Brazilian E-Commerce Public Dataset by Olist: 98,639 orders placed between 23 January 2017 and 26 August 2018, reduced to one row per day. Nothing about an order, a customer, a product or a review leaves the source; what the bench holds is a count, a sum and two averages per calendar day, and that is enough to ask the only question that matters about a colour: when this card went red, was anything actually wrong?</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = run the bench yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A way to score any threshold before it ships: false-alarm days per month, changes missed, time in each colour. The five-rung ladder from "a number someone picked at launch" to a card with a context band and persistence, with the real numbers at each rung. And two reflexes to resist: tightening to catch everything, and smoothing until the card looks calm.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers what a threshold is, and what a real change is</span>
+      <h2>Two lines on a card, and one rule behind the bench</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">Red, amber and green on a KPI card are a function of two numbers: the amber threshold and the red threshold, in the direction that is bad for this KPI. Session 4 built the card; tonight asks whether its colour is worth trusting. To score a colour you need a second thing, independent of the thresholds: a definition of when something was really wrong. The bench states one, as a rule, and scores every colour against it.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: a hand-drawn KPI card for late deliveries with a value, a delta and a context band, and two horizontal lines across its mini chart labelled amber threshold and red threshold, with the region above red shaded. Right: the same series drawn long, with two adjacent 28-day windows sliding along it, labelled previous 28 days and next 28 days; a bracket between their medians is labelled the discrepancy, and a vertical dashed line where the discrepancy peaks above 2.0 is labelled a real change by the rule. A note says the thresholds are the reader's, the rule is the bench's.">
+        <defs>
+          <filter id="f6aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="61" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="f6aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f6aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f6aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f6aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f6aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f6aV { font: 800 20px Inter, sans-serif; fill: #163C8A; }
+          .f6aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f6aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f6aH" x="30" y="26">THE READER DRAWS TWO LINES; THE BENCH NEEDS A THIRD THING TO SCORE THEM AGAINST</text>
+
+        <g filter="url(#f6aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="300" height="200" rx="10" transform="rotate(-0.5 190 150)" fill="#FFFFFF"/>
+          <rect x="40" y="50" width="12" height="200" rx="4" fill="#E8A317" stroke="none"/>
+          <rect x="70" y="150" width="250" height="80" rx="6" fill="#FBFCFE"/>
+          <rect x="70" y="150" width="250" height="22" fill="#FDE8E6" stroke="none"/>
+          <path d="M70 172 L320 172" stroke="#B42318" stroke-dasharray="5 4"/>
+          <path d="M70 196 L320 196" stroke="#E8A317" stroke-dasharray="5 4"/>
+          <path d="M78 214 L104 210 L130 218 L156 206 L182 212 L208 200 L234 190 L260 184 L286 176 L312 180" stroke="#163C8A"/>
+
+          <path d="M420 190 L840 190" stroke="#C5CEDF" stroke-width="1.4"/>
+          <path d="M424 186 L448 184 L472 190 L496 182 L520 188 L544 180 L568 186 L592 184 L616 150 L640 156 L664 146 L688 154 L712 148 L736 156 L760 150 L784 158 L808 152 L832 156" stroke="#163C8A"/>
+          <rect x="440" y="120" width="168" height="90" rx="6" fill="#EDF3FD" stroke="#2460D0" stroke-dasharray="6 4"/>
+          <rect x="612" y="120" width="168" height="90" rx="6" fill="#E3F7EC" stroke="#2DBE7A" stroke-dasharray="6 4"/>
+          <path d="M470 185 L580 185" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M642 152 L752 152" stroke="#0B5A3B" stroke-width="1.6"/>
+          <path d="M600 152 L600 185" stroke="#0B5A3B" stroke-width="1.6"/>
+          <path d="M610 100 L610 214" stroke="#0B5A3B" stroke-dasharray="4 3" stroke-width="1.6"/>
+          <path d="M480 236 L540 236" marker-end="url(#f6aAr)"/>
+        </g>
+
+        <text class="f6aL" x="70" y="76">LATE DELIVERIES</text>
+        <text class="f6aS" x="320" y="76" text-anchor="end">AMBER</text>
+        <text class="f6aV" x="70" y="112">7.4%</text>
+        <text class="f6aS" x="70" y="132">+1.1 pts on last week · band 3.9 to 6.8%</text>
+        <text class="f6aB" x="316" y="166" text-anchor="end">red line</text>
+        <text class="f6aA" x="316" y="210" text-anchor="end">amber line</text>
+        <text class="f6aS" x="190" y="272" text-anchor="middle">the reader's two thresholds, worse direction up</text>
+        <text class="f6aA" x="524" y="112" text-anchor="middle">previous 28 days</text>
+        <text class="f6aB" x="696" y="112" text-anchor="middle">next 28 days</text>
+        <text class="f6aS" x="524" y="226" text-anchor="middle">median</text>
+        <text class="f6aS" x="696" y="226" text-anchor="middle">median</text>
+        <text class="f6aB" x="620" y="94">a real change, by the rule</text>
+        <text class="f6aS" x="548" y="240">windows slide along the whole series</text>
+        <text class="f6aS" x="630" y="272" text-anchor="middle">discrepancy = (right median - left median) / left spread; a peak at or above 2.0 counts</text>
+
+        <text class="f6aN" x="30" y="312">Card numbers illustrative. The lines are the reader's; the rule is the bench's, printed on the widget.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - without the right-hand rule a red card cannot be called right or wrong; with it, every red day is either a catch or a false alarm</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What the bench measures, and what it merely defines<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Measured:</strong> for the thresholds you set, the colour of the card on each of 525 scored days, the days it was red or amber with no real change (false-alarm days, printed per month), how many separate alarm episodes that made, how many real changes were never flagged within 14 days (misses), how many days the flag took on average, and the share of days in each colour. Those are facts about the series and your thresholds, computed in your browser and agreed to the last digit with an independent Python run.</p>
+        <p><strong>Defined:</strong> what a "real change" is. The bench orients every KPI so that larger is worse, slides two adjacent 28-day windows along the series, and calls a day a real change when the median of the next 28 days sits two robust spreads above the median of the previous 28, at a peak, with no other change within 28 days. Only shifts for the worse count; improvements are not scored; a one-day spike is not a change. That rule is printed on the widget because it is a choice, and you could make a different one. The window-sliding idea is the standard one in the change-point literature (Truong, Oudre and Vayatis, 2020, section 5.2.1); the specific numbers are the bench's.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where the series comes from, and what was cut<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Olist is a Brazilian marketplace operator; its public dataset on Kaggle holds about 100,000 orders from 2016 to 2018, anonymised, under a CC BY-NC-SA 4.0 licence, which allows derived, non-commercial, attributed use. The builder script reads the raw tables once and writes four numbers per calendar day: orders placed, the sum of item prices, the mean of delivered date minus estimated date (negative means early), and the share of delivered orders that arrived after the estimate. The raw rows never leave the machine that ran the script.</p>
+        <p>The dataset's first months and last weeks are sparse, because it was extracted mid-stream. The bench keeps whole weeks from the first Monday whose following seven days all have at least 20 orders to the last such Sunday: 581 days, 83 weeks, 23 January 2017 to 26 August 2018, dropping 141 leading and 52 trailing days. The scoring window is narrower again, days 28 to 552, because the change rule needs 28 days on each side. All of that is printed under the widget, so nobody has to take it on trust.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"It is always red, so nobody looks."</strong> A familiar pattern: a card is set to red below a target chosen in a planning meeting, the business changes, and a year later the card has been red for ten months. Everyone has learned to read past it, which means the week it should have been read, it was not. Nobody chose that; the threshold simply never had a false-alarm count attached to it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="bench">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · the bench</span>
+      <h2>581 real days, your two lines, and the bill</h2>
+      <span class="tag demo">★ 26 min · the main event</span>
+    </div>
+    <p class="lede">The bench opens on the late-deliveries card at rung 4 (a trailing band with persistence), the setting Tomas ends on. Read the card first, then the verdict line, then the five tiles. Work the rungs from 1 upwards and say out loud what moved and what did not before you go on. Move the amber and red sliders at any rung; scrub the day slider to see the card on any Monday. Then press the two buttons that make it worse.</p>
+
+    <div id="dsh-bench" data-kpi="late" data-rung="persist"></div>
+
+    <div class="callout tip">
+      <p><strong>Read the bill in this order.</strong> False-alarm days per month first, because that is what Nia pays every week. Misses second, because a miss is the week the card existed for. Red time third: a card red more than a quarter of the time is wallpaper. The numbers quoted in Part 2 are the ones the bench prints at the default sliders, amber at one spread and red at two.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the ladder, rung by rung</span>
+      <h2>Five rungs, and what each one buys on the late-deliveries card</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The bench computes these live; they are written down here so they can be argued with after class. On the late-deliveries card the rule finds three sustained changes for the worse: 8 November 2017, when the median late share went from 4.9 to 11.8 percent; 11 February 2018, from 7.9 to 24.3; and 11 July 2018, from 1.3 to 6.2. Every rung catches all three. They differ entirely in what they cost.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of false-alarm days per month on the late-deliveries card for the four rungs and the two buttons: fixed thresholds 13.97, from the series' spread 5.68, a context band 7.19, band plus persistence 4.70, tighten 7.88, hide the variance 4.87. A second small column prints the changes missed: 0, 0, 0, 0, 0 and 2 of 3. The persistence bar is signal green; the two buttons are hachured. A note says all six catch nothing or everything, so the cost is the whole story.">
+        <defs>
+          <filter id="f6bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f6bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f6bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f6bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f6bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f6bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f6bV { font: 800 12px Inter, sans-serif; fill: #163C8A; }
+          .f6bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f6bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f6bH" x="30" y="26">FALSE-ALARM DAYS PER MONTH ON THE LATE-DELIVERIES CARD, SAME THREE REAL CHANGES EVERY TIME</text>
+        <text class="f6bA" x="60" y="52">rung</text>
+        <text class="f6bA" x="800" y="52" text-anchor="end">missed</text>
+
+        <g filter="url(#f6bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="260" y="60" width="447" height="24" rx="4" fill="#EDF3FD"/>
+          <rect x="260" y="98" width="182" height="24" rx="4" fill="#EDF3FD"/>
+          <rect x="260" y="136" width="230" height="24" rx="4" fill="#EDF3FD"/>
+          <rect x="260" y="174" width="150" height="24" rx="4" fill="#2DBE7A"/>
+          <rect x="260" y="212" width="252" height="24" rx="4" fill="url(#f6bHc)"/>
+          <rect x="260" y="250" width="156" height="24" rx="4" fill="url(#f6bHc)"/>
+          <path d="M260 56 L260 280" stroke="#566178" stroke-width="1.2"/>
+        </g>
+
+        <text class="f6bL" x="250" y="77" text-anchor="end">1 · fixed at launch</text>
+        <text class="f6bL" x="250" y="115" text-anchor="end">2 · the series' spread</text>
+        <text class="f6bL" x="250" y="153" text-anchor="end">3 · a context band</text>
+        <text class="f6bB" x="250" y="191" text-anchor="end">4 · band + persistence</text>
+        <text class="f6bL" x="250" y="229" text-anchor="end">tighten (anti-lever)</text>
+        <text class="f6bL" x="250" y="267" text-anchor="end">hide the variance (break)</text>
+        <text class="f6bV" x="719" y="77">13.97</text>
+        <text class="f6bV" x="454" y="115">5.68</text>
+        <text class="f6bV" x="502" y="153">7.19</text>
+        <text class="f6bV" x="422" y="191">4.70</text>
+        <text class="f6bV" x="524" y="229">7.88</text>
+        <text class="f6bV" x="428" y="267">4.87</text>
+        <text class="f6bS" x="800" y="77" text-anchor="end">0 of 3</text>
+        <text class="f6bS" x="800" y="115" text-anchor="end">0 of 3</text>
+        <text class="f6bS" x="800" y="153" text-anchor="end">0 of 3</text>
+        <text class="f6bS" x="800" y="191" text-anchor="end">0 of 3</text>
+        <text class="f6bS" x="800" y="229" text-anchor="end">0 of 3</text>
+        <text class="f6bB" x="800" y="267" text-anchor="end">2 of 3</text>
+
+        <text class="f6bN" x="30" y="312">Bench at amber = 1 spread, red = 2 (tighten: 0.5 and 1). Rung 2 uses the whole series: hindsight.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - rung 3 is noisier than rung 2 and that is the honest result: rung 2 is hindsight, rung 3 is what you can actually run on a Monday</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rungs 1 and 2: a number from launch day, and a number from hindsight<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Rung 1, fixed thresholds.</strong> Tomas sets amber and red from the first four weeks of data, median plus one and two spreads, and never touches them again. That is how most thresholds are actually set. On late deliveries the bench prints 13.97 false-alarm days a month and the card red 29 percent of days, because the first four weeks of 2017 happened to be unusually good (2.7 percent late against 6.7 percent over the whole span). Switch the card to delivery-versus-estimate and rung 1 is red 90 percent of the time: the early weeks delivered almost twelve days early, and the thresholds never learned otherwise. Nothing is missed, because a card that is always red misses nothing. It is also never read.</p>
+        <p><strong>Rung 2, the series' own spread.</strong> Thresholds from the median and spread of the whole 581 days: 5.68 false-alarm days a month, red 13 percent. Better, and a cheat. Those thresholds use the whole future of the series; on launch day Tomas has four weeks, and in a growing business the whole-series median is a number he will not see for a year. Rung 2 is on the ladder to show what hindsight is worth, and to make rung 3 honest.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rungs 3 and 4: the band you can run on a Monday, and the two-day wait<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Rung 3, a context band on the card.</strong> Every day, the median and spread of the trailing 28 days; the card draws that band and colours itself against it. This is what session 4's card anatomy was for, and it is the first rung Tomas could actually ship. It is noisier than rung 2: 7.19 false-alarm days a month against 5.68, and 62 separate alarm episodes against 26. The reason is worth saying out loud: a 28-day spread is tighter than the spread of a series that contains its own regime shifts, so a live band draws its lines closer and single bad days cross them. The band also adapts, which cuts both ways: after a sustained shift the new level becomes the new normal within a month, and the card goes quiet again.</p>
+        <p><strong>Rung 4, persistence.</strong> Same band, and the colour changes only when two consecutive days agree. False-alarm days fall to 4.70 a month, episodes to 14, all three changes still caught, now 2.3 days after they start instead of 1.7. That one-day price buys a card whose colour means "this is still true today", which is the only kind Nia can act on. Rung 5, the scorecard, runs rung 4 on all four cards at once; its lesson is in the self-study below.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The scorecard: two cards where every alarm was false<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>On the scorecard rung the orders and revenue cards print zero real changes. The rule looks for sustained shifts for the worse, and in these 83 weeks the business grew: mean daily orders went from 68.8 in the first eight weeks to 223.4 in the last eight, and demand never fell for a sustained month. So every red or amber day those two cards ever showed, 3.30 and 3.07 false-alarm days a month at rung 4, was a false alarm by the rule. The biggest single day in the series, 1,176 orders on 24 November 2017, Black Friday, is a one-day spike and not a change by this rule either; the orders card does not flag it because a spike in orders is good, and a one-day spike in late deliveries would not count as a change even if it were bad.</p>
+        <p>Two honest readings follow. First, a card with no real changes in its history is a card whose thresholds have never been tested, and the first real fall in demand will meet thresholds tuned on noise. Second, "real change" is a rule, and a different rule, one that counted spikes or improvements, would score the same colours differently. The bench prints its rule so that argument can be had with the numbers in view; the Anomaly Detection course owns the detectors themselves, and Data Observability owns the alerting pipeline the colour would eventually feed.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the anti-lever and the break button</span>
+      <h2>Two reflexes that make the card worse, with the bill attached</h2>
+      <span class="tag concept">4 min live</span>
+    </div>
+    <p class="lede">Both buttons are things reasonable people do to a card that has embarrassed them. One follows a miss: tighten the thresholds so nothing gets past. The other follows a month of false alarms: smooth the number until the card stops twitching. The bench lets you do both to the real series and prints what happens.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn panels. Left, tighten: a card mini chart with the amber and red lines pulled down close to the series, most of the series above the red line, with the bench's numbers: false-alarm days per month 4.70 to 7.88, red time 11 to 29 percent, misses 0 to 0. Right, hide the variance: the same series replaced by a flat 28-day average with no band, the lines far away, the card green; numbers: green 82 percent, episodes 2, misses 2 of 3, and a note that a 28-day average moves at most one twenty-eighth of a shift per day.">
+        <defs>
+          <filter id="f6cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+        </defs>
+        <style>
+          .f6cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f6cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f6cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f6cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f6cV { font: 800 12px Inter, sans-serif; fill: #163C8A; }
+          .f6cR { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+          .f6cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f6cH" x="30" y="26">TIGHTEN TO CATCH EVERYTHING, OR SMOOTH UNTIL IT LOOKS CALM: THE BENCH PRINTS BOTH BILLS</text>
+
+        <g filter="url(#f6cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="46" width="390" height="180" rx="12" transform="rotate(-0.4 235 136)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="60" y="100" width="350" height="100" rx="6" fill="#FFFFFF"/>
+          <rect x="60" y="100" width="350" height="56" fill="#FDE8E6" stroke="none"/>
+          <path d="M60 156 L410 156" stroke="#B42318" stroke-dasharray="5 4"/>
+          <path d="M60 172 L410 172" stroke="#E8A317" stroke-dasharray="5 4"/>
+          <path d="M66 180 L96 168 L126 176 L156 150 L186 160 L216 140 L246 152 L276 132 L306 146 L336 128 L366 142 L396 136" stroke="#163C8A"/>
+
+          <rect x="450" y="46" width="390" height="180" rx="12" transform="rotate(0.4 645 136)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="470" y="100" width="350" height="100" rx="6" fill="#FFFFFF"/>
+          <path d="M470 112 L820 112" stroke="#B42318" stroke-dasharray="5 4"/>
+          <path d="M470 126 L820 126" stroke="#E8A317" stroke-dasharray="5 4"/>
+          <path d="M476 176 L536 175 L596 174 L656 172 L716 170 L776 169 L814 168" stroke="#163C8A"/>
+          <path d="M476 190 L536 186 L596 188 L656 160 L716 164 L776 158 L814 160" stroke="#C5CEDF" stroke-dasharray="3 3"/>
+        </g>
+
+        <text class="f6cL" x="60" y="72">Tighten: amber at 0.5 spread, red at 1</text>
+        <text class="f6cS" x="60" y="88">the lines sit on the series; most days clear red</text>
+        <text class="f6cL" x="470" y="72">Hide the variance: a 28-day average, no band</text>
+        <text class="f6cS" x="470" y="88">the point barely moves; the lines are far away</text>
+
+        <text class="f6cS" x="60" y="252">false-alarm days / month</text>
+        <text class="f6cV" x="60" y="270">4.70 to 7.88</text>
+        <text class="f6cS" x="220" y="252">red time</text>
+        <text class="f6cV" x="220" y="270">11% to 29%</text>
+        <text class="f6cS" x="340" y="252">misses</text>
+        <text class="f6cV" x="340" y="270">0 to 0</text>
+        <text class="f6cS" x="470" y="252">green time</text>
+        <text class="f6cV" x="470" y="270">82%</text>
+        <text class="f6cS" x="580" y="252">alarm episodes</text>
+        <text class="f6cV" x="580" y="270">2</text>
+        <text class="f6cS" x="700" y="252">real changes missed</text>
+        <text class="f6cR" x="700" y="270">2 of 3</text>
+
+        <text class="f6cN" x="30" y="304">Late-deliveries card, bench numbers against rung 4. Dotted on the right: the daily series the average hid.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the left card cannot miss and cannot be read; the right card is calm because the arithmetic is, not because the deliveries are</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The anti-lever: tighten to catch everything<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Press "Tighten" and the bench runs rung 4 with amber at half a spread and red at one. Misses go from 0 to 0: there was nothing left to catch, because rung 4 already caught all three changes. What moves is the bill. False-alarm days rise from 4.70 to 7.88 a month, two thirds more, and the card is red 29 percent of days against 11. The verdict line says it plainly: a card that is red more than a quarter of the time stops being read, and the week it matters it is read as it always is, which is not at all.</p>
+        <p>The honest nuance the bench also prints: tightening does flag the three changes sooner, 1.0 days on average against 2.3. If a day of warning were worth 38 extra false-alarm days a year, tightening would be right. On a weekly operations screen it is not, and the arithmetic makes that a decision rather than a taste.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The break button: hide the variance<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Press "Hide the variance" and the card shows a 28-day average as its point, draws no band, and colours itself against the whole-series thresholds. It looks like the best card on the page: green 82 percent of days, two alarm episodes in seventeen months. It misses two of the three real changes within 14 days, and on the delivery-versus-estimate card it misses all seven. The reason is arithmetic: a 28-day average can move by at most one twenty-eighth of a shift per day, so a change that doubles the late share needs weeks to drag the point across a line, by which time the stand-up that needed it has passed.</p>
+        <p>This is why the break button is on the bench. If smoothing made the card look calm and the misses stayed at zero, the bench would be measuring the look of the card and not the operation behind it. The misses climb, so it is measuring the right thing. The card can look calm because the business is calm or because the arithmetic is, and only a false-alarm and miss count tells you which.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>After the miss, the tightening.</strong> A familiar sequence: a card stayed green through a bad fortnight, someone senior asked why, and the thresholds were halved the same afternoon. Three months later the card is red most weeks and the same senior person asks why nobody acts on it. Both questions were about the same two numbers, and neither was answered with a count of what the colours cost.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before you ship a threshold</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Score one of your own cards.</strong> Take a KPI you already colour, write down its amber and red lines and how they were chosen (launch guess, target, spread), and count, over the last three months, the days it was red or amber when nothing was really wrong. Use your own definition of "really wrong", and write that down too.</li>
+      <li><strong>Run the ladder on the delivery card.</strong> Switch the bench to delivery-versus-estimate and read rung 1 (red 90 percent of days). Say in one sentence why launch thresholds did that, then find the rung you would ship.</li>
+      <li><strong>Find your own two reflexes.</strong> Recall one threshold you tightened after a miss and one number you smoothed after a noisy month. What did each cost, in the bench's three terms?</li>
+      <li><strong>Write the rule on the card.</strong> For the KPI card you are shipping, add one line under it that says how its colour is decided (band, persistence, thresholds). If the line is embarrassing, the card is not ready.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 6 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · On the late-deliveries card the bench prints 13.97 false-alarm days a month at rung 1 and 0 of 3 changes missed. What does that pair of numbers tell you?</p>
+      <button class="qopt" type="button">A · Rung 1 is the safest setting, because it misses nothing</button>
+      <button class="qopt" type="button">B · The card is red or amber for nothing about fourteen days a month; it misses nothing because a card that is nearly always alarming cannot miss, and will not be read either</button>
+      <button class="qopt" type="button">C · The three real changes were too small for any threshold to catch</button>
+      <button class="qopt" type="button">D · The series has a bug, since false alarms and misses should move together</button>
+      <p class="qwhy">Misses and false alarms trade against each other; zero misses at a high false-alarm count is the signature of a card that alarms by default. The three changes were caught by every rung, so they are not small, and the bench's Python reference agrees with the browser on every number.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · Why is rung 3, the trailing 28-day band, noisier than rung 2, the whole-series spread, on the late-deliveries card (7.19 against 5.68 false-alarm days a month)?</p>
+      <button class="qopt" type="button">A · Because the band is drawn on the card, which distracts the reader</button>
+      <button class="qopt" type="button">B · Because 28 days is too long a window for a weekly dashboard</button>
+      <button class="qopt" type="button">C · Because rung 2 uses persistence and rung 3 does not</button>
+      <button class="qopt" type="button">D · Because a 28-day spread is tighter than the spread of a series that contains its own regime shifts, so the live band draws its lines closer and single bad days cross them; rung 2 also uses the whole future, which nobody has on launch day</button>
+      <p class="qwhy">Rung 2's wider spread comes from hindsight: it includes the shifts it is then asked to detect. Rung 3 is the one you can actually run on a Monday, and persistence (rung 4) is how its noise is paid down, not a shorter window.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · The "hide the variance" card is green 82 percent of days with two alarm episodes in seventeen months. What has it bought, and what has it cost?</p>
+      <button class="qopt" type="button">A · It bought calm and cost two of the three real changes, never flagged within 14 days, because a 28-day average can move by at most one twenty-eighth of a shift per day</button>
+      <button class="qopt" type="button">B · It bought accuracy, since averages are more accurate than single days</button>
+      <button class="qopt" type="button">C · It cost nothing, since the three changes are still visible if you look closely at the line</button>
+      <button class="qopt" type="button">D · It bought fewer false alarms at no cost, which is why the bench recommends it</button>
+      <p class="qwhy">The bench prints the misses precisely so the calm cannot be mistaken for health. A change the reader has to find by looking closely at a line is a change the card did not flag, and the stand-up that needed it has passed.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Olist and Sionek, A. (2018). Brazilian E-Commerce Public Dataset by Olist, v2. Kaggle. CC BY-NC-SA 4.0</span><span class="note">Licence and description read from the Kaggle dataset API; 98,639 orders aggregated to 581 daily rows by the builder script; only daily counts, sums and means are shipped</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Every number the bench prints</span><span class="note">Computed in the browser from the shipped series, and agreed on all 305 canon values with an independent Python run of the same steps</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Truong, C., Oudre, L. and Vayatis, N. (2020). Selective review of offline change point detection methods. Signal Processing, 167, 107299</span><span class="note">Section 5.2.1, window sliding: the discrepancy between two adjacent windows and a peak search, read in the arXiv v3 PDF; the bench's thresholds and windows are its own</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">What counts as a "real change"</span><span class="note">A rule of the bench, printed on the widget: sustained, for the worse, two robust spreads, 28-day windows, 14-day catch window. Not a fact about Olist</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, Nia, Tomas and the Monday card</span><span class="note">Constructed for teaching; the numbers on the card are Olist's</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Three numbers per threshold</b><span>False-alarm days per month, real changes missed, time in each colour. Print them before you ship the colour.</span></div>
+      <div class="cheat-item"><b>Launch thresholds age badly</b><span>Late deliveries: 13.97 false-alarm days a month. Delivery vs estimate: red 90% of days.</span></div>
+      <div class="cheat-item"><b>Hindsight is not a rung you can ship</b><span>Whole-series spread, 5.68, uses a future you do not have on day one.</span></div>
+      <div class="cheat-item"><b>Band, then persistence</b><span>Trailing 28 days: 7.19. Two days before the colour changes: 4.70, nothing missed.</span></div>
+      <div class="cheat-item"><b>Tighten buys nothing here</b><span>Misses 0 to 0; false-alarm days 4.70 to 7.88; red 11% to 29%.</span></div>
+      <div class="cheat-item"><b>Calm is not health</b><span>A 28-day average: green 82%, 2 of 3 changes never flagged in 14 days.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">The whole path</span>
+    <p>The bench closes the loop session 1 opened: a person, a question on a schedule, a decision, and now a colour whose cost is known. Go back to session 1 with a screen of your own and run the six sessions on it, or take the ladder to the Anomaly Detection and Data Observability courses, where the detectors and the alerting behind a colour are taught in full.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 6 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="05-interaction-defaults-usability-test.html">← Prev: Interaction, defaults and the usability test</a> &nbsp;·&nbsp; <a href="../index.html">Course home →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/dsh-daily.js?v=1"></script>
+<script src="../assets/dsh-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

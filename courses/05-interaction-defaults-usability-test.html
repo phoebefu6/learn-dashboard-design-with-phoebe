@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 5 of 6. Filters, drill and the default that most readers never change; the five-user task test read at source in Nielsen 2000 with its formula, the typical L of 31 percent and the comparable-users caveat, and the disagreement reported; and what 'gets used' measures: opens, seconds to the first decision, questions still asked by email.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Interaction, defaults and the usability test - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 5 of 6. The default is the dashboard most people see; five readers, three tasks, one afternoon; and three numbers that say whether a screen is used.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/05-interaction-defaults-usability-test.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Interaction, defaults and the usability test - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 5 of 6. Defaults, drill, the five-user task test as Nielsen wrote it, and what 'used' actually measures.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 5 · Interaction, defaults and the usability test - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 5 of 6</div>
+    <h1>Interaction, defaults and the <span class="accent">usability test</span></h1>
+    <p class="sub">A dashboard with filters is really many dashboards, and the one that loads first is the one most readers ever see. Tonight is about that default, about the one click of drill a Monday glance can afford, and about finding out, rather than hoping, whether the screen works. Jakob Nielsen's 2000 page on testing with five users is read at source: the formula, the typical 31 percent behind the famous 85, the caveat about comparable users, and the people who disagreed. Then "it gets used" stops being a feeling and becomes three numbers Tomas can count without a survey.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Analysts and designers who build the screen</span>
+      <span class="chip audience">Leaders who read it on Monday</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Defaults, five readers, three numbers</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the five-reader task test</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Saltmarsh is an invented home-goods retailer; Tomas has now laid out the Monday operations screen for Nia, grouped its six cards by the four questions, and coloured each card by state. Sessions 1 to 4 were about what the screen says. Tonight is about what happens when someone touches it, and about the uncomfortable step most teams skip: putting five real readers in front of it with three tasks and a stopwatch before Priya calls it done. No Saltmarsh number tonight is a measurement; the task outcomes on this page are constructed to show the shape of the method.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = write it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A rule for every filter on your screen (what it shows on load, and why that is the version most people will read), a one-click budget for drill that keeps the glance intact, Nielsen's five-user model read at source with its stated limits so you can quote it honestly, a three-task test script you can run in an afternoon with five readers, and three usage numbers that tell you whether the screen is working a month after launch.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers filters, drill and defaults</span>
+      <h2>The default is the dashboard most people see</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Every filter multiplies the screen. A date picker, a carrier selector and a region selector on Saltmarsh's screen (constructed) make hundreds of possible dashboards, and Nia will open exactly one of them on Monday: the one the filters show before she touches anything. So the default is not a technical setting left to the tool. It is the dashboard. It must answer the four stand-up questions on load, for this week, for everything, and it must reset to that every time the screen opens, however the last person left it.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 362" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn dashboard screens side by side with a stick figure labelled Nia on the left. The left screen is outlined in signal green and labelled default, resets on load: its filter bar reads this week, all carriers, all regions, and six white cards sit below it, with the note that this is the screen Nia opens on Monday and the default says what the stand-up asks. The right screen is labelled remembers the last visit: its filter bar is hachured and reads Tuesday 14 March, carrier B, south, the six cards are hachured, and the note says Tomas's Friday drill is what Nia reads first. A bottom note says Saltmarsh is constructed and that a remembered filter is a feature for the analyst and a trap for the Monday reader.">
+        <defs>
+          <filter id="f5aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="51" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f5aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f5aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f5aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f5aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f5aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f5aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f5aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f5aH" x="30" y="26">THE DEFAULT IS WHAT NIA SEES: A FILTER THAT RESETS ON LOAD AGAINST ONE THAT REMEMBERS</text>
+
+        <g filter="url(#f5aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="52" cy="140" r="12" fill="#FFFFFF"/>
+          <path d="M52 152 L52 200 M52 164 L36 180 M52 164 L68 180 M52 200 L40 222 M52 200 L64 222"/>
+
+          <rect x="90" y="70" width="340" height="220" rx="10" transform="rotate(-0.4 260 180)" fill="#FFFFFF" stroke="#2DBE7A"/>
+          <rect x="108" y="88" width="316" height="26" rx="5" fill="#EDF3FD"/>
+          <rect x="108" y="126" width="96" height="40" rx="4" transform="rotate(-0.6 156 146)" fill="#FFFFFF"/>
+          <rect x="218" y="126" width="96" height="40" rx="4" transform="rotate(0.5 266 146)" fill="#FFFFFF"/>
+          <rect x="328" y="126" width="96" height="40" rx="4" transform="rotate(-0.4 376 146)" fill="#FFFFFF"/>
+          <rect x="108" y="178" width="96" height="40" rx="4" transform="rotate(0.5 156 198)" fill="#FFFFFF"/>
+          <rect x="218" y="178" width="96" height="40" rx="4" transform="rotate(-0.5 266 198)" fill="#FFFFFF"/>
+          <rect x="328" y="178" width="96" height="40" rx="4" transform="rotate(0.6 376 198)" fill="#FFFFFF"/>
+
+          <rect x="500" y="70" width="340" height="220" rx="10" transform="rotate(0.5 670 180)" fill="#FFFFFF"/>
+          <rect x="518" y="88" width="316" height="26" rx="5" fill="url(#f5aHc)"/>
+          <rect x="518" y="126" width="96" height="40" rx="4" transform="rotate(0.6 566 146)" fill="url(#f5aHc)"/>
+          <rect x="628" y="126" width="96" height="40" rx="4" transform="rotate(-0.5 676 146)" fill="url(#f5aHc)"/>
+          <rect x="738" y="126" width="96" height="40" rx="4" transform="rotate(0.4 786 146)" fill="url(#f5aHc)"/>
+          <rect x="518" y="178" width="96" height="40" rx="4" transform="rotate(-0.5 566 198)" fill="url(#f5aHc)"/>
+          <rect x="628" y="178" width="96" height="40" rx="4" transform="rotate(0.5 676 198)" fill="url(#f5aHc)"/>
+          <rect x="738" y="178" width="96" height="40" rx="4" transform="rotate(-0.6 786 198)" fill="url(#f5aHc)"/>
+        </g>
+
+        <text class="f5aL" x="52" y="240" text-anchor="middle">Nia</text>
+        <text class="f5aS" x="52" y="254" text-anchor="middle">opens it</text>
+
+        <text class="f5aB" x="260" y="60" text-anchor="middle">DEFAULT: RESETS ON LOAD</text>
+        <text class="f5aS" x="118" y="106">This week</text>
+        <text class="f5aS" x="200" y="106">All carriers</text>
+        <text class="f5aS" x="300" y="106">All regions</text>
+        <text class="f5aS" x="266" y="248" text-anchor="middle">six cards, this week, every carrier and region</text>
+        <text class="f5aL" x="260" y="314" text-anchor="middle">Monday 09:00: the screen Nia opens</text>
+        <text class="f5aS" x="260" y="330" text-anchor="middle">the default says what the stand-up asks</text>
+
+        <text class="f5aA" x="670" y="60" text-anchor="middle">REMEMBERS THE LAST VISIT</text>
+        <text class="f5aS" x="528" y="106">Tue 14 Mar</text>
+        <text class="f5aS" x="620" y="106">Carrier B</text>
+        <text class="f5aS" x="720" y="106">South</text>
+        <text class="f5aS" x="676" y="248" text-anchor="middle">six cards about one carrier, one region, one day</text>
+        <text class="f5aL" x="670" y="314" text-anchor="middle">Monday 09:00: the screen remembering Friday</text>
+        <text class="f5aS" x="670" y="330" text-anchor="middle">Tomas's Friday drill is what Nia reads first</text>
+
+        <text class="f5aN" x="30" y="354">Saltmarsh is constructed. A remembered filter is a feature for the analyst and a trap for the Monday reader.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the left screen is the dashboard; the right one is whatever the last visitor was doing, and it will be read as if it were the week's truth</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Write the default as a sentence, then make every filter reset to it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The default of a filter is a design decision with a reader attached. Tomas writes it as one sentence for the Saltmarsh screen (constructed): "On load, every card shows this week against last week, for all carriers and all regions, with the week starting Monday." That sentence is the line-4 glance from session 1 turned into filter settings. If the stand-up asks about this week, the date default is this week; if it asks about everything, nothing is pre-selected. A default that shows "last 30 days" because the tool shipped that way answers a question nobody at 09:00 asked.</p>
+        <p>The second half is <strong>reset on load</strong>. Many tools remember the last state of a filter per user, or worse, per shared link. That is useful for the analyst who comes back to the same cut every afternoon and dangerous for the Monday reader, who will read whatever Friday's investigation left behind as if it were the week's answer. The rule is simple: the shared screen resets to the default every time it opens, and anyone who wants a remembered cut saves it under their own name, one click away. Nia should never have to check the filter bar to know what she is reading.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Drill is one click down and one click back, and it leaves the glance alone<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Drill is the move from a card to the breakdown behind it: late deliveries this week, click, late deliveries by carrier. Session 3 put those breakdowns in the "one click away" bin, and the interaction rule follows from the bin's name. One click from any card reaches its breakdown; one click returns to the screen exactly as it was. Two clicks is an analysis tool. A drill that changes the filter for the whole screen on the way down, so that returning shows a different dashboard from the one Nia left, breaks the glance for the rest of the meeting, and it is the most common way a well-laid-out screen becomes confusing in use.</p>
+        <p>Three habits keep drill cheap. The breakdown opens on top of the screen or beside it, never in place of it, so the context stays in view. The breakdown is pre-filtered to the card's own question and nothing else; a carrier breakdown of late orders does not also need a region selector. And the card says it can be drilled, with a visible affordance, because an interaction nobody can see is one nobody will find, which is exactly what the five readers will show you in Part 2. How the drill is built in a given tool belongs next door: <a href="https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/courses/a4-commissioning-dashboards.html">Business Intelligence a4, commissioning dashboards</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The Monday that read the wrong month.</strong> A familiar pattern: a leadership screen remembers the last filter state per user. An analyst spends Friday afternoon on one region's returns, closes the laptop, and the shared meeting-room login opens on Monday showing that region, that month. Twenty minutes of a leadership meeting are spent arguing about a collapse in revenue that is one region's seasonal dip, until someone looks at the filter bar. Nothing on the screen was wrong. The default was.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the five-user task test, Nielsen 2000 read</span>
+      <h2>Five readers, three tasks, one afternoon</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The claim everyone has heard is "test with five users and you find 85 percent of the problems". It comes from a page Jakob Nielsen published on 18 March 2000, and it is worth reading at source, because the page says more than the slogan. It gives a model, states the number the model needs, and attaches a caveat that applies directly to a dashboard with two kinds of reader. The method it describes is cheap enough that there is no excuse for skipping it: five people, three tasks, a stopwatch, an afternoon.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn grid of five reader rows against three task columns: are deliveries slipping, where is the backlog, which carrier is late. Most cells are white and read done with a time in seconds; stuck cells are hachured and name what the reader got stuck on: the drill, a label, or the default. The pattern of stuck cells feeds a signal-green box on the right labelled problems found, listing three problems: the drill to carrier is hidden, three of five stuck; the backlog label is unclear, two of five; the default week is wrong, one of five. Below the grid, Nielsen's model is written out: found equals N times one minus one minus L to the n, and with L of 0.31 five users give about 85 percent. A note says L is the share of problems one reader finds, typical in NN/g's projects, Saltmarsh's L is unknown and the cells are constructed, and the formula holds only for comparable users doing similar tasks.">
+        <defs>
+          <filter id="f5bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f5bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f5bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f5bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f5bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f5bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f5bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f5bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f5bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f5bH" x="30" y="26">FIVE READERS, THREE TASKS: EACH CELL IS ONE OUTCOME, AND THE PROBLEMS FALL OUT OF THE PATTERN</text>
+
+        <g filter="url(#f5bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="85" cy="64" r="9" fill="#FFFFFF"/>
+          <path d="M85 58 L85 64 L89 67 M85 55 L85 52"/>
+
+          <rect x="140" y="76" width="160" height="40" rx="4" transform="rotate(-0.5 220 96)" fill="#FFFFFF"/>
+          <rect x="310" y="76" width="160" height="40" rx="4" transform="rotate(0.4 390 96)" fill="#FFFFFF"/>
+          <rect x="480" y="76" width="160" height="40" rx="4" transform="rotate(-0.4 560 96)" fill="url(#f5bHc)"/>
+
+          <rect x="140" y="126" width="160" height="40" rx="4" transform="rotate(0.5 220 146)" fill="#FFFFFF"/>
+          <rect x="310" y="126" width="160" height="40" rx="4" transform="rotate(-0.5 390 146)" fill="url(#f5bHc)"/>
+          <rect x="480" y="126" width="160" height="40" rx="4" transform="rotate(0.5 560 146)" fill="url(#f5bHc)"/>
+
+          <rect x="140" y="176" width="160" height="40" rx="4" transform="rotate(-0.4 220 196)" fill="#FFFFFF"/>
+          <rect x="310" y="176" width="160" height="40" rx="4" transform="rotate(0.5 390 196)" fill="#FFFFFF"/>
+          <rect x="480" y="176" width="160" height="40" rx="4" transform="rotate(-0.5 560 196)" fill="#FFFFFF"/>
+
+          <rect x="140" y="226" width="160" height="40" rx="4" transform="rotate(0.4 220 246)" fill="#FFFFFF"/>
+          <rect x="310" y="226" width="160" height="40" rx="4" transform="rotate(-0.4 390 246)" fill="url(#f5bHc)"/>
+          <rect x="480" y="226" width="160" height="40" rx="4" transform="rotate(0.5 560 246)" fill="#FFFFFF"/>
+
+          <rect x="140" y="276" width="160" height="40" rx="4" transform="rotate(-0.5 220 296)" fill="url(#f5bHc)"/>
+          <rect x="310" y="276" width="160" height="40" rx="4" transform="rotate(0.5 390 296)" fill="#FFFFFF"/>
+          <rect x="480" y="276" width="160" height="40" rx="4" transform="rotate(-0.4 560 296)" fill="url(#f5bHc)"/>
+
+          <path d="M644 196 L656 196" marker-end="url(#f5bAr)"/>
+          <rect x="660" y="76" width="180" height="240" rx="8" transform="rotate(0.5 750 196)" fill="#E3F7EC" stroke="#2DBE7A"/>
+        </g>
+
+        <text class="f5bA" x="220" y="68" text-anchor="middle">T1 slipping?</text>
+        <text class="f5bA" x="390" y="68" text-anchor="middle">T2 backlog?</text>
+        <text class="f5bA" x="560" y="68" text-anchor="middle">T3 which carrier?</text>
+
+        <text class="f5bL" x="40" y="101">U1 Nia</text>
+        <text class="f5bS" x="220" y="101" text-anchor="middle">done · 9 s</text>
+        <text class="f5bS" x="390" y="101" text-anchor="middle">done · 14 s</text>
+        <text class="f5bL" x="560" y="101" text-anchor="middle">stuck: drill</text>
+
+        <text class="f5bL" x="40" y="151">U2 Kofi</text>
+        <text class="f5bS" x="220" y="151" text-anchor="middle">done · 11 s</text>
+        <text class="f5bL" x="390" y="151" text-anchor="middle">stuck: label</text>
+        <text class="f5bL" x="560" y="151" text-anchor="middle">stuck: drill</text>
+
+        <text class="f5bL" x="40" y="201">U3 Priya</text>
+        <text class="f5bS" x="220" y="201" text-anchor="middle">done · 20 s</text>
+        <text class="f5bS" x="390" y="201" text-anchor="middle">done · 18 s</text>
+        <text class="f5bS" x="560" y="201" text-anchor="middle">done · 41 s</text>
+
+        <text class="f5bL" x="40" y="251">U4 shift lead</text>
+        <text class="f5bS" x="220" y="251" text-anchor="middle">done · 15 s</text>
+        <text class="f5bL" x="390" y="251" text-anchor="middle">stuck: label</text>
+        <text class="f5bS" x="560" y="251" text-anchor="middle">done · 33 s</text>
+
+        <text class="f5bL" x="40" y="301">U5 finance</text>
+        <text class="f5bL" x="220" y="301" text-anchor="middle">stuck: default</text>
+        <text class="f5bS" x="390" y="301" text-anchor="middle">done · 22 s</text>
+        <text class="f5bL" x="560" y="301" text-anchor="middle">stuck: drill</text>
+
+        <text class="f5bB" x="676" y="98">PROBLEMS FOUND</text>
+        <text class="f5bL" x="676" y="124">P1 drill to carrier</text>
+        <text class="f5bS" x="676" y="138">hidden: 3 of 5 stuck</text>
+        <text class="f5bL" x="676" y="168">P2 backlog label</text>
+        <text class="f5bS" x="676" y="182">unclear: 2 of 5 stuck</text>
+        <text class="f5bL" x="676" y="212">P3 default week</text>
+        <text class="f5bS" x="676" y="226">wrong: 1 of 5 stuck</text>
+        <text class="f5bS" x="676" y="266">three problems, one</text>
+        <text class="f5bS" x="676" y="280">afternoon, no survey</text>
+
+        <text class="f5bL" x="40" y="346">Nielsen's model: found = N (1 - (1 - L)^n). With L = 0.31, five readers give 1 - 0.69^5, about 85%.</text>
+        <text class="f5bS" x="40" y="364">L = the share of problems one reader finds, typical in NN/g's projects. Saltmarsh's L is unknown; cells constructed.</text>
+
+        <text class="f5bN" x="30" y="390">Saltmarsh is constructed. Nielsen 2000, read: the formula holds only for comparable users doing similar tasks.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the grid is the whole method; a problem is a column where readers get stuck for the same reason, and three of five stuck on the drill is the finding of the afternoon</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the 2000 page actually says: the model, the 31, the caveat<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Nielsen's page gives a model, not a law: the number of usability problems found with n users is N (1 - (1 - L)^n), where N is the total number of problems in the design and L is the share of them a single user finds. He reports a "typical" L of 31 percent across the projects NN/g had studied, and with that L five users "found 85% of the usability problems". The 85 is not a constant of nature; it is what the curve gives at n = 5 when L is 31 percent. If your readers each find fewer of the problems, five of them find less. The page is also blunt about the other end: "zero users give zero insights".</p>
+        <p>Two more lines matter for a dashboard. First, the caveat, verbatim: "The formula only holds for comparable users who will be using the site in fairly similar ways". A Saltmarsh screen (constructed) read by operations people at a stand-up and by Priya on her phone on Monday evening has two reader groups, and the page says to test 3 to 4 users from each of two groups, or 3 per group with three or more groups, and never fewer than 3, because one user may be unrepresentative. Second, the page argues for iteration: "Spend this budget on 3 studies with 5 users each!", because the second round tests the fixes and catches what the first design hid. The build-along follows that advice literally.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The disagreement, reported, and what to do with it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Not everyone accepted the five-user claim. Spool and Schroeder (2001) argued, in a CHI extended abstract titled "Testing Web Sites: Five Users Is Nowhere Near Enough", that on large e-commerce sites five users found far fewer of the problems than the model promised. That paper is reported here, not read at source, so the right way to carry it is as a named disagreement: L varies by project and by task, and a site with thousands of pages and many paths has a lower L than a single screen with six cards and one click of drill. Nielsen's own page points to later NN/g advice that quantitative studies need around 20 users and card sorting about 15 (reported via that pointer, not read), which is a reminder that five is a number for finding problems, not for measuring how big they are.</p>
+        <p>For a dashboard the honest position is this. One screen, three tasks and five comparable readers is close to the case where Nielsen's model is strongest, so a first round will find most of what is badly wrong. It will not tell you how many seconds the glance takes on average across the company, and it will not find problems in parts of the screen the three tasks never touch. Choose the tasks to cover the four stand-up questions, run three rounds, and treat the 85 as a reason to start, not a result to report. The wider method, from recruiting to think-aloud protocol, belongs to <a href="https://phoebefu6.github.io/learn-product-design-with-phoebe/">Product Design</a>; the one test on one dashboard is all that is run here.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Say "comparable" out loud before you pick the five.</strong> If the people you can get on Thursday are three operations readers and two finance readers, you have two groups, and Nielsen's page asks for 3 to 4 from each. Either find one more of each or report the two groups separately. A test whose readers are not comparable is still worth running; it just cannot borrow the 85.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers what "gets used" measures</span>
+      <h2>Used is a number, not a feeling</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A month after launch Priya will ask whether the dashboard is being used, and the usual answer is a shrug or a page-view count from the tool. Neither is the question. A dashboard is used when the same reader opens it on the schedule, answers the question in the glance, and stops asking the question some other way. Each of those is a thing Tomas can count without a survey, and each one fails in a different direction that points at a different fix.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn panels. Opens per week: tally marks by reader and by day, with the note to expect the launch spike to fade. Seconds to first decision: a short rail from open to a signal-green segment ending at the first operational sentence, measured with a stopwatch over five Mondays as a median, with the note that it should fall as the hierarchy improves. Questions sent by email: a pile of hachured envelopes, each one a question the screen failed to answer, with the note that it should fall, or a card is missing. A bottom note says Saltmarsh is constructed and none of the three needs a survey.">
+        <defs>
+          <filter id="f5cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="57" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f5cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f5cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f5cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f5cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f5cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f5cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f5cA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f5cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f5cH" x="30" y="26">"GETS USED" IS THREE NUMBERS YOU CAN COUNT: OPENS, SECONDS TO THE FIRST DECISION, QUESTIONS STILL EMAILED</text>
+
+        <g filter="url(#f5cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="240" height="190" rx="8" transform="rotate(-0.5 160 151)" fill="#FFFFFF"/>
+          <path d="M72 100 L72 128 M84 100 L84 128 M96 100 L96 128 M108 100 L108 128 M66 126 L114 102"/>
+          <path d="M136 100 L136 128 M148 100 L148 128 M160 100 L160 128 M172 100 L172 128 M130 126 L178 102"/>
+          <path d="M200 100 L200 128 M212 100 L212 128 M224 100 L224 128"/>
+
+          <rect x="320" y="56" width="240" height="190" rx="8" transform="rotate(0.4 440 151)" fill="#FFFFFF"/>
+          <rect x="340" y="118" width="60" height="24" rx="5" fill="#2DBE7A"/>
+          <path d="M400 130 L536 130" marker-end="url(#f5cAr)"/>
+          <path d="M340 110 L340 150 M400 110 L400 150"/>
+
+          <rect x="600" y="56" width="240" height="190" rx="8" transform="rotate(-0.4 720 151)" fill="#FFFFFF"/>
+          <rect x="614" y="124" width="64" height="38" rx="3" transform="rotate(-5 646 143)" fill="url(#f5cHc)"/>
+          <rect x="688" y="110" width="64" height="38" rx="3" transform="rotate(4 720 129)" fill="url(#f5cHc)"/>
+          <rect x="762" y="130" width="64" height="38" rx="3" transform="rotate(-3 794 149)" fill="url(#f5cHc)"/>
+          <path d="M690 110 L722 130 L754 110" stroke="#1D4FB0" stroke-width="1.4"/>
+        </g>
+
+        <text class="f5cA" x="160" y="78" text-anchor="middle">OPENS PER WEEK</text>
+        <text class="f5cS" x="160" y="156" text-anchor="middle">tally by reader, by day</text>
+        <text class="f5cS" x="160" y="172" text-anchor="middle">Monday opens by the named reader</text>
+        <text class="f5cS" x="160" y="188" text-anchor="middle">count, not page views from anyone</text>
+        <text class="f5cL" x="160" y="222" text-anchor="middle">launch week is not a week</text>
+
+        <text class="f5cA" x="440" y="78" text-anchor="middle">SECONDS TO FIRST DECISION</text>
+        <text class="f5cS" x="340" y="166">open</text>
+        <text class="f5cB" x="410" y="166">first operational sentence</text>
+        <text class="f5cS" x="440" y="188" text-anchor="middle">stopwatch, five Mondays, the median</text>
+        <text class="f5cL" x="440" y="222" text-anchor="middle">the glance from session 1, re-measured</text>
+
+        <text class="f5cA" x="720" y="78" text-anchor="middle">QUESTIONS SENT BY EMAIL</text>
+        <text class="f5cS" x="720" y="188" text-anchor="middle">an email = a question the</text>
+        <text class="f5cS" x="720" y="204" text-anchor="middle">screen failed to answer</text>
+        <text class="f5cL" x="720" y="222" text-anchor="middle">count them for four weeks</text>
+
+        <text class="f5cS" x="160" y="272" text-anchor="middle">expect the launch spike to fade</text>
+        <text class="f5cS" x="440" y="272" text-anchor="middle">should fall as hierarchy improves</text>
+        <text class="f5cS" x="720" y="272" text-anchor="middle">should fall, or a card is missing</text>
+
+        <text class="f5cN" x="30" y="306">Saltmarsh is constructed. None of the three needs a survey; all three are counted from what already happens.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - page views from the tool are none of these; the three numbers are tied to the named reader, the named moment and the question the screen exists to answer</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Opens, seconds, emails: what each one says when it moves<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Opens</strong> are counted per named reader on the named day, because the dashboard was designed for Nia on Monday and not for "the business". Launch week is not a week: everybody opens a new screen once. The number to watch is the fourth Monday. If Nia still opens it, the schedule holds; if she does not, nothing else on this list matters, and the first question is whether the default still answers her four questions. <strong>Seconds to the first decision</strong> is the glance from session 1, re-measured now that the screen exists: a stopwatch from screen open to the first operational sentence in the stand-up, five Mondays, take the median. It should fall as the hierarchy of session 2 does its work; if it rises, something moved or a filter is not resetting.</p>
+        <p><strong>Questions still asked by email</strong> is the one most teams forget and the most telling. Every message that asks "are we late on carrier B this week?" after the screen exists is a question the screen failed to answer in the moment it was asked. Tomas keeps a plain list for four weeks at Saltmarsh (constructed): who asked, what, and whether the screen could have answered it. The list sorts itself into three piles. Could have answered, reader did not find it: a usability problem for the next round of five. Could not answer, should: a card for the "one click away" bin. Could not answer, should not: a report, which is where the question goes.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why page views lie, and the number that would make Priya happy for the wrong reason<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Tool analytics count views: every open by anyone, including the analyst checking the refresh, the sponsor showing it to a visitor, and the browser tab that reloads on its own. A high number is easy to produce and says nothing about whether a decision changed. Time-on-page is worse for a dashboard, because the ideal time on a monitoring screen is short: a reader who stays ten minutes is lost, not engaged. The three numbers above are deliberately tied to the brief from session 1: the named reader, the scheduled moment, the question. Anything that cannot be tied back to a line of the brief is a vanity measure.</p>
+        <p>There is one more number, and it needs a warning. If the screen is good, the stand-up gets shorter, because the first five minutes of "where are we" disappear. That is a real outcome and Priya will like it. Resist the urge to put it on a slide as "the dashboard saved X minutes a week" with a number you did not measure in the same way before and after. The honest version is the stopwatch median from this Part, before and after, with the dates it was taken. Narrative around a number like that belongs to <a href="https://phoebefu6.github.io/learn-visual-storytelling-with-phoebe/">Visual Storytelling</a>; the number itself is a measurement or it is nothing.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The screen that was "used" and the inbox that said otherwise.</strong> A familiar pattern: a weekly screen reports hundreds of views a month and is declared a success. The analyst who built it still gets the same three questions by message every Monday from the same two people, and answers them by hand from a spreadsheet. The views are real and the questions are real; only one of them is about the dashboard. Count the questions, and the screen's actual job is in front of you.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Tomas runs five readers through three tasks</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tomas books one afternoon, five readers and a meeting room with the screen on the wall. Each reader gets the same three tasks, one at a time, in the same words, and Tomas writes down one outcome per task: done, with the seconds, or stuck, with what they were stuck on. Write the same worksheets for a screen of your own as you go; if you have none in hand, use Saltmarsh (constructed). Every cell on these sheets is constructed to show the shape of the method; your cells will be the first real numbers your screen has ever had.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn panels in a row joined by arrows, each holding five small stick figures. Round 1: five readers, three tasks, three problems found, then a box reading fix the drill, the label, the default week. Round 2 on the changed screen: one new problem, the three confirmed fixed, then a box reading fix the one new. Round 3: no problems on the three tasks, and a signal-green box reading ship it to Monday. A bottom note says Saltmarsh counts are constructed and that Nielsen 2000, read, says to spend the budget on three studies with five users each.">
+        <defs>
+          <filter id="f5dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="f5dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f5dH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f5dL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f5dS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f5dB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f5dA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f5dN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f5dH" x="30" y="26">THREE ROUNDS OF FIVE: TEST, FIX, TEST AGAIN, EACH ROUND ON THE SCREEN THE LAST ONE CHANGED</text>
+
+        <g filter="url(#f5dSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="240" height="190" rx="8" transform="rotate(-0.5 160 145)" fill="#FFFFFF"/>
+          <circle cx="80" cy="86" r="7" fill="#FFFFFF"/><path d="M80 93 L80 118 M80 100 L70 110 M80 100 L90 110 M80 118 L72 134 M80 118 L88 134"/>
+          <circle cx="120" cy="86" r="7" fill="#FFFFFF"/><path d="M120 93 L120 118 M120 100 L110 110 M120 100 L130 110 M120 118 L112 134 M120 118 L128 134"/>
+          <circle cx="160" cy="86" r="7" fill="#FFFFFF"/><path d="M160 93 L160 118 M160 100 L150 110 M160 100 L170 110 M160 118 L152 134 M160 118 L168 134"/>
+          <circle cx="200" cy="86" r="7" fill="#FFFFFF"/><path d="M200 93 L200 118 M200 100 L190 110 M200 100 L210 110 M200 118 L192 134 M200 118 L208 134"/>
+          <circle cx="240" cy="86" r="7" fill="#FFFFFF"/><path d="M240 93 L240 118 M240 100 L230 110 M240 100 L250 110 M240 118 L232 134 M240 118 L248 134"/>
+          <rect x="58" y="190" width="204" height="36" rx="6" transform="rotate(0.6 160 208)" fill="#EDF3FD"/>
+
+          <path d="M288 140 L312 140" marker-end="url(#f5dAr)"/>
+
+          <rect x="320" y="50" width="240" height="190" rx="8" transform="rotate(0.4 440 145)" fill="#FFFFFF"/>
+          <circle cx="360" cy="86" r="7" fill="#FFFFFF"/><path d="M360 93 L360 118 M360 100 L350 110 M360 100 L370 110 M360 118 L352 134 M360 118 L368 134"/>
+          <circle cx="400" cy="86" r="7" fill="#FFFFFF"/><path d="M400 93 L400 118 M400 100 L390 110 M400 100 L410 110 M400 118 L392 134 M400 118 L408 134"/>
+          <circle cx="440" cy="86" r="7" fill="#FFFFFF"/><path d="M440 93 L440 118 M440 100 L430 110 M440 100 L450 110 M440 118 L432 134 M440 118 L448 134"/>
+          <circle cx="480" cy="86" r="7" fill="#FFFFFF"/><path d="M480 93 L480 118 M480 100 L470 110 M480 100 L490 110 M480 118 L472 134 M480 118 L488 134"/>
+          <circle cx="520" cy="86" r="7" fill="#FFFFFF"/><path d="M520 93 L520 118 M520 100 L510 110 M520 100 L530 110 M520 118 L512 134 M520 118 L528 134"/>
+          <rect x="338" y="190" width="204" height="36" rx="6" transform="rotate(-0.5 440 208)" fill="#EDF3FD"/>
+
+          <path d="M568 140 L592 140" marker-end="url(#f5dAr)"/>
+
+          <rect x="600" y="50" width="240" height="190" rx="8" transform="rotate(-0.4 720 145)" fill="#FFFFFF"/>
+          <circle cx="640" cy="86" r="7" fill="#FFFFFF"/><path d="M640 93 L640 118 M640 100 L630 110 M640 100 L650 110 M640 118 L632 134 M640 118 L648 134"/>
+          <circle cx="680" cy="86" r="7" fill="#FFFFFF"/><path d="M680 93 L680 118 M680 100 L670 110 M680 100 L690 110 M680 118 L672 134 M680 118 L688 134"/>
+          <circle cx="720" cy="86" r="7" fill="#FFFFFF"/><path d="M720 93 L720 118 M720 100 L710 110 M720 100 L730 110 M720 118 L712 134 M720 118 L728 134"/>
+          <circle cx="760" cy="86" r="7" fill="#FFFFFF"/><path d="M760 93 L760 118 M760 100 L750 110 M760 100 L770 110 M760 118 L752 134 M760 118 L768 134"/>
+          <circle cx="800" cy="86" r="7" fill="#FFFFFF"/><path d="M800 93 L800 118 M800 100 L790 110 M800 100 L810 110 M800 118 L792 134 M800 118 L808 134"/>
+          <rect x="618" y="190" width="204" height="36" rx="6" transform="rotate(0.5 720 208)" fill="#E3F7EC" stroke="#2DBE7A"/>
+        </g>
+
+        <text class="f5dA" x="160" y="66" text-anchor="middle">ROUND 1 · THE FIRST SCREEN</text>
+        <text class="f5dS" x="160" y="156" text-anchor="middle">5 readers, 3 tasks, 15 outcomes</text>
+        <text class="f5dL" x="160" y="174" text-anchor="middle">3 problems found</text>
+        <text class="f5dS" x="160" y="212" text-anchor="middle">fix: the drill, the label, the default</text>
+
+        <text class="f5dA" x="440" y="66" text-anchor="middle">ROUND 2 · THE CHANGED SCREEN</text>
+        <text class="f5dS" x="440" y="156" text-anchor="middle">5 new readers, same 3 tasks</text>
+        <text class="f5dL" x="440" y="174" text-anchor="middle">3 confirmed fixed, 1 new found</text>
+        <text class="f5dS" x="440" y="212" text-anchor="middle">fix: the one the fixes uncovered</text>
+
+        <text class="f5dA" x="720" y="66" text-anchor="middle">ROUND 3 · THE SCREEN TO SHIP</text>
+        <text class="f5dS" x="720" y="156" text-anchor="middle">5 readers, same 3 tasks</text>
+        <text class="f5dL" x="720" y="174" text-anchor="middle">0 stuck on the three tasks</text>
+        <text class="f5dB" x="720" y="212" text-anchor="middle">ship it to Monday, then count</text>
+
+        <text class="f5dN" x="30" y="270">Saltmarsh counts constructed. Nielsen 2000, read: spend the budget on 3 studies with 5 users each.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the second round is the one that pays: it tests the fixes, and it finds the problem the first design was hiding behind a bigger one</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Write three tasks in the reader's words, one per stand-up question.</strong> A task is something the reader does on the screen with a checkable answer, not "look at the dashboard". Pick the three questions whose answers change the biggest decisions. Keep the words identical for every reader.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 1 · the three tasks</span>T1  "It is Monday. Are deliveries slipping this week, yes or no?"
+    done when: the reader says yes or no and points at the card
+T2  "Where is the backlog sitting right now, picking or packing?"
+    done when: the reader names the stage
+T3  "Which carrier is behind the late orders this week?"
+    done when: the reader names a carrier (this one needs the drill)
+
+Same words every time. Do not help. Do not explain the screen first.</div>
+      </div>
+      <div class="step">
+        <p><strong>Pick five comparable readers, and say why they are comparable.</strong> Nielsen's formula holds for comparable users doing similar things. Name the group each reader belongs to; if you have two groups, you need 3 to 4 from each, which is a second afternoon, not a smaller test.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 2 · the five readers</span>U1  Nia         operations, Monday stand-up reader
+U2  Kofi        operations, warehouse, reads over Nia's shoulder
+U3  Priya       managing director, reads it Monday evening on a phone
+U4  shift lead  operations, deputises for Nia on leave
+U5  finance     reads it Monday evening for the money question
+
+Comparable?  U1, U2, U4 are one group (stand-up, big screen).
+             U3, U5 are an evening, phone-sized group: 2 is under
+             Nielsen's 3 to 4 per group. Report them separately,
+             or find one more evening reader before claiming the 85.</div>
+      </div>
+      <div class="step">
+        <p><strong>Run each reader alone, one task at a time, with a stopwatch and silence.</strong> Start the watch when you finish reading the task; stop it when the reader gives the checkable answer. If they are silent for a while, ask "what are you looking for?" and write the answer down. If they have not got there after a minute, that is "stuck", and the reason they give is the data.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 3 · the outcome grid (Saltmarsh, constructed)</span>            T1 slipping?     T2 backlog?      T3 which carrier?
+U1 Nia      done   9 s       done  14 s       STUCK  looked for a drill, none visible
+U2 Kofi     done  11 s       STUCK "backlog    STUCK  clicked the card, nothing opened
+                                    by stage"?
+U3 Priya    done  20 s       done  18 s       done  41 s (found the drill by accident)
+U4 shift    done  15 s       STUCK same label  done  33 s
+U5 finance  STUCK default     done  22 s       STUCK  same as U1
+            showed last month
+
+One row per reader, one cell per task. Write what they said, not what you think.</div>
+      </div>
+      <div class="step">
+        <p><strong>Turn the grid into problems by reading the columns.</strong> A problem is a reason that appears in more than one cell, or once with a reader who cannot be dismissed. Rank by how many readers it stopped, then by which task it blocked. Three of five stuck on the drill outranks one of five stuck on the default, and both are fixed before anything cosmetic.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 4 · problems found, ranked</span>P1  drill to carrier is hidden       3 of 5 stuck (U1, U2, U5)   blocks T3
+    fix: a visible "by carrier" affordance on the late-deliveries card
+P2  "backlog by stage" label unclear   2 of 5 stuck (U2, U4)       blocks T2
+    fix: label the card "backlog: picking / packing", show both numbers
+P3  default showed last month          1 of 5 stuck (U5)           blocks T1
+    fix: reset every filter to this week on load, for every reader
+
+Nielsen's model with L = 0.31: five readers find about 85% of what is there.
+Saltmarsh's L is unknown. So: three fixes, then round two, not a victory lap.</div>
+      </div>
+      <div class="step">
+        <p><strong>Fix, then run round two with five new readers on the changed screen.</strong> The second round has two jobs: confirm that each fix works for people who never saw the old version, and find what the old problems were hiding. A reader who could not find the drill never got far enough to find that the breakdown opens in place of the screen.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 5 · round two, five new readers (constructed)</span>P1 drill       0 of 5 stuck   fixed
+P2 label       0 of 5 stuck   fixed
+P3 default     0 of 5 stuck   fixed
+NEW  P4        2 of 5 lost the screen after drilling: the breakdown
+               replaced the dashboard and "back" reset the filters
+     fix: open the breakdown beside the screen; one click back, same screen
+
+Round three: same tasks, five readers, 0 stuck -&gt; ship it to Monday.</div>
+      </div>
+      <div class="step">
+        <p><strong>Start the three counts the Monday it ships.</strong> The test says the screen can be used; the counts say whether it is. Set them up before launch so week one is on the record, then read them on the fourth Monday, not the first.</p>
+        <div class="prompt-box good"><span class="label">★ Sheet 6 · the usage ledger, four weeks</span>Week  Nia opened  seconds to first    questions still emailed
+      Monday?     decision (median)    (who / what / could the screen answer?)
+1     yes         .. s                 ..  (launch week: everyone opens once)
+2     yes         .. s                 ..
+3     ..          .. s                 ..
+4     ..          .. s                 ..
+
+Read on week 4. Opens stopped -&gt; the default or the schedule.
+Seconds rose -> something moved or a filter is not resetting.
+Emails steady -&gt; sort them: usability problem / missing card / report.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Do not sit next to the reader.</strong> Sit behind, out of eyeline, and keep the stopwatch under the table. A reader who can see your face will look at it for hints, and the seconds you record will be the seconds it took to read you, not the screen.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 6</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Write the default sentence for a screen you own.</strong> "On load, every card shows ... for ..., and every filter resets to that." Then open the screen on a different login and check whether it does. Note what it showed instead.</li>
+      <li><strong>Write three tasks, in the reader's words,</strong> for the three questions that change the biggest decisions on that screen. Each must have a checkable answer. Keep them for the next item.</li>
+      <li><strong>Run the test with at least three readers.</strong> Five if you can get them; Nielsen's page says never fewer than three. Fill the outcome grid, read the columns, and write the ranked problems. Bring the grid, including the cells that embarrass you.</li>
+      <li><strong>Start the usage ledger</strong> on one screen that is already live: opens by the named reader, seconds to the first decision in one meeting, questions still asked by message this week. Session 6 is the bench night, where the red, amber and green of session 4 get thresholds and the thresholds get tested against real daily series.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 5 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · The Saltmarsh screen remembers each user's last filter state. Tomas drills into carrier B for one region on Friday; the shared meeting-room login opens on Monday. What does Nia see, and what is the rule?</p>
+      <button class="qopt" type="button">A · The full week for everything, because dashboards always open fresh</button>
+      <button class="qopt" type="button">B · Carrier B in one region, read as if it were the week; the shared screen must reset every filter to the written default on load, and remembered cuts live under a person's own name one click away</button>
+      <button class="qopt" type="button">C · A prompt asking which filters to apply, which is the safest design</button>
+      <button class="qopt" type="button">D · Whatever Tomas left, which is fine because the filter bar shows it</button>
+      <p class="qwhy">The default is the dashboard most readers see, and a remembered filter makes the last visitor's investigation the week's truth for the next one. Nobody at 09:00 reads the filter bar first, and a prompt on open spends the glance on a question the brief already answered.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · A colleague says "five users find 85 percent of problems, Nielsen proved it, so our five readers found 85 percent". Which reply matches what the 2000 page actually says, as read?</p>
+      <button class="qopt" type="button">A · Correct; 85 percent is the figure for any five users on any design</button>
+      <button class="qopt" type="button">B · Wrong; Nielsen later withdrew the claim and recommended 20 users for every study</button>
+      <button class="qopt" type="button">C · Wrong; the page says five users find 31 percent, not 85</button>
+      <button class="qopt" type="button">D · The 85 is what the model N (1 - (1 - L)^n) gives when L is the typical 31 percent NN/g measured; it holds only for comparable users doing similar tasks, your L is unknown, and Spool and Schroeder (2001, reported) found far fewer on large sites, so run the fixes through a second round</button>
+      <p class="qwhy">The page gives a model and a typical L, with a verbatim caveat about comparable users, and argues for three rounds of five rather than one round of fifteen. The 20 figure is a pointer for quantitative studies, not a withdrawal; 31 percent is one user's share, not five users'. The disagreement is real and is carried as reported.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A month after launch the tool reports hundreds of views, and the analyst still answers "are we late on carrier B?" by message every Monday from the same two people. Is the dashboard used?</p>
+      <button class="qopt" type="button">A · Not for that question: a question still asked by message is one the screen failed to answer, so count those messages, and sort each into usability problem, missing card, or report</button>
+      <button class="qopt" type="button">B · Yes; hundreds of views is strong adoption for a weekly screen</button>
+      <button class="qopt" type="button">C · Yes, as long as the named reader opened it on the fourth Monday</button>
+      <button class="qopt" type="button">D · No, and the fix is to add a carrier card to the screen for everyone</button>
+      <p class="qwhy">Views count anyone, including the analyst and the refresh. Opens by the named reader are necessary, not sufficient. The messages are the measurement: this one is probably a hidden drill (a usability problem) or a "one click away" breakdown, and only the sort says which; putting it on the main screen for everyone spends the glance on a question two people ask.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Nielsen, J. (2000). Why You Only Need to Test with 5 Users. Nielsen Norman Group, 18 March 2000</span><span class="note">Read: the model N (1 - (1 - L)^n), the "typical" L of 31 percent, "found 85% of the usability problems", "zero users give zero insights", "Spend this budget on 3 studies with 5 users each!", the comparable-users caveat verbatim, 3 to 4 users per group with two groups and 3 per group with more, never fewer than 3</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Spool, J. and Schroeder, W. (2001). Testing Web Sites: Five Users Is Nowhere Near Enough. CHI 2001 extended abstracts</span><span class="note">Reported: named as the disagreement; not read at source, so carried as "far fewer problems on large e-commerce sites" and the lesson that L varies by project and task</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">NN/g follow-ups: about 20 users for quantitative studies, about 15 for card sorting</span><span class="note">Reported via the pointer on the 2000 page; the follow-up pages are not read here</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The default sentence, the one-click drill budget, the three-task script and the three usage counts</span><span class="note">Common practice assembled here from the four-line brief of session 1 and the bins of session 3; no single source prescribes these exact rules</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, Nia, Tomas, Priya, Kofi, the shift lead, the finance reader, every cell of the outcome grid and the three rounds</span><span class="note">Constructed for teaching; no second, count or "3 of 5" on this page is a measurement</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The default is the dashboard</b><span>Write it as one sentence from the line-4 glance; every filter resets to it on load; remembered cuts live under a person's own name, one click away.</span></div>
+      <div class="cheat-item"><b>Drill budget</b><span>One click down to the card's own breakdown, opened beside the screen; one click back to the screen exactly as it was. Two clicks is an analysis tool.</span></div>
+      <div class="cheat-item"><b>Nielsen 2000, as read</b><span>found = N (1 - (1 - L)^n); L typical 31%; five users about 85%; only for comparable users on similar tasks; 3 to 4 per group when groups differ; never fewer than 3; three rounds of five.</span></div>
+      <div class="cheat-item"><b>The disagreement, reported</b><span>Spool and Schroeder 2001: far fewer found on large sites. L varies by project and task; treat 85 as a reason to start, not a result to report.</span></div>
+      <div class="cheat-item"><b>The afternoon test</b><span>Three tasks in the reader's words with checkable answers; five readers alone, stopwatch, silence; one cell per task; problems are columns; fix, then round two with new readers.</span></div>
+      <div class="cheat-item"><b>Used is three numbers</b><span>Opens by the named reader on the named day; seconds to the first decision, median of five; questions still asked by message, sorted into problem, missing card, report.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Tomas now has a screen that five readers can use and three numbers that will say whether they do. What he does not have is a defensible rule for when a card turns amber or red. Session 6 is the bench night: Olist's real daily series on the Saltmarsh cards, a stated change rule, and a ladder of thresholds from fixed to spread to band to persistence, each scored on false-alarm days, changes missed and days to flag, with every number computed in the browser. It also pulls the two levers people reach for under pressure, tighten everything and hide the variance, and shows what each one costs.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 5 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="04-colour-as-state.html">← Prev: Colour as state</a> &nbsp;·&nbsp; <a href="06-the-red-amber-green-bench.html">Next: The red-amber-green bench →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

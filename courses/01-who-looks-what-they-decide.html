@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 1 of 6. A dashboard is a screen that answers a question someone has on a schedule. Few's definition read at source, the user, question, decision and glance behind every tile, a report against a dashboard against an analysis, and the four-line brief written before anything is drawn.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Who looks, and what they decide - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 1 of 6. Before the first tile: who looks, what they ask, what they decide, and how long the glance lasts.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/01-who-looks-what-they-decide.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Who looks, and what they decide - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 1 of 6. User, question, decision, glance. The four-line brief that decides what goes on the screen.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 1 · Who looks, and what they decide - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 1 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 1 of 6</div>
+    <h1>Who <span class="accent">looks</span>, and what they decide</h1>
+    <p class="sub">Most dashboards begin with a data source and a tool, and end as a wall of everything the source can show. The good ones begin with a person who opens one screen on a schedule, a question that person is already asking, and a decision the answer changes. Tonight we take Stephen Few's definition apart and put it back together as four lines you can write before anything is drawn: who looks, what they ask and when, what they decide, and how long the glance lasts. Then we sort out what a dashboard is not, because half the "dashboards" in any company are reports or analyses wearing the wrong clothes.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Foundations</span>
+      <span class="chip audience">Analysts and designers who build the screen</span>
+      <span class="chip audience">Leaders who read it on Monday</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Definition, three jobs, the glance</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the four-line brief</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Saltmarsh is an invented home-goods retailer that sells through marketplaces and ships from one warehouse. Priya, the managing director, has asked for "a dashboard". Tomas, the analyst, has to design it, and the person who will actually open it is Nia, the operations lead, at the Monday 09:00 stand-up with Kofi from the warehouse. Everything Tomas does across the six sessions is a move you can make on a screen of your own. Where a Saltmarsh card shows numbers, the numbers are real daily aggregates from the Brazilian E-Commerce Public Dataset by Olist, and the page says so each time.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = write it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A one-sentence definition of a dashboard you can read at source and defend, a test that sorts dashboards from reports and analyses in ten seconds, a way to turn "we need a dashboard" into a named person with a named question, and the four-line brief for a screen of your own, with every candidate tile tied to a decision or struck out.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers Few's definition, read at source</span>
+      <h2>A screen, a question, a schedule</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">In a 2004 article called "Dashboard Confusion", Stephen Few wrote the sentence most of the field still quotes: "A dashboard is a visual display of the most important information needed to achieve one or more objectives; consolidated and arranged on a single screen so the information can be monitored at a glance." Four things carry the weight in that sentence, and they are the four lines of tonight's brief: an objective someone holds, information chosen for it, one screen, and a glance that recurs.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A loop drawn as four hand-sketched boxes joined by arrows. A person on the left labelled Nia, operations lead, Monday 09:00, asks a question, are deliveries slipping, which flows into one screen drawn as a rectangle of six tiles, which flows into a decision, call the carrier or hold, which flows back to the person as an action for the week. A clock above the screen is labelled the glance, about thirty seconds. A note below says every tile must sit on this loop or leave the screen.">
+        <defs>
+          <filter id="f1aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f1aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f1aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f1aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f1aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f1aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f1aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f1aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f1aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f1aH" x="30" y="26">THE LOOP A DASHBOARD LIVES ON: PERSON, QUESTION, SCREEN, DECISION</text>
+
+        <g filter="url(#f1aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="90" cy="130" r="15" fill="#FFFFFF"/>
+          <path d="M90 145 L90 186 M90 158 L70 174 M90 158 L110 174 M90 186 L76 212 M90 186 L104 212"/>
+          <rect x="190" y="104" width="170" height="60" rx="10" transform="rotate(-0.8 275 134)" fill="#FFFFFF"/>
+          <path d="M132 150 L184 142" marker-end="url(#f1aAr)"/>
+          <rect x="420" y="80" width="200" height="120" rx="10" transform="rotate(0.5 520 140)" fill="#FFFFFF"/>
+          <rect x="434" y="96" width="54" height="30" rx="4" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="494" y="96" width="54" height="30" rx="4" fill="#EDF3FD"/>
+          <rect x="554" y="96" width="54" height="30" rx="4" fill="#EDF3FD"/>
+          <rect x="434" y="134" width="54" height="30" rx="4" fill="url(#f1aHc)"/>
+          <rect x="494" y="134" width="54" height="30" rx="4" fill="url(#f1aHc)"/>
+          <rect x="554" y="134" width="54" height="30" rx="4" fill="url(#f1aHc)"/>
+          <path d="M366 134 L414 134" marker-end="url(#f1aAr)"/>
+          <circle cx="520" cy="44" r="14" fill="#FFFFFF"/>
+          <path d="M520 36 L520 44 L526 48"/>
+          <rect x="680" y="104" width="170" height="60" rx="10" transform="rotate(0.9 765 134)" fill="#EDF3FD"/>
+          <path d="M626 134 L674 134" marker-end="url(#f1aAr)"/>
+          <path d="M765 170 C765 250 300 262 116 200" marker-end="url(#f1aAr)"/>
+        </g>
+
+        <text class="f1aL" x="90" y="238" text-anchor="middle">Nia, operations lead</text>
+        <text class="f1aS" x="90" y="254" text-anchor="middle">Monday 09:00, every week</text>
+        <text class="f1aA" x="275" y="96" text-anchor="middle">THE QUESTION</text>
+        <text class="f1aL" x="275" y="130" text-anchor="middle">Are deliveries</text>
+        <text class="f1aL" x="275" y="146" text-anchor="middle">slipping this week?</text>
+        <text class="f1aA" x="520" y="74" text-anchor="middle">ONE SCREEN</text>
+        <text class="f1aB" x="548" y="52">the glance, about 30 s</text>
+        <text class="f1aS" x="520" y="216" text-anchor="middle">six tiles, one per question</text>
+        <text class="f1aA" x="765" y="96" text-anchor="middle">THE DECISION</text>
+        <text class="f1aL" x="765" y="130" text-anchor="middle">Call the carrier,</text>
+        <text class="f1aL" x="765" y="146" text-anchor="middle">or hold this week</text>
+        <text class="f1aS" x="440" y="278" text-anchor="middle">the action comes back as next week's question</text>
+
+        <text class="f1aN" x="30" y="302">Saltmarsh is constructed. A tile that is not on this loop is not wrong; it is a report, and belongs elsewhere.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the screen is the smallest box in the loop; the person, the question and the decision are what you design first</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Four words doing the work: objectives, important, single screen, glance<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Objectives</strong> means somebody's. Few wrote "needed to achieve one or more objectives", and an objective belongs to a person or a role; a dashboard for "the business" has no one to ask what matters. At Saltmarsh (constructed) the objective is Nia's: deliveries that land when promised, this week. <strong>Most important</strong> is a selection, which means most of the available information is left off. Few says the same thing from the other side in the same article: the information "must be tailored specifically to the requirements of a given person, group, or function".</p>
+        <p><strong>A single screen</strong> is a hard constraint, not a style. Few is explicit that "the means is a single-screen display"; the moment Nia scrolls, the glance is over and she is reading. <strong>Monitored at a glance</strong> is the recurring part: monitored means again and again, and a glance means seconds. A screen built for a one-off deep look is a different object with a different name, which is Part 2.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the definition does not say, and why that matters<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Few's sentence names no chart type, no colour, no tool and no "KPI". In the same article he goes out of his way to say a dashboard "is a type of display or style of presentation, not a specific type of information or technology". That cuts both ways. It frees you from the vendor's template: a dashboard can be a printed page on a wall or a spreadsheet tab if it meets the four conditions. It also removes the excuse that a screen full of the tool's default widgets is a dashboard because the tool calls it one.</p>
+        <p>His later book, <em>Information Dashboard Design</em>, develops the definition and a long list of common pitfalls (reported here; the book is not read at source on these pages, and the Business Intelligence course owns his pitfall library). The one sentence from 2004 is enough for tonight, because the four lines of the brief fall straight out of it.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"Can we get a dashboard for that?"</strong> A familiar pattern in any organisation: a senior person asks for a dashboard, an analyst connects the tool to the warehouse, and the screen fills with every column that was easy to chart. It is admired on launch day and never opened again, because nobody opening it on a Monday has a question it answers in the time they have. Nothing in that sequence is lazy. The brief was skipped, and the tool filled the silence.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers report, dashboard, analysis</span>
+      <h2>Three jobs that get called by one name</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Half of what gets called a dashboard is a report: a complete record of a period, read through once, filed. Some of it is an analysis: one question, investigated once, with a conclusion. A dashboard is neither. It is monitored, which means the same screen is opened again and again, and the reader already knows where to look. Sorting the three jobs is the first thing Tomas does for Priya, because each job wants a different artefact and only one of them is a single screen.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn panels side by side. Report: a stack of pages, read once, complete, filed, with a note that the reader reads it top to bottom. Dashboard: one screen with six tiles, opened on a schedule, monitored at a glance, with a note that the reader knows where to look. Analysis: a page with a chart and a conclusion, one question, once, with a note that the reader is the analyst. Below each panel the Saltmarsh example: the monthly carrier invoice reconciliation, the Monday operations screen, why late deliveries doubled in March. The dashboard panel is outlined in signal green.">
+        <defs>
+          <filter id="f1bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="23" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f1bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f1bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f1bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f1bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f1bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f1bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f1bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f1bH" x="30" y="26">REPORT, DASHBOARD, ANALYSIS: WHAT THE READER DOES WITH EACH</text>
+
+        <g filter="url(#f1bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="250" height="200" rx="10" transform="rotate(-0.5 165 148)" fill="#FFFFFF"/>
+          <rect x="112" y="80" width="110" height="80" rx="3" transform="rotate(-1 167 120)" fill="#FFFFFF"/>
+          <path d="M108 90 L108 166 L212 166" stroke="#C5CEDF"/>
+          <path d="M102 96 L102 172 L206 172" stroke="#C5CEDF"/>
+          <path d="M126 98 L208 98 M126 112 L208 112 M126 126 L208 126 M126 140 L190 140" stroke="#C5CEDF" stroke-width="1.4"/>
+
+          <rect x="315" y="48" width="250" height="200" rx="10" transform="rotate(0.4 440 148)" fill="#FFFFFF" stroke="#2DBE7A"/>
+          <rect x="350" y="86" width="180" height="90" rx="6" fill="#FFFFFF"/>
+          <rect x="360" y="96" width="50" height="30" rx="3" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="416" y="96" width="50" height="30" rx="3" fill="#EDF3FD"/>
+          <rect x="472" y="96" width="50" height="30" rx="3" fill="#EDF3FD"/>
+          <rect x="360" y="134" width="50" height="30" rx="3" fill="url(#f1bHc)"/>
+          <rect x="416" y="134" width="50" height="30" rx="3" fill="url(#f1bHc)"/>
+          <rect x="472" y="134" width="50" height="30" rx="3" fill="url(#f1bHc)"/>
+
+          <rect x="590" y="48" width="250" height="200" rx="10" transform="rotate(-0.6 715 148)" fill="#FFFFFF"/>
+          <rect x="650" y="84" width="130" height="92" rx="3" transform="rotate(1 715 130)" fill="#FFFFFF"/>
+          <path d="M664 150 L686 132 L704 140 L724 112 L744 118 L764 100" stroke="#2460D0"/>
+          <path d="M664 160 L764 160" stroke="#C5CEDF" stroke-width="1.4"/>
+          <path d="M664 170 L740 170" stroke="#C5CEDF" stroke-width="1.4"/>
+        </g>
+
+        <text class="f1bA" x="165" y="70" text-anchor="middle">REPORT</text>
+        <text class="f1bS" x="165" y="196" text-anchor="middle">read once, top to bottom</text>
+        <text class="f1bS" x="165" y="212" text-anchor="middle">complete, then filed</text>
+        <text class="f1bS" x="165" y="228" text-anchor="middle">as many pages as it takes</text>
+        <text class="f1bB" x="440" y="70" text-anchor="middle">DASHBOARD</text>
+        <text class="f1bS" x="440" y="196" text-anchor="middle">opened on a schedule</text>
+        <text class="f1bS" x="440" y="212" text-anchor="middle">monitored at a glance</text>
+        <text class="f1bS" x="440" y="228" text-anchor="middle">one screen, reader knows where to look</text>
+        <text class="f1bA" x="715" y="70" text-anchor="middle">ANALYSIS</text>
+        <text class="f1bS" x="715" y="196" text-anchor="middle">one question, once</text>
+        <text class="f1bS" x="715" y="212" text-anchor="middle">a conclusion at the end</text>
+        <text class="f1bS" x="715" y="228" text-anchor="middle">the reader is the analyst</text>
+        <text class="f1bL" x="165" y="276" text-anchor="middle">monthly carrier invoice check</text>
+        <text class="f1bL" x="440" y="276" text-anchor="middle">the Monday operations screen</text>
+        <text class="f1bL" x="715" y="276" text-anchor="middle">why late deliveries doubled</text>
+
+        <text class="f1bN" x="30" y="312">Saltmarsh examples constructed. Few, 2004: a style of presentation, not a type of information or technology.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the middle panel is the only one with a schedule and a reader who already knows where to look; the other two are fine things that are not dashboards</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The ten-second sort<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ask three questions of any screen someone calls a dashboard. <strong>Is it opened on a schedule by the same person?</strong> If it is opened once, it is an analysis or a report. <strong>Does the reader already know where to look?</strong> If every visit starts with a search for the relevant number, it is a report with charts. <strong>Does it fit the glance?</strong> If answering the question needs a scroll, a filter and a download, it is an analysis tool.</p>
+        <p>At Saltmarsh (constructed), Priya's request turns out to be three artefacts. Finance wants the monthly reconciliation of carrier invoices against shipments: complete, filed, a report. Priya herself wants to know why late deliveries doubled last March: one question, once, an analysis Tomas will do in a notebook. Nia wants to know every Monday whether deliveries are slipping, demand fell, money fell and where the backlog sits: four recurring questions, one reader, one screen. Only the third is the dashboard, and it is the only one Tomas designs tonight.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the mix-up costs more than a name<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A report built as a dashboard loses its completeness: the single-screen constraint forces cuts a report must not make, so the finance team ends up exporting the data behind it and rebuilding the full table by hand. An analysis built as a dashboard loses its conclusion: a screen of filters invites the reader to redo the investigation every time instead of reading the answer once. A dashboard built as a report loses the glance: Nia scrolls, searches, and after three Mondays stops opening it.</p>
+        <p>The costs are different, which is why the sort comes before the design. The Business Intelligence course teaches how a leader reads a dashboard and how to commission one; those two pages are linked from the cheat sheet rather than repeated here. Tonight's job is narrower: deciding that the thing is a dashboard at all, and for whom.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Say the sort out loud to the person who asked.</strong> "You have asked for three things: a monthly report for finance, one investigation into March, and a Monday screen for Nia. I will build the screen first, because it is the one that gets opened fifty times a year." A sponsor who hears that usually agrees, and has just told you who the user is.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the glance and the decision test</span>
+      <h2>The glance it has to survive, and the decision it has to change</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A glance is not a metaphor. It is a measurable slice of someone's Monday: the time between opening the screen and the first thing they say about it. Design for the slice you actually get, and tie every tile to a decision that slice could change. A tile whose answer changes no decision is information, and information that changes nothing is what a report is for.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A horizontal time rail for the Monday stand-up from 09:00 to 09:15. A short highlighted segment at the start, about thirty seconds, is labelled the glance: the screen is open, Nia speaks first. Three hand-drawn hazards sit after the glance labelled scroll, filter, export, each with the note the glance is over, she is reading. Below the rail, a two-column table drawn by hand: question on the left, decision it changes on the right, four rows for Saltmarsh, with a fifth row where the decision column is empty and the row is struck through, labelled cut it.">
+        <defs>
+          <filter id="f1cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="37" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="f1cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f1cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f1cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f1cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f1cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f1cA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f1cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f1cH" x="30" y="26">THE GLANCE IS A SLICE OF THE MEETING, AND EVERY TILE PAYS FOR ITS PLACE WITH A DECISION</text>
+
+        <g filter="url(#f1cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M60 86 L820 86" marker-end="url(#f1cAr)"/>
+          <rect x="60" y="72" width="60" height="28" rx="6" fill="#2DBE7A"/>
+          <path d="M260 78 L260 94 M470 78 L470 94 M680 78 L680 94"/>
+          <rect x="60" y="150" width="760" height="150" rx="8" transform="rotate(0.2 440 225)" fill="#FFFFFF"/>
+          <path d="M76 180 L804 180 M76 206 L804 206 M76 232 L804 232 M76 258 L804 258" stroke="#C5CEDF" stroke-width="1.2"/>
+          <path d="M440 158 L440 294" stroke="#C5CEDF" stroke-width="1.2"/>
+          <path d="M76 292 L804 292" stroke="#B42318" stroke-width="2" data-strike="true"/>
+        </g>
+
+        <text class="f1cB" x="128" y="66">the glance, about 30 s: screen open, Nia speaks first</text>
+        <text class="f1cS" x="60" y="118">09:00</text>
+        <text class="f1cS" x="820" y="118" text-anchor="end">09:15</text>
+        <text class="f1cL" x="260" y="118" text-anchor="middle">scroll</text>
+        <text class="f1cL" x="470" y="118" text-anchor="middle">filter</text>
+        <text class="f1cL" x="680" y="118" text-anchor="middle">export</text>
+        <text class="f1cS" x="470" y="134" text-anchor="middle">past any of these the glance is over and she is reading</text>
+        <text class="f1cA" x="90" y="172">QUESTION ON THE SCREEN</text>
+        <text class="f1cA" x="456" y="172">DECISION IT CHANGES, AND WHOSE</text>
+        <text class="f1cS" x="90" y="198">Are deliveries slipping?</text>
+        <text class="f1cS" x="456" y="198">Nia calls the carrier, or adds the second one</text>
+        <text class="f1cS" x="90" y="224">Did demand fall?</text>
+        <text class="f1cS" x="456" y="224">Priya pauses or extends the promotion</text>
+        <text class="f1cS" x="90" y="250">Did the money fall?</text>
+        <text class="f1cS" x="456" y="250">Priya and Nia agree whether to act this week at all</text>
+        <text class="f1cS" x="90" y="276">Where is the backlog?</text>
+        <text class="f1cS" x="456" y="276">Kofi moves people between picking and packing</text>
+        <text class="f1cS" x="90" y="296">Average basket size by marketplace</text>
+        <text class="f1cS" x="456" y="296">no Monday decision: cut it, or file it in the report</text>
+
+        <text class="f1cN" x="30" y="316">Saltmarsh is constructed. The thirty seconds are an estimate to measure in session 5, not a rule.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the struck row is the whole method: a tile with an empty decision column leaves the screen, however interesting it is</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Measure the glance before you design for it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Tomas does not guess how long Nia's glance is. He sits in one Monday stand-up with a stopwatch and notes when the screen opens and when the first operational sentence is spoken. At Saltmarsh (constructed) the honest answer is about half a minute before Kofi starts talking about Thursday's backlog, and that half minute is the design budget. Everything the screen has to say about the four questions must be sayable in that time, by Nia, without touching the mouse.</p>
+        <p>Thirty seconds sounds brutal and is in fact generous. It is long enough to read four large numbers, their direction since last week and their colour, if the layout puts them where the eye lands first, which is session 2. It is not long enough to find a number in a table, change a date filter or read a legend. Session 5 turns this into a repeatable test with five readers and three tasks; tonight the point is only that the glance is a number you can measure, not a word in a definition.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The decision column, and the tiles it kills<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every candidate tile gets a row with two columns: the question it answers, and the decision that answer changes, with the name of the person who makes it. "Average basket size by marketplace" is a real, useful number at Saltmarsh (constructed) and it has an empty decision column on Monday morning: nobody reprices anything in the stand-up. It leaves the screen and goes into the monthly report, where someone with a repricing decision will read it. The tile is not wrong. It was on the wrong artefact.</p>
+        <p>Two things make this harder than it sounds. First, people defend tiles by their interest, not by their decision, and "it is good to know" is the sentence to listen for. Second, a decision can be "do nothing this week", which is a real decision only if the alternative was a real action. "Did the money fall?" earns its row because Priya and Nia use it to decide whether anything else on the screen is worth acting on this week. A row that cannot name a concrete alternative action is a report row.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The dashboard nobody opens.</strong> A familiar pattern: a screen with twenty tiles is launched, usage is high in week one and near zero by month three, and the explanation offered is that people are busy. Ask what decision each tile changed and when. Usually two tiles change a weekly decision and eighteen change nothing, so the two readers who needed the two tiles stopped paying the cost of finding them among the eighteen. Busy people are not the problem. Tiles without decisions are.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>The four-line brief, and the tile list it produces</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tomas writes four lines before he opens any tool, and then uses them to sort every candidate tile into "on the screen", "one click away" or "somewhere else". Write the same four lines for a dashboard of your own as you go; if you have none in hand, use Saltmarsh (constructed). The brief is short on purpose. Each line is a question the sponsor answers so the design does not have to guess.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn sheet on the left with four ruled lines labelled who looks, what question and when, what decision it changes, what the glance must answer. An arrow leads right into a pile of twenty-three candidate tiles drawn as small hachured notes. Three arrows leave the pile into three bins: on the screen with six tiles, one click away with five tiles, and somewhere else with twelve tiles. The on-the-screen bin is outlined in signal green.">
+        <defs>
+          <filter id="f1dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f1dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f1dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f1dH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f1dL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f1dS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f1dB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f1dV { font: 800 16px Inter, sans-serif; fill: #163C8A; }
+          .f1dN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f1dH" x="30" y="26">FOUR LINES IN, THREE BINS OUT: THE BRIEF SORTS THE TILES SO THE DESIGNER DOES NOT HAVE TO ARGUE</text>
+
+        <g filter="url(#f1dSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="56" width="230" height="150" rx="8" transform="rotate(-0.8 155 131)" fill="#FFFFFF"/>
+          <path d="M56 92 L254 92 M56 124 L254 124 M56 156 L254 156 M56 188 L254 188" stroke="#C5CEDF" stroke-width="1.2"/>
+          <path d="M276 130 L330 130" marker-end="url(#f1dAr)"/>
+          <rect x="350" y="70" width="34" height="22" rx="3" transform="rotate(-6 367 81)" fill="url(#f1dHc)"/>
+          <rect x="392" y="66" width="34" height="22" rx="3" transform="rotate(4 409 77)" fill="url(#f1dHc)"/>
+          <rect x="434" y="72" width="34" height="22" rx="3" transform="rotate(-3 451 83)" fill="url(#f1dHc)"/>
+          <rect x="356" y="104" width="34" height="22" rx="3" transform="rotate(5 373 115)" fill="url(#f1dHc)"/>
+          <rect x="398" y="100" width="34" height="22" rx="3" transform="rotate(-4 415 111)" fill="url(#f1dHc)"/>
+          <rect x="440" y="106" width="34" height="22" rx="3" transform="rotate(3 457 117)" fill="url(#f1dHc)"/>
+          <rect x="350" y="138" width="34" height="22" rx="3" transform="rotate(-5 367 149)" fill="url(#f1dHc)"/>
+          <rect x="392" y="134" width="34" height="22" rx="3" transform="rotate(6 409 145)" fill="url(#f1dHc)"/>
+          <rect x="434" y="140" width="34" height="22" rx="3" transform="rotate(-2 451 151)" fill="url(#f1dHc)"/>
+          <rect x="356" y="172" width="34" height="22" rx="3" transform="rotate(4 373 183)" fill="url(#f1dHc)"/>
+          <rect x="398" y="168" width="34" height="22" rx="3" transform="rotate(-6 415 179)" fill="url(#f1dHc)"/>
+          <rect x="440" y="174" width="34" height="22" rx="3" transform="rotate(2 457 185)" fill="url(#f1dHc)"/>
+          <path d="M486 92 L600 72" marker-end="url(#f1dAr)"/>
+          <path d="M486 130 L600 130" marker-end="url(#f1dAr)"/>
+          <path d="M486 168 L600 188" marker-end="url(#f1dAr)"/>
+          <rect x="616" y="50" width="230" height="44" rx="8" transform="rotate(0.6 731 72)" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="616" y="108" width="230" height="44" rx="8" transform="rotate(-0.5 731 130)" fill="#EDF3FD"/>
+          <rect x="616" y="166" width="230" height="44" rx="8" transform="rotate(0.4 731 188)" fill="#FFFFFF"/>
+        </g>
+
+        <text class="f1dS" x="58" y="86">1 · who looks, and when</text>
+        <text class="f1dS" x="58" y="118">2 · what question they bring</text>
+        <text class="f1dB" x="58" y="150">3 · what decision the answer changes</text>
+        <text class="f1dS" x="58" y="182">4 · what the glance must answer</text>
+        <text class="f1dL" x="412" y="222" text-anchor="middle">23 candidate tiles</text>
+        <text class="f1dS" x="412" y="238" text-anchor="middle">everything the warehouse can chart</text>
+        <text class="f1dB" x="634" y="68">ON THE SCREEN</text>
+        <text class="f1dV" x="830" y="80" text-anchor="end">6</text>
+        <text class="f1dL" x="634" y="126">ONE CLICK AWAY</text>
+        <text class="f1dV" x="830" y="138" text-anchor="end">5</text>
+        <text class="f1dL" x="634" y="184">SOMEWHERE ELSE</text>
+        <text class="f1dV" x="830" y="196" text-anchor="end">12</text>
+        <text class="f1dS" x="731" y="232" text-anchor="middle">a report, an analysis, or nowhere</text>
+
+        <text class="f1dN" x="30" y="274">Saltmarsh counts constructed. Line 3 is the sorter: a tile with no decision never reaches the screen.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the pile is the tool's default; the three bins are the brief doing its job before a single tile is drawn</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Name the person and the moment.</strong> Not a department, a person, with the day and time the screen is opened. If you cannot name one, you do not yet have a dashboard, you have a request. Tomas names Nia and the Monday stand-up.</p>
+        <div class="prompt-box good"><span class="label">★ Line 1 · who looks, and when</span>Who:   Nia, operations lead (Kofi, warehouse lead, looks over her shoulder)
+When:  Monday 09:00 stand-up, every week, on the meeting-room screen
+Also:  Priya opens it on her phone on Monday evening, read-only
+
+Test: can you say the person's name and the clock time?  yes</div>
+      </div>
+      <div class="step">
+        <p><strong>Write the questions the reader already asks.</strong> In the reader's words, as questions, not as metric names. Then count them. More than about four recurring questions and you are designing two screens, or a report.</p>
+        <div class="prompt-box good"><span class="label">★ Line 2 · the questions, in Nia's words</span>Q1  Are deliveries slipping this week?
+Q2  Did demand fall?
+Q3  Did the money fall?
+Q4  Where is the backlog sitting in the warehouse?
+
+Not asked on Monday: basket size, category mix, review scores
+(those are Priya's monthly questions: a report)</div>
+      </div>
+      <div class="step">
+        <p><strong>Tie each question to a decision and a name.</strong> This is the line most people skip, and the one that cuts the tile count. Write the concrete action and its alternative. "Do nothing" counts only if the alternative was a real action with a cost.</p>
+        <div class="prompt-box good"><span class="label">★ Line 3 · what each answer changes, and whose decision it is</span>Q1 slipping?    -&gt; Nia calls the carrier today, or books the second carrier
+Q2 demand fell? -&gt; Priya pauses or extends the marketplace promotion
+Q3 money fell?  -&gt; Priya + Nia decide whether to act on anything this week
+Q4 backlog?     -&gt; Kofi moves two people from picking to packing, or back
+
+Empty decision column = not on this screen.</div>
+      </div>
+      <div class="step">
+        <p><strong>Say what the glance must answer, in one breath.</strong> This is the sentence Nia should be able to say thirty seconds after the screen opens, with no mouse. Write it before any layout; session 2 designs the first glance around it.</p>
+        <div class="prompt-box good"><span class="label">★ Line 4 · the glance</span>"Deliveries are fine / slipping, demand is up / down on last week,
+ money is up / down, and the backlog is in picking / packing / clear."
+
+One sentence, four slots, about 30 seconds (measured once in a stand-up,
+to be re-measured with five readers in session 5).</div>
+      </div>
+      <div class="step">
+        <p><strong>Sort every candidate tile with line 3.</strong> List everything the data could show, then put each item in one of three bins. Nothing is deleted; it is placed. The screen bin is small because the glance is small.</p>
+        <div class="prompt-box good"><span class="label">★ The sort · 23 candidates into three bins</span>ON THE SCREEN (6)      late deliveries this week · delivery days vs promise ·
+                       orders this week · revenue this week · backlog by stage ·
+                       carrier share of late orders
+ONE CLICK AWAY (5)     late orders by region · by carrier · by weekday ·
+                       orders by marketplace · backlog by hour
+SOMEWHERE ELSE (12)    basket size, category mix, review scores, payment types,
+                       freight cost per order ... -&gt; Priya's monthly report,
+                       or the March analysis, or nowhere
+
+Your numbers will differ. Saltmarsh's are constructed.</div>
+      </div>
+      <div class="step">
+        <p><strong>Read the brief back to the sponsor.</strong> Four lines and three bins, out loud, to Priya. The test question is the one that saves months: "If Nia reads this screen and calls the carrier, will you stand behind that call?"</p>
+        <div class="prompt-box good"><span class="label">★ The read-back</span>"Nia opens this at the Monday stand-up. In thirty seconds it answers whether
+ deliveries slipped, demand fell, money fell and where the backlog is. Each
+ answer changes one named decision. Twelve things you asked about are in the
+ monthly report instead. If Nia acts on this screen, will you back her?"
+
+A sponsor who hesitates has just told you who the real reader is.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the three bins visible to the team.</strong> When someone asks for "one more tile", point at the bins and ask which bin, and what decision moves it to the screen. Most requests sort themselves into "one click away" without an argument, and the glance stays intact.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 2</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Sort three screens you already have.</strong> For each thing your team calls a dashboard, run the ten-second sort: opened on a schedule by the same person, reader knows where to look, fits the glance. Name which of the three jobs each one is really doing.</li>
+      <li><strong>Finish your brief.</strong> All four lines for a real screen you will build or own. If line 3 is empty for most of the tiles, that is the finding, and it is a useful one.</li>
+      <li><strong>Time one glance.</strong> Sit in one recurring meeting where a screen is opened and note the seconds from open to the first operational sentence. Bring the number.</li>
+      <li><strong>Bring the line-4 sentence</strong> from your brief. Session 2 lays out the first glance around it.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 1 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Finance asks Tomas for "a dashboard" of every carrier invoice against every shipment for the month, which they read line by line and file. What is it?</p>
+      <button class="qopt" type="button">A · A dashboard, because it is built in the same tool and refreshed monthly</button>
+      <button class="qopt" type="button">B · An analysis, because it answers one question about carriers</button>
+      <button class="qopt" type="button">C · A report: complete, read once top to bottom and filed, so the single-screen and glance conditions do not apply and should not be forced on it</button>
+      <button class="qopt" type="button">D · A dashboard, as long as the table fits on one screen at a small font</button>
+      <p class="qwhy">Few's definition is about how a display is used, not what tool made it. A complete record read through once and filed is a report; squeezing it onto one screen would cost the completeness a report exists for. The tool and the refresh schedule do not change the job.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · A tile shows average basket size by marketplace. It is accurate, interesting, and nobody at the Monday stand-up changes anything because of it. What does the brief say?</p>
+      <button class="qopt" type="button">A · Move it off the screen, into the monthly report or one click away; a tile with an empty decision column is information, and the glance cannot afford information</button>
+      <button class="qopt" type="button">B · Keep it, because accurate numbers never hurt</button>
+      <button class="qopt" type="button">C · Keep it but make it smaller so it costs less of the glance</button>
+      <button class="qopt" type="button">D · Replace it with a chart of the same number, which is quicker to read</button>
+      <p class="qwhy">Line 3 is the sorter. The tile is not wrong; it is on the wrong artefact. Making it smaller still spends part of a thirty-second glance on something that changes no Monday decision, and a chart of it spends more.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · What does "monitored at a glance" commit you to, in Few's definition as read?</p>
+      <button class="qopt" type="button">A · The screen must use gauges, since gauges are read at a glance</button>
+      <button class="qopt" type="button">B · The screen must refresh in real time</button>
+      <button class="qopt" type="button">C · The screen must be the tool vendor's dashboard type, not a report type</button>
+      <button class="qopt" type="button">D · The same reader comes back to the same single screen on a schedule and can answer their question in seconds without scrolling, filtering or exporting</button>
+      <p class="qwhy">Monitored means recurring; a glance means seconds; a single screen means no scroll. Few says in the same article that a dashboard is a style of presentation, not a technology, so neither gauges, real time nor a vendor's object type are part of the definition.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Few, S. (2004). Dashboard Confusion. Intelligent Enterprise, 20 March 2004</span><span class="note">The definition, "the means is a single-screen display", "a type of display or style of presentation, not a specific type of information or technology" and the "Customized" bullet, read in the Perceptual Edge PDF</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Few, S. (2006). Information Dashboard Design</span><span class="note">Reported: named as the book where the definition is developed; not read at source here, and its pitfall library is taught in the Business Intelligence course</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The ten-second sort, the decision column and the four-line brief</span><span class="note">Common practice assembled here from the four parts of Few's sentence; no single source prescribes these exact lines</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, Nia, Tomas, Priya, Kofi, the 23 tiles and the thirty seconds</span><span class="note">Constructed for teaching; no number about them is a measurement</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The definition, read</b><span>Most important information, for someone's objectives, on a single screen, monitored at a glance. Few, 2004.</span></div>
+      <div class="cheat-item"><b>Three jobs, one word</b><span>Report: complete, read once, filed. Analysis: one question, once. Dashboard: same reader, same screen, on a schedule.</span></div>
+      <div class="cheat-item"><b>The ten-second sort</b><span>Opened on a schedule by the same person? Reader knows where to look? Fits the glance without scroll, filter or export?</span></div>
+      <div class="cheat-item"><b>The glance is a number</b><span>Seconds from screen open to the first operational sentence. Measure it once, then design for it.</span></div>
+      <div class="cheat-item"><b>The decision column</b><span>Question, decision it changes, whose. Empty column means report, not screen.</span></div>
+      <div class="cheat-item"><b>Next door</b><span>Reading one as a leader and commissioning one: Business Intelligence a2 and a4. Chart craft: Dataviz.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Tomas now knows who looks, what they ask, what they decide and how long he has. Session 2 spends those thirty seconds: visual weight as size times contrast times position, the reading order, the one number the eye lands on first, and the squint test. It also reads two famous claims at source, the F-pattern and Miller's seven, and finds that neither says what dashboards are usually told it says.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 1 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← Course home</a> &nbsp;·&nbsp; <a href="02-hierarchy-first-glance.html">Next: Hierarchy and the first glance →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

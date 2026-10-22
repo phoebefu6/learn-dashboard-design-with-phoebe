@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Six sessions on designing a dashboard that answers a question someone has on a schedule: who looks and what they decide, hierarchy and the first glance, density and grouping, colour as state, interaction and the five-user test, and a red-amber-green bench on 581 real days of Olist orders, every false alarm and missed change counted in your browser. Free, by Phoebe Fu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Learn Dashboard Design with Phoebe">
+<meta property="og:description" content="A dashboard is a screen that answers a question someone has on a schedule. Six sessions, one constructed retailer, and 581 real days on the bench: set the thresholds, count the false alarms.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn Dashboard Design with Phoebe">
+<meta name="twitter:description" content="Set red, amber and green on a real daily series and watch the false alarms and the missed changes, counted live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Learn Dashboard Design with Phoebe</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: 1; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(var(--shadow-rgb),.16); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo-deep); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--muted); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,var(--indigo-50)); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+  .not-this { border: 1px solid var(--hairline); border-left: 4px solid var(--clay); border-radius: var(--radius); background: #fff; padding: 1.1rem 1.3rem; margin-top: 1.2rem; }
+  .not-this h3 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn with Phoebe · Visualisation</div>
+    <h1>Learn <span class="accent">Dashboard Design</span> with Phoebe</h1>
+    <p class="sub">A dashboard is a screen that answers a question someone has on a schedule. Everything on it earns its place by the decision it changes and the glance it survives. Six sessions on getting that right: who looks and what they decide, the first glance and visual weight, density and grouping, colour as the state of a card, interaction and a five-user test, and a bench where you set red, amber and green on 581 real days of orders and deliveries and watch the false alarms and the missed changes get counted in your browser.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="6">6</b><span>sessions</span></div>
+      <div class="stat"><b data-count="581">581</b><span>real days on the bench</span></div>
+      <div class="stat"><b data-count="98639">98,639</b><span>orders behind the series</span></div>
+      <div class="stat"><b data-count="3">3</b><span>sustained shifts in late deliveries, by the rule</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>The six sessions 🧭 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· from the person who looks to the colour they trust</span></h2>
+      <p class="plede">The running case is <strong>Saltmarsh, a constructed home-goods retailer</strong>. Priya, the managing director, has asked for "a dashboard". Tomas, the analyst, is designing the weekly operations screen that Nia, the operations lead, opens at the Monday 09:00 stand-up: are deliveries slipping, did demand fall, did the money fall, where is the backlog. Saltmarsh and everyone in it are invented for teaching, and every page says so. The numbers on its cards are real: daily aggregates from the Brazilian E-Commerce Public Dataset by Olist, named as the source wherever they appear.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/01-who-looks-what-they-decide.html" style="--diff:#34D399">
+        <span class="cicon">👀</span>
+        <span class="cnum">Session 1 · foundations</span>
+        <h3>Who looks, and what they decide</h3>
+        <p>User, question, decision, glance. Few's definition read at source, a report against a dashboard against an analysis, and the four-line brief that decides what goes on the screen before anything is drawn.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span></span>
+      </a>
+      <a class="course-card" href="courses/02-hierarchy-first-glance.html" style="--diff:#FBBF24">
+        <span class="cicon">🔍</span>
+        <span class="cnum">Session 2 · core</span>
+        <h3>Hierarchy and the first glance</h3>
+        <p>Visual weight as size times contrast times position, the reading order, the one number, the squint test. What NN/g's F-pattern really measured and what Miller's seven does not say about tiles.</p>
+        <span class="meta"><span class="pill">the one number</span></span>
+      </a>
+      <a class="course-card" href="courses/03-density-grouping-white-space.html" style="--diff:#FBBF24">
+        <span class="cicon">▦</span>
+        <span class="cnum">Session 3 · core</span>
+        <h3>Density, grouping and white space</h3>
+        <p>One screen. Tiles against tables, grouping by the question and not by the data source, and progressive disclosure: what is on the screen, what is one click away, what is a report.</p>
+        <span class="meta"><span class="pill">group by question</span></span>
+      </a>
+      <a class="course-card" href="courses/04-colour-as-state.html" style="--diff:#FB923C">
+        <span class="cicon">🟩</span>
+        <span class="cnum">Session 4 · deeper</span>
+        <h3>Colour as state</h3>
+        <p>The KPI card: value, delta, context band. Red, amber and green as the state of a card and never as decoration, colour never the only channel, colour-blind safety, and when colour should mean nothing.</p>
+        <span class="meta"><span class="pill">the KPI card</span></span>
+      </a>
+      <a class="course-card" href="courses/05-interaction-defaults-usability-test.html" style="--diff:#FB923C">
+        <span class="cicon">🧪</span>
+        <span class="cnum">Session 5 · deeper</span>
+        <h3>Interaction, defaults and the usability test</h3>
+        <p>Filters, drill and the default view most people will ever see. One five-user task test, read at source with its caveats, and what "gets used" actually measures.</p>
+        <span class="meta"><span class="pill">five users, three tasks</span></span>
+      </a>
+      <a class="course-card" href="courses/06-the-red-amber-green-bench.html" style="--diff:#F87171">
+        <span class="cicon">🚦</span>
+        <span class="cnum">Session 6 · bench night</span>
+        <h3>The red-amber-green bench</h3>
+        <p>581 real days. Set the thresholds on a late-deliveries card and the bench counts false-alarm days, missed changes and time in each colour. Launch thresholds, the series' spread, a context band, persistence, and two buttons that make it worse.</p>
+        <span class="meta"><span class="pill amber">★ the bench</span></span>
+      </a>
+    </div>
+    <div class="diff-legend">
+      <span><i style="background:#34D399"></i>foundations</span>
+      <span><i style="background:#FBBF24"></i>core</span>
+      <span><i style="background:#FB923C"></i>deeper</span>
+      <span><i style="background:#F87171"></i>bench night</span>
+    </div>
+  </section>
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Your passport 🎫</h2>
+      <p class="plede">Clear all three quiz questions in a session and it gets stamped. Six stamps means you can write the four-line brief, lay out a first glance, cut a screen to what it needs, build a KPI card whose colour means a state, run a five-user test, and set thresholds you can defend with a false-alarm count. Stamps live in this browser only.</p>
+    </div>
+    <div class="pp-strip"></div>
+  </section>
+  <section class="section">
+    <div class="not-this">
+      <h3>What this is not, so you land in the right place 🧭</h3>
+      <table class="clean">
+        <tr><th>If your question is</th><th>Go here instead</th></tr>
+        <tr><td>Which chart, which colour scale, which mark?</td><td><a href="https://phoebefu6.github.io/learn-dataviz-with-phoebe/">Dataviz ↗</a></td></tr>
+        <tr><td>How do I build it in a BI tool, model the data, commission or read one as a leader?</td><td><a href="https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/">Business Intelligence ↗</a></td></tr>
+        <tr><td>How do I alert on a pipeline, set an SLO or a burn rate?</td><td><a href="https://phoebefu6.github.io/learn-data-observability-with-phoebe/">Data Observability ↗</a> · <a href="https://phoebefu6.github.io/learn-data-reliability-with-phoebe/">Data Reliability ↗</a></td></tr>
+        <tr><td>Which detector finds the anomaly?</td><td><a href="https://phoebefu6.github.io/learn-anomaly-detection-with-phoebe/">Anomaly Detection ↗</a></td></tr>
+        <tr><td>How do I tell the story of the numbers in a deck?</td><td><a href="https://phoebefu6.github.io/learn-visual-storytelling-with-phoebe/">Visual Storytelling ↗</a></td></tr>
+        <tr><td>How do I run user research in general?</td><td><a href="https://phoebefu6.github.io/learn-product-design-with-phoebe/">Product Design ↗</a></td></tr>
+        <tr><td><strong>Someone will open one screen every Monday and decide something from it. What goes on it, where, and in what colour?</strong></td><td><strong>you are in the right place</strong></td></tr>
+      </table>
+      <p style="margin-top:.7rem;font-size:.86rem;color:var(--muted)"><strong>The screen itself: layout, hierarchy, the KPI card and the colour of its state.</strong> Chart craft, the data layer, pipeline alerting, detectors, narrative and general UX method are taught next door and linked from here rather than repeated.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="paths">
+      <h2>Choose your path 🗺️</h2>
+      <p class="plede">Three doors into the same conviction: a dashboard is for a person, a question and a decision, and its colours have to earn their keep.</p>
+      <div class="path"><b>📅 I ship a dashboard next week</b>
+        <a class="pstep" href="courses/01-who-looks-what-they-decide.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-hierarchy-first-glance.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-density-grouping-white-space.html">3</a>
+        <span style="font-size:.82rem;color:var(--muted)">brief, first glance, one screen</span>
+      </div>
+      <div class="path"><b>🚦 Ours is red every Monday</b>
+        <a class="pstep" href="courses/06-the-red-amber-green-bench.html">6</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-colour-as-state.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-interaction-defaults-usability-test.html">5</a>
+        <span style="font-size:.82rem;color:var(--muted)">count the false alarms, fix the card, test it on five people</span>
+      </div>
+      <div class="path"><b>🧭 The whole craft</b>
+        <a class="pstep" href="courses/01-who-looks-what-they-decide.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-hierarchy-first-glance.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-density-grouping-white-space.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-colour-as-state.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-interaction-defaults-usability-test.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-the-red-amber-green-bench.html">6</a>
+        <span style="font-size:.82rem;color:var(--muted)">from the person who looks to the thresholds you can defend</span>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="not-this">
+      <h3>What is real here, and what is not 🔎</h3>
+      <table class="clean">
+        <tr><th>Thing</th><th>Status</th></tr>
+        <tr><td>581 days of orders, revenue, delivery delay and late share on the bench</td><td><strong>Real.</strong> Daily aggregates derived from the Brazilian E-Commerce Public Dataset by Olist (Kaggle, CC BY-NC-SA 4.0); no order, customer, product or review leaves the source</td></tr>
+        <tr><td>False-alarm days, missed changes, time in each colour</td><td><strong>Computed in your browser</strong> from those days for the thresholds you set, and checked against an independent Python run on every number</td></tr>
+        <tr><td>What counts as a "real change"</td><td><strong>A stated rule of the bench,</strong> printed on the widget: a sustained shift for the worse found by sliding two 28-day windows. Not a fact about Olist; change the rule and the scores change</td></tr>
+        <tr><td>"Five users find 85% of problems", "users read in an F", "seven plus or minus two"</td><td><strong>Read at source</strong> and taught with the caveats their authors attached: a model with a typical rate, a scanning pattern on unformatted text that its own authors call bad, a memory paper that never mentions a screen</td></tr>
+        <tr><td>Few's definition of a dashboard</td><td><strong>Read at source</strong> in his 2004 article; his book is cited as reported</td></tr>
+        <tr><td>Saltmarsh, Nia, Tomas, Priya, Kofi and the Monday stand-up</td><td><strong>Constructed,</strong> for teaching</td></tr>
+      </table>
+    </div>
+  </section>
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">The whole path at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+  <footer class="pagefoot">
+    <span>learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span>Neighbours on the shelf: <a href="https://phoebefu6.github.io/learn-dataviz-with-phoebe/">Dataviz ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/">Business Intelligence ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-visual-storytelling-with-phoebe/">Visual Storytelling ↗</a></span>
+  </footer>
+</main>
+<script>
+window.MINDMAP_DATA = {
+ "title": "Dashboard\nDesign",
+ "centerColor": "#163C8A",
+ "sessions": [
+  {
+   "label": "Who looks, and\nwhat they decide",
+   "href": "courses/01-who-looks-what-they-decide.html",
+   "color": "#34D399",
+   "concepts": [
+    {
+     "label": "User, question, decision",
+     "href": "courses/01-who-looks-what-they-decide.html"
+    },
+    {
+     "label": "Report vs dashboard",
+     "href": "courses/01-who-looks-what-they-decide.html"
+    },
+    {
+     "label": "The four-line brief",
+     "href": "courses/01-who-looks-what-they-decide.html"
+    }
+   ]
+  },
+  {
+   "label": "Hierarchy and\nthe first glance",
+   "href": "courses/02-hierarchy-first-glance.html",
+   "color": "#FBBF24",
+   "concepts": [
+    {
+     "label": "Weight = size x contrast",
+     "href": "courses/02-hierarchy-first-glance.html"
+    },
+    {
+     "label": "The one number",
+     "href": "courses/02-hierarchy-first-glance.html"
+    },
+    {
+     "label": "Squint test, Miller's seven",
+     "href": "courses/02-hierarchy-first-glance.html"
+    }
+   ]
+  },
+  {
+   "label": "Density, grouping\nand white space",
+   "href": "courses/03-density-grouping-white-space.html",
+   "color": "#FBBF24",
+   "concepts": [
+    {
+     "label": "One screen",
+     "href": "courses/03-density-grouping-white-space.html"
+    },
+    {
+     "label": "Group by the question",
+     "href": "courses/03-density-grouping-white-space.html"
+    },
+    {
+     "label": "Progressive disclosure",
+     "href": "courses/03-density-grouping-white-space.html"
+    }
+   ]
+  },
+  {
+   "label": "Colour as\nstate",
+   "href": "courses/04-colour-as-state.html",
+   "color": "#FB923C",
+   "concepts": [
+    {
+     "label": "KPI card anatomy",
+     "href": "courses/04-colour-as-state.html"
+    },
+    {
+     "label": "Red amber green = state",
+     "href": "courses/04-colour-as-state.html"
+    },
+    {
+     "label": "Colour never the only channel",
+     "href": "courses/04-colour-as-state.html"
+    }
+   ]
+  },
+  {
+   "label": "Interaction, defaults\nand the test",
+   "href": "courses/05-interaction-defaults-usability-test.html",
+   "color": "#FB923C",
+   "concepts": [
+    {
+     "label": "The default most people see",
+     "href": "courses/05-interaction-defaults-usability-test.html"
+    },
+    {
+     "label": "Five users, three tasks",
+     "href": "courses/05-interaction-defaults-usability-test.html"
+    },
+    {
+     "label": "What gets used measures",
+     "href": "courses/05-interaction-defaults-usability-test.html"
+    }
+   ]
+  },
+  {
+   "label": "The red-amber-\ngreen bench",
+   "href": "courses/06-the-red-amber-green-bench.html",
+   "color": "#F87171",
+   "concepts": [
+    {
+     "label": "False-alarm days per month",
+     "href": "courses/06-the-red-amber-green-bench.html"
+    },
+    {
+     "label": "Band, then persistence",
+     "href": "courses/06-the-red-amber-green-bench.html"
+    },
+    {
+     "label": "Tighten and hide: worse",
+     "href": "courses/06-the-red-amber-green-bench.html"
+    }
+   ]
+  }
+ ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

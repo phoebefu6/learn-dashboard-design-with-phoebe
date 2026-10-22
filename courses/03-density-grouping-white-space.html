@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 3 of 6. One screen as a hard edge, not a style; tiles against tables; grouping by the question the reader asks rather than by where the data came from; progressive disclosure as three layers for three readers; Tufte's data-ink ratio reported and Miller's seven read for what it does not say about tiles. Build-along: cutting 23 candidate tiles to six.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Density, grouping and white space - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 3 of 6. One screen, tiles against tables, group by the question, and three layers of disclosure. Twenty-three tiles become six.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/03-density-grouping-white-space.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Density, grouping and white space - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 3 of 6. The fold ends the glance, groups are chunks the reader can hold, and what is one click away is still part of the design.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 3 · Density, grouping and white space - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 3 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 3 of 6</div>
+    <h1>Density, grouping and <span class="accent">white space</span></h1>
+    <p class="sub">Session 2 decided where the eye lands first. Tonight is about everything else on the screen: how much of it there is, how it is grouped, and where the rest goes. The pressure is always in one direction. Every stakeholder has one more tile that is "good to know", the tool makes adding it free, and the screen fills until the glance is gone. Three ideas push back: one screen is a wall and not a style, tiles are grouped by the question the reader is asking and not by the system the data came from, and a number that is not on the screen is not deleted, it is one click away or in a report. Then Tomas takes the 23 candidate tiles from session 1 and cuts them to six, with a worksheet you can run on your own pile.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Core</span>
+      <span class="chip audience">Analysts and designers who build the screen</span>
+      <span class="chip audience">Leaders who read it on Monday</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · One screen, grouping, disclosure</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: 23 tiles to six</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Saltmarsh is an invented home-goods retailer with one warehouse; Nia, the operations lead, opens one screen at the Monday 09:00 stand-up to answer four questions: are deliveries slipping, did demand fall, did the money fall, where is the backlog. Tomas, the analyst, wrote the four-line brief in session 1 and sorted 23 candidate tiles into three bins. Session 2 gave the screen a first glance. Tonight the bins become a layout: what sits on the screen, how it is grouped, and what the reader reaches with one click. Where a Saltmarsh card shows a number, it is a real daily aggregate from the Brazilian E-Commerce Public Dataset by Olist, and the page says so each time.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = write it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A reason to treat the bottom edge of the screen as the end of the glance, a two-question test that decides tile or table for any number, a way to group a screen so a reader holds four questions instead of nineteen tiles, three layers of disclosure with a named reader for each, and a worksheet that cuts any pile of candidate tiles to the few that belong on the screen without deleting the rest.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers one screen and the ink on it</span>
+      <h2>The fold is where the glance ends</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Few's 2004 definition, read at source, says the information is "consolidated and arranged on a single screen so the information can be monitored at a glance", and in the same article: "The means is a single-screen display." That is not a preference for tidy layouts. It is a mechanical fact about reading. The moment Nia scrolls, she is no longer glancing at a screen; she is reading a page, and the tiles below the fold are read in a different mode by a different part of her attention, if they are read at all. Density is therefore a budget question before it is a taste question: how much can the single screen carry and still be glanced at?</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left, a hand-drawn monitor outlined in signal green holding six tiles in two rows of three: late this week, delivery days, by carrier, orders, revenue, backlog. Below the bottom edge of the monitor, three hachured tiles sit outside the screen, labelled below the fold: scrolled to, so read, not glanced. Right, one tile drawn large with a drop shadow and a logo: a title, the value 4.9 percent labelled Olist's median late share, a trend line over faint gridlines. Three numbered marks point out the ink that is data, the gridlines that frame it, and the shadow and logo that decorate it. A note says Few 2004: the means is a single-screen display; scrolling ends the glance.">
+        <defs>
+          <filter id="f3aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f3aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f3aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f3aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f3aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f3aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f3aV { font: 800 20px Inter, sans-serif; fill: #163C8A; }
+          .f3aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f3aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f3aH" x="30" y="26">ONE SCREEN IS A WALL: WHAT SITS BELOW THE FOLD IS READ, NOT GLANCED, AND HALF THE INK IS NOT DATA</text>
+
+        <g filter="url(#f3aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="400" height="230" rx="10" transform="rotate(0.4 240 165)" fill="#FFFFFF" stroke="#2DBE7A"/>
+          <rect x="62" y="76" width="112" height="74" rx="5" transform="rotate(-0.6 118 113)" fill="#EDF3FD"/>
+          <rect x="184" y="76" width="112" height="74" rx="5" transform="rotate(0.5 240 113)" fill="#EDF3FD"/>
+          <rect x="306" y="76" width="112" height="74" rx="5" transform="rotate(-0.4 362 113)" fill="#EDF3FD"/>
+          <rect x="62" y="164" width="112" height="74" rx="5" transform="rotate(0.6 118 201)" fill="#FFFFFF"/>
+          <rect x="184" y="164" width="112" height="74" rx="5" transform="rotate(-0.5 240 201)" fill="#FFFFFF"/>
+          <rect x="306" y="164" width="112" height="74" rx="5" transform="rotate(0.4 362 201)" fill="#FFFFFF"/>
+          <path d="M74 138 L92 130 L108 134 L126 122 L144 128 L162 118" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M196 138 L214 132 L230 136 L248 126 L266 130 L284 124" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M318 138 L336 134 L352 136 L370 128 L388 132 L406 126" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M74 226 L92 220 L108 224 L126 214 L144 218 L162 210" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M196 226 L214 222 L230 224 L248 216 L266 220 L284 214" stroke="#2460D0" stroke-width="1.6"/>
+          <path d="M318 226 L336 222 L352 226 L370 218 L388 222 L406 216" stroke="#2460D0" stroke-width="1.6"/>
+          <rect x="62" y="300" width="112" height="40" rx="5" transform="rotate(-2 118 320)" fill="url(#f3aHc)"/>
+          <rect x="184" y="300" width="112" height="40" rx="5" transform="rotate(1.5 240 320)" fill="url(#f3aHc)"/>
+          <rect x="306" y="300" width="112" height="40" rx="5" transform="rotate(-1 362 320)" fill="url(#f3aHc)"/>
+
+                    <rect x="520" y="70" width="300" height="140" rx="8" transform="rotate(-0.3 670 140)" fill="#FFFFFF"/>
+          <rect x="784" y="82" width="24" height="24" rx="4" transform="rotate(3 796 94)" fill="url(#f3aHc)"/>
+          <path d="M536 156 L700 156 M536 170 L700 170 M536 184 L700 184" stroke="#C5CEDF" stroke-width="1.2"/>
+          <path d="M536 190 L560 182 L584 186 L608 174 L632 178 L656 164 L680 170 L700 158" stroke="#2460D0" stroke-width="2"/>
+          <circle cx="796" cy="122" r="9" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <circle cx="722" cy="170" r="9" fill="#FFFFFF"/>
+          <circle cx="770" cy="150" r="9" fill="#FFFFFF"/>
+        </g>
+
+        <text class="f3aS" x="74" y="96">Late this week</text>
+        <text class="f3aS" x="196" y="96">Delivery days</text>
+        <text class="f3aS" x="318" y="96">By carrier</text>
+        <text class="f3aS" x="74" y="184">Orders</text>
+        <text class="f3aS" x="196" y="184">Revenue</text>
+        <text class="f3aS" x="318" y="184">Backlog</text>
+        <text class="f3aB" x="240" y="262" text-anchor="middle">the screen: six tiles, no scroll, glanced</text>
+        <text class="f3aL" x="240" y="362" text-anchor="middle">below the fold: scrolled to, so read, not glanced</text>
+
+        <text class="f3aA" x="536" y="94">LATE DELIVERIES · THIS WEEK</text>
+        <text class="f3aV" x="536" y="128">4.9%</text>
+        <text class="f3aS" x="596" y="128">Olist median late share</text>
+        <text class="f3aL" x="796" y="126" text-anchor="middle">1</text>
+        <text class="f3aL" x="722" y="174" text-anchor="middle">2</text>
+        <text class="f3aL" x="770" y="154" text-anchor="middle">3</text>
+        <text class="f3aB" x="520" y="240">1 · data ink: value, direction, trend line</text>
+        <text class="f3aS" x="520" y="258">2 · gridlines, ticks: frames, not data</text>
+        <text class="f3aS" x="520" y="276">3 · shadow, logo, border: decoration</text>
+        <text class="f3aA" x="520" y="300">data-ink ratio, Tufte 1983, reported</text>
+        <text class="f3aS" x="520" y="318">erase what is not data, then look again</text>
+
+        <text class="f3aN" x="30" y="390">Saltmarsh is constructed. Few, 2004: the means is a single-screen display. Scrolling ends the glance.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the bottom edge of the monitor is a design boundary, and inside each tile most of the ink can go before any data does</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>One screen is a wall, not a suggestion<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Read Few's sentence again with the word "single" underlined. "The means is a single-screen display" is the mechanism by which a dashboard is monitored at a glance at all: the eye can take in a fixed screen without a hand on the mouse, and it cannot take in a scrolled one. At Saltmarsh (constructed) the screen is the meeting-room display at the Monday 09:00 stand-up, and Nia does not touch the keyboard during the thirty seconds measured in session 1. Anything that needs a scroll to reach is, for her, not on the dashboard. It may still be a good number. It is in the wrong layer, which is Part 3.</p>
+        <p>This turns density into arithmetic. The screen has a fixed area; each tile has a minimum size at which its value, its direction and its label are legible from the back of the room; divide one by the other and you have the number of tiles the screen can carry. For a meeting-room display read from three metres that number is small. For a laptop at arm's length it is larger, and the glance is shorter because the reader is alone with it. The budget comes from the room and the reader, never from how many numbers there are.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Data-ink, reported, and the chrome that creeps in<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Edward Tufte's data-ink ratio is reported here rather than read at source: the idea, from <em>The Visual Display of Quantitative Information</em> (1983), is that some of the ink on a chart carries data and the rest carries decoration, framing or repetition, and that the share carrying data should be high. No number is quoted on this page because the book is not read here. The idea is enough. Look at the large tile in the figure: the value, its direction and the eight-week line are the data; the gridlines and ticks frame it; the drop shadow, the logo and the heavy border carry nothing. On a dense screen that chrome is paid for out of the same budget as the tiles, and it is the first thing to erase.</p>
+        <p>The chrome creeps in because tools add it by default and because each piece looks harmless on its own. A card border, a shadow, a tool logo in the corner, a duplicated title above the tile and inside it, a legend for a single series, axis labels on a sparkline nobody reads at a glance. Six of these on six tiles is thirty-six things that are not data on a screen meant to be read in thirty seconds. Chart form itself, and which marks carry data best, belong to Dataviz: https://phoebefu6.github.io/learn-dataviz-with-phoebe/. Tonight's rule is narrower: anything on the screen that is not a value, a direction, a label or a context band must argue for its place.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The dashboard with a scroll bar.</strong> A familiar pattern: the screen was designed on a large monitor by the analyst who built it, opened on a laptop by the people who read it, and the bottom third disappeared below the fold. Nobody mentions it because nobody knows it is there. Months later a leader asks why a number "was never on the dashboard", and it was, forty pixels below the edge. The fix is not a smaller font. It is deciding, tile by tile, what the single screen is for.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers tiles against tables, and grouping</span>
+      <h2>Group by the question, not by the source</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Two decisions shape density more than any font size. The first is form: whether a number is a tile (one value, its direction, a label, read in a second) or a row in a table (many values compared across rows, read in a scan). The second is grouping: the same six tiles can be arranged by where the data came from, which is how the tool thinks, or by the question the reader is asking, which is how Nia thinks. The eye reads groups before it reads tiles, so the grouping decides how many things the reader has to hold at once.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 376" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn screens holding the same six tiles. Left, grouped by where the data came from: order system holds late this week and delivery days, carrier feed holds by carrier, marketplace holds orders and revenue, warehouse holds backlog; a curved arrow from delivery days to by carrier is labelled joined by eye. Right, grouped by the question Nia asks: question one, are deliveries slipping, outlined in signal green, holds late this week, delivery days and by carrier together; question two did demand fall holds orders; question three did the money fall holds revenue; question four where is the backlog holds backlog. Captions: four headings in the tool's words with question one split, against four headings in Nia's words, four chunks to hold.">
+        <defs>
+          <filter id="f3bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="f3bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f3bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f3bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f3bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f3bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f3bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f3bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f3bH" x="30" y="26">SAME SIX TILES, TWO GROUPINGS: BY WHERE THE DATA CAME FROM, OR BY THE QUESTION NIA ASKS</text>
+
+        <g filter="url(#f3bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="390" height="250" rx="10" transform="rotate(-0.4 235 175)" fill="#FFFFFF"/>
+          <rect x="56" y="82" width="100" height="30" rx="4" transform="rotate(-0.8 106 97)" fill="#EDF3FD"/>
+          <rect x="166" y="82" width="100" height="30" rx="4" transform="rotate(0.6 216 97)" fill="#EDF3FD"/>
+          <rect x="56" y="140" width="100" height="30" rx="4" transform="rotate(0.7 106 155)" fill="#EDF3FD"/>
+          <rect x="56" y="198" width="100" height="30" rx="4" transform="rotate(-0.5 106 213)" fill="#FFFFFF"/>
+          <rect x="166" y="198" width="100" height="30" rx="4" transform="rotate(0.5 216 213)" fill="#FFFFFF"/>
+          <rect x="56" y="256" width="100" height="30" rx="4" transform="rotate(-0.6 106 271)" fill="#FFFFFF"/>
+          <path d="M272 97 C330 97 330 155 162 155" stroke="#2460D0" stroke-dasharray="4 4" marker-end="url(#f3bAr)"/>
+
+          <rect x="450" y="50" width="390" height="250" rx="10" transform="rotate(0.4 645 175)" fill="#FFFFFF"/>
+          <rect x="466" y="66" width="358" height="70" rx="8" transform="rotate(-0.3 645 101)" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="476" y="94" width="100" height="30" rx="4" transform="rotate(0.6 526 109)" fill="#FFFFFF"/>
+          <rect x="586" y="94" width="100" height="30" rx="4" transform="rotate(-0.5 636 109)" fill="#FFFFFF"/>
+          <rect x="696" y="94" width="100" height="30" rx="4" transform="rotate(0.7 746 109)" fill="#FFFFFF"/>
+          <rect x="476" y="170" width="100" height="30" rx="4" transform="rotate(-0.6 526 185)" fill="#EDF3FD"/>
+          <rect x="656" y="170" width="100" height="30" rx="4" transform="rotate(0.5 706 185)" fill="#EDF3FD"/>
+          <rect x="476" y="234" width="100" height="30" rx="4" transform="rotate(0.4 526 249)" fill="#EDF3FD"/>
+        </g>
+
+        <text class="f3bA" x="56" y="74">ORDER SYSTEM</text>
+        <text class="f3bS" x="66" y="101">Late this week</text>
+        <text class="f3bS" x="176" y="101">Delivery days</text>
+        <text class="f3bA" x="56" y="132">CARRIER FEED</text>
+        <text class="f3bS" x="66" y="159">By carrier</text>
+        <text class="f3bS" x="330" y="128">joined by eye</text>
+        <text class="f3bA" x="56" y="190">MARKETPLACE</text>
+        <text class="f3bS" x="66" y="217">Orders</text>
+        <text class="f3bS" x="176" y="217">Revenue</text>
+        <text class="f3bA" x="56" y="248">WAREHOUSE</text>
+        <text class="f3bS" x="66" y="275">Backlog</text>
+
+        <text class="f3bB" x="476" y="84">Q1 · ARE DELIVERIES SLIPPING?</text>
+        <text class="f3bS" x="486" y="113">Late this week</text>
+        <text class="f3bS" x="596" y="113">Delivery days</text>
+        <text class="f3bS" x="706" y="113">By carrier</text>
+        <text class="f3bA" x="476" y="162">Q2 · DID DEMAND FALL?</text>
+        <text class="f3bS" x="486" y="189">Orders</text>
+        <text class="f3bA" x="656" y="162">Q3 · DID THE MONEY FALL?</text>
+        <text class="f3bS" x="666" y="189">Revenue</text>
+        <text class="f3bA" x="476" y="226">Q4 · WHERE IS THE BACKLOG?</text>
+        <text class="f3bS" x="486" y="253">Backlog</text>
+
+        <text class="f3bL" x="235" y="322" text-anchor="middle">grouped by where the data came from</text>
+        <text class="f3bS" x="235" y="340" text-anchor="middle">four headings in the tool's words; Q1 is split in two</text>
+        <text class="f3bL" x="645" y="322" text-anchor="middle">grouped by the question Nia asks</text>
+        <text class="f3bS" x="645" y="340" text-anchor="middle">four headings in Nia's words; four chunks to hold</text>
+
+        <text class="f3bN" x="30" y="366">Saltmarsh constructed. Miller 1956 supports the chunking, not a tile count: four groups, not six tiles.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the left screen makes Nia assemble her first question from two groups; the right screen hands it to her whole, and the headings are her words</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Tile or table: one number, or many rows<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A tile is for a number the reader checks: one value, its direction since last time, its label, and (from session 4) its state. It is read in about a second and it answers yes or no. A table is for numbers the reader compares: several rows of the same measure, scanned to find the biggest, the odd one, the one that moved. It is read in a scan, not a glance, and it answers "which one". Two questions decide the form for any candidate: <strong>does Nia check it or compare it?</strong> and <strong>does the answer come from one value or from the differences between several?</strong> Check and one value: tile. Compare and several: table.</p>
+        <p>At Saltmarsh (constructed) "late deliveries this week" is a tile: one share, one direction, checked. "Late orders by carrier" is a comparison across three or four carriers, so it is a table or a short bar list, and it is only needed when the tile is not fine. That already tells you where it lives: not beside the tile competing for the glance, but one click behind it. Tables on the single screen are the commonest density failure, because a table is a grid of numbers that all look equally important, and the glance has nowhere to land.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Group by the question: Miller's chunk, read at source<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Tools group by data source because that is how the data arrived: the order system, the carrier feed, the marketplace export, the warehouse system. The reader groups by the question in her head. When those two disagree, the reader does the joining work herself every Monday, and in the figure that is the dashed arrow: Nia's "are deliveries slipping" is answered by two tiles under "order system" and one under "carrier feed", and she carries the first two in her head while she finds the third. Group by the question, name each group in her words, and the join disappears. Four headings that are questions also do a second job: they tell a new reader what the screen is for without a manual.</p>
+        <p>The usual citation for group size is George Miller's 1956 paper, "The magical number seven, plus or minus two", read here at source. It is worth being exact about what it does not say. Miller's seven is the span of absolute judgment for one-dimensional stimuli in laboratory tasks (tones, loudness, line lengths and positions) and the span of immediate memory counted in chunks. The paper says nothing about screens, displays of information, or how many items belong on one; its closing words call the match between the two sevens "only a pernicious, Pythagorean coincidence". So "no more than seven tiles, Miller said so" is an extrapolation Miller did not make. What the paper does support is the move he calls recoding: a chunk can carry more if its parts are grouped, which is exactly what a question heading does. Design for four groups the reader can hold, not for a tile count. Miller also notes that adding dimensions raises total capacity while lowering accuracy per attribute, which is a fair warning against tiles that encode three things at once.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Write the group headings as the reader's questions, verbatim.</strong> "Are deliveries slipping?" on the screen, not "Logistics KPIs". If a tile does not sit naturally under any of the question headings, that is not a layout problem; it is session 1's decision column saying the tile has no Monday question, and it leaves.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers progressive disclosure</span>
+      <h2>On the screen, one click away, in a report</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">White space on a dashboard is not emptiness; it is the numbers you chose to put somewhere else. Progressive disclosure is the name for choosing where: the screen answers "is anything wrong?", one click behind it answers "where, and which one?", and a report answers "why, over the month?". Each layer has a different reader at a different moment, and each is designed, not left over. A tile that is cut from the screen is placed in a layer, with a path to it, so that nothing the business needs is deleted and nothing the glance does not need is in its way.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 342" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn panels left to right joined by arrows. On the screen, outlined in signal green, holds six small tiles: six tiles, the glance; answers is anything wrong; who, Nia at Monday 09:00 with no mouse. An arrow labelled one click leads to the middle panel, a breakdown of late orders by carrier drawn as five bars: five views, after the glance; answers which carrier, which day; who, Nia or Tomas, same morning. An arrow labelled a link leads to the right panel, a stack of pages: twelve items, read once and filed; answers why, over the month; who, Priya, read once a month. A note says each layer answers a different question for a different reader and nothing is deleted.">
+        <defs>
+          <filter id="f3cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f3cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f3cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f3cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f3cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f3cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f3cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f3cA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f3cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f3cH" x="30" y="26">THREE LAYERS, THREE READERS: THE SCREEN ASKS IF, THE CLICK ASKS WHICH, THE REPORT ASKS WHY</text>
+
+        <g filter="url(#f3cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="226" height="200" rx="10" transform="rotate(-0.4 153 150)" fill="#FFFFFF" stroke="#2DBE7A"/>
+          <rect x="56" y="86" width="60" height="34" rx="4" transform="rotate(-0.8 86 103)" fill="#EDF3FD"/>
+          <rect x="124" y="86" width="60" height="34" rx="4" transform="rotate(0.6 154 103)" fill="#EDF3FD"/>
+          <rect x="192" y="86" width="60" height="34" rx="4" transform="rotate(-0.5 222 103)" fill="#EDF3FD"/>
+          <rect x="56" y="130" width="60" height="34" rx="4" transform="rotate(0.7 86 147)" fill="#FFFFFF"/>
+          <rect x="124" y="130" width="60" height="34" rx="4" transform="rotate(-0.6 154 147)" fill="#FFFFFF"/>
+          <rect x="192" y="130" width="60" height="34" rx="4" transform="rotate(0.5 222 147)" fill="#FFFFFF"/>
+          <path d="M276 150 L319 150" marker-end="url(#f3cAr)"/>
+
+          <rect x="327" y="50" width="226" height="200" rx="10" transform="rotate(0.3 440 150)" fill="#EDF3FD"/>
+          <rect x="350" y="88" width="140" height="10" rx="2" fill="#B9CDF2" stroke="#2460D0" stroke-width="1.2"/>
+          <rect x="350" y="108" width="100" height="10" rx="2" fill="#B9CDF2" stroke="#2460D0" stroke-width="1.2"/>
+          <rect x="350" y="128" width="80" height="10" rx="2" fill="#B9CDF2" stroke="#2460D0" stroke-width="1.2"/>
+          <rect x="350" y="148" width="60" height="10" rx="2" fill="#B9CDF2" stroke="#2460D0" stroke-width="1.2"/>
+          <rect x="350" y="168" width="40" height="10" rx="2" fill="#B9CDF2" stroke="#2460D0" stroke-width="1.2"/>
+          <path d="M563 150 L606 150" marker-end="url(#f3cAr)"/>
+
+          <rect x="614" y="50" width="226" height="200" rx="10" transform="rotate(-0.3 727 150)" fill="#FFFFFF"/>
+          <path d="M676 92 L676 194 L776 194" stroke="#C5CEDF"/>
+          <path d="M670 98 L670 200 L770 200" stroke="#C5CEDF"/>
+          <rect x="682" y="84" width="100" height="104" rx="3" transform="rotate(-1 732 136)" fill="#FFFFFF"/>
+          <path d="M696 104 L768 104 M696 120 L768 120 M696 136 L768 136 M696 152 L750 152" stroke="#C5CEDF" stroke-width="1.4"/>
+          <rect x="696" y="160" width="40" height="16" rx="2" fill="url(#f3cHc)"/>
+        </g>
+
+        <text class="f3cB" x="153" y="72" text-anchor="middle">ON THE SCREEN</text>
+        <text class="f3cS" x="153" y="192" text-anchor="middle">six tiles, four question groups</text>
+        <text class="f3cS" x="153" y="208" text-anchor="middle">no scroll, no mouse</text>
+        <text class="f3cA" x="297" y="138" text-anchor="middle">1 click</text>
+        <text class="f3cA" x="440" y="72" text-anchor="middle">ONE CLICK AWAY</text>
+        <text class="f3cS" x="350" y="94">late orders by carrier</text>
+        <text class="f3cS" x="440" y="208" text-anchor="middle">behind the tile it explains</text>
+        <text class="f3cA" x="584" y="138" text-anchor="middle">a link</text>
+        <text class="f3cA" x="727" y="72" text-anchor="middle">IN A REPORT</text>
+        <text class="f3cS" x="727" y="224" text-anchor="middle">complete, read top to bottom</text>
+
+        <text class="f3cL" x="153" y="272" text-anchor="middle">6 tiles · the glance</text>
+        <text class="f3cS" x="153" y="290" text-anchor="middle">answers: is anything wrong?</text>
+        <text class="f3cS" x="153" y="306" text-anchor="middle">who: Nia, Monday 09:00, no mouse</text>
+        <text class="f3cL" x="440" y="272" text-anchor="middle">5 views · after the glance</text>
+        <text class="f3cS" x="440" y="290" text-anchor="middle">answers: which carrier, which day?</text>
+        <text class="f3cS" x="440" y="306" text-anchor="middle">who: Nia or Tomas, same morning</text>
+        <text class="f3cL" x="727" y="272" text-anchor="middle">12 items · read once, filed</text>
+        <text class="f3cS" x="727" y="290" text-anchor="middle">answers: why, over the month</text>
+        <text class="f3cS" x="727" y="306" text-anchor="middle">who: Priya, read once a month</text>
+
+        <text class="f3cN" x="30" y="334">Saltmarsh counts constructed. Each layer answers a different question for a different reader; nothing is deleted.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the three layers are three designed objects with three readers; white space on the screen is the second and third layers doing their job</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Three layers, three readers, three questions<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The screen is for "is anything wrong?", and its reader is Nia at the Monday 09:00 stand-up with no mouse in her hand. Everything on it is a check. <strong>One click away</strong> is for "where, and which one?", and its reader is Nia or Tomas, the same morning, after the glance has found something: the late-deliveries tile is red, so she clicks it and sees late orders by carrier, by region, by weekday. Those views sit behind the tile they explain, so the click is a question and the view is its answer. <strong>A report</strong> is for "why, over the month?", read once, top to bottom, by Priya, with the twelve things she asked about that have no Monday decision.</p>
+        <p>Each layer is designed. At Saltmarsh (constructed) the five one-click views are drawn with the same care as the six tiles, because the moment Nia needs them is the moment the dashboard matters most: something is wrong and she has to say what. The report is designed too, as a report, with the completeness a report needs and none of the single-screen constraints. The failure mode is leaving the second and third layers undesigned and then, when someone asks for a number, putting it on the screen because that is the only layer that exists.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What disclosure must not hide<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Disclosure has a limit: a tile cannot move off the screen if the glance needs it to answer "is anything wrong?". The test is session 1's line 4, the sentence Nia should be able to say thirty seconds after the screen opens. Every slot in that sentence needs a tile on the screen; everything that is not a slot can move. The second limit is context. A value alone cannot answer "is anything wrong?", so a tile that stays on the screen keeps its direction and its comparison with it (session 4 draws the card anatomy); moving the "against last week" part one click away to save space leaves a number that cannot be checked.</p>
+        <p>Two things change how the layers behave in practice. The default view of the one-click layer is what most readers see, and a filter that resets on load is a different design from one that remembers; that is session 5. And a leader who reads only the screen is reading a complete answer to one question, not a summary of everything, which is worth saying out loud when the screen is launched. How a leader should read such a screen, and how to commission one, belong next door: https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/courses/a2-reading-a-dashboard.html and https://phoebefu6.github.io/learn-business-intelligence-with-phoebe/courses/a4-commissioning-dashboards.html.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"Can you just add it to the dashboard?"</strong> A familiar pattern: a request arrives for one more number, the only object anyone can point to is the screen, and so the screen grows by one tile a month until the glance is gone. Teams that keep a second layer have a different conversation: "yes, it goes behind the deliveries tile, one click, here is where". The request is met, the screen is unchanged, and the person asking usually finds the click is exactly where they would have looked.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Twenty-three tiles to six, without deleting anything</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tomas starts from the 23 candidate tiles of session 1 and ends with six on the screen, five behind a click, twelve in a report, arranged under four question headings with room between them. The counts are Saltmarsh's and constructed; yours will differ. Run each worksheet on your own pile as you go. If you have no pile in hand, use Saltmarsh. The worksheets are plain text on purpose: the layout comes out of the answers, and a tool is the last thing opened.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 456" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A pile of twenty-three hachured candidate tiles on the left feeds an arrow into sieve one, labelled a Monday decision, with eleven passing above it and twelve dropping into a bin below labelled report or nowhere. Another arrow leads to sieve two, labelled needed in the glance, with six passing and five dropping into a bin labelled one click away. A routed arrow carries the six down into a screen outlined in signal green, where they sit in four question groups: question one deliveries with three tiles, question two demand with one, question three money with one, question four backlog with one. A note says two sieves do the cutting and the groups do the arranging.">
+        <defs>
+          <filter id="f3dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f3dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f3dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f3dH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f3dL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f3dS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f3dB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f3dV { font: 800 16px Inter, sans-serif; fill: #163C8A; }
+          .f3dA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f3dN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f3dH" x="30" y="26">TWENTY-THREE CANDIDATES TO SIX: TWO SIEVES CUT, FOUR QUESTION GROUPS ARRANGE</text>
+
+        <g filter="url(#f3dSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="50" y="70" width="34" height="22" rx="3" transform="rotate(-6 67 81)" fill="url(#f3dHc)"/>
+          <rect x="92" y="66" width="34" height="22" rx="3" transform="rotate(4 109 77)" fill="url(#f3dHc)"/>
+          <rect x="134" y="72" width="34" height="22" rx="3" transform="rotate(-3 151 83)" fill="url(#f3dHc)"/>
+          <rect x="176" y="68" width="34" height="22" rx="3" transform="rotate(5 193 79)" fill="url(#f3dHc)"/>
+          <rect x="56" y="104" width="34" height="22" rx="3" transform="rotate(5 73 115)" fill="url(#f3dHc)"/>
+          <rect x="98" y="100" width="34" height="22" rx="3" transform="rotate(-4 115 111)" fill="url(#f3dHc)"/>
+          <rect x="140" y="106" width="34" height="22" rx="3" transform="rotate(3 157 117)" fill="url(#f3dHc)"/>
+          <rect x="182" y="102" width="34" height="22" rx="3" transform="rotate(-5 199 113)" fill="url(#f3dHc)"/>
+          <rect x="50" y="138" width="34" height="22" rx="3" transform="rotate(-5 67 149)" fill="url(#f3dHc)"/>
+          <rect x="92" y="134" width="34" height="22" rx="3" transform="rotate(6 109 145)" fill="url(#f3dHc)"/>
+          <rect x="134" y="140" width="34" height="22" rx="3" transform="rotate(-2 151 151)" fill="url(#f3dHc)"/>
+          <rect x="176" y="136" width="34" height="22" rx="3" transform="rotate(4 193 147)" fill="url(#f3dHc)"/>
+          <path d="M236 130 L290 130" marker-end="url(#f3dAr)"/>
+
+          <rect x="300" y="100" width="180" height="60" rx="8" transform="rotate(-0.6 390 130)" fill="#FFFFFF"/>
+          <path d="M390 168 L390 208" marker-end="url(#f3dAr)"/>
+          <rect x="320" y="216" width="140" height="44" rx="6" transform="rotate(0.8 390 238)" fill="url(#f3dHc)"/>
+          <path d="M486 130 L540 130" marker-end="url(#f3dAr)"/>
+
+          <rect x="550" y="100" width="180" height="60" rx="8" transform="rotate(0.5 640 130)" fill="#FFFFFF"/>
+          <path d="M640 168 L640 208" marker-end="url(#f3dAr)"/>
+          <rect x="570" y="216" width="140" height="44" rx="6" transform="rotate(-0.7 640 238)" fill="#EDF3FD"/>
+          <path d="M736 130 L800 130 L800 350 L740 350" marker-end="url(#f3dAr)"/>
+
+          <rect x="300" y="290" width="430" height="130" rx="10" transform="rotate(0.3 515 355)" fill="#FFFFFF" stroke="#2DBE7A"/>
+          <rect x="316" y="308" width="250" height="50" rx="6" transform="rotate(-0.4 441 333)" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <rect x="576" y="308" width="138" height="50" rx="6" transform="rotate(0.5 645 333)" fill="#EDF3FD"/>
+          <rect x="316" y="364" width="250" height="44" rx="6" transform="rotate(0.4 441 386)" fill="#EDF3FD"/>
+          <rect x="576" y="364" width="138" height="44" rx="6" transform="rotate(-0.5 645 386)" fill="#EDF3FD"/>
+          <path d="M230 340 L290 340" marker-end="url(#f3dAr)"/>
+        </g>
+
+        <text class="f3dL" x="133" y="186" text-anchor="middle">23 candidate tiles</text>
+        <text class="f3dS" x="133" y="202" text-anchor="middle">everything the data can chart</text>
+
+        <text class="f3dB" x="390" y="90" text-anchor="middle">11 pass</text>
+        <text class="f3dA" x="390" y="122" text-anchor="middle">SIEVE 1</text>
+        <text class="f3dL" x="390" y="142" text-anchor="middle">a Monday decision?</text>
+        <text class="f3dL" x="390" y="235" text-anchor="middle">12 drop out</text>
+        <text class="f3dS" x="390" y="251" text-anchor="middle">report, or nowhere</text>
+
+        <text class="f3dB" x="640" y="90" text-anchor="middle">6 pass</text>
+        <text class="f3dA" x="640" y="122" text-anchor="middle">SIEVE 2</text>
+        <text class="f3dL" x="640" y="142" text-anchor="middle">needed in the glance?</text>
+        <text class="f3dL" x="640" y="235" text-anchor="middle">5 drop out</text>
+        <text class="f3dS" x="640" y="251" text-anchor="middle">one click away</text>
+        <text class="f3dB" x="810" y="244">the six</text>
+
+        <text class="f3dL" x="40" y="330">ON THE SCREEN</text>
+        <text class="f3dS" x="40" y="348">six tiles, four groups,</text>
+        <text class="f3dS" x="40" y="364">in Nia's question order</text>
+        <text class="f3dA" x="326" y="328">Q1 DELIVERIES · 3 tiles</text>
+        <text class="f3dS" x="326" y="346">late · days vs promise · by carrier</text>
+        <text class="f3dA" x="586" y="328">Q2 DEMAND · 1 tile</text>
+        <text class="f3dS" x="586" y="346">orders this week</text>
+        <text class="f3dA" x="326" y="382">Q4 BACKLOG · 1 tile</text>
+        <text class="f3dS" x="326" y="400">backlog by stage</text>
+        <text class="f3dA" x="586" y="382">Q3 MONEY · 1 tile</text>
+        <text class="f3dS" x="586" y="400">revenue this week</text>
+
+        <text class="f3dN" x="30" y="448">Saltmarsh counts constructed. Two sieves do the cutting; the groups do the arranging. Your counts will differ.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - nothing in the pile is deleted; the two sieves place each tile in a layer, and the screen is small because only the glance lives on it</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>List the pile, one line each.</strong> Every candidate tile, in the words it was asked for, with who asked. Do not sort yet. Tomas's pile at Saltmarsh (constructed) has 23 lines; the point of writing them all down is that nobody can later say their tile was forgotten.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 1 · the pile</span>#   candidate tile                      asked by
+1   late deliveries this week            Nia
+2   delivery days vs promise             Nia
+3   late orders by carrier               Nia
+4   late orders by region                Tomas
+5   orders this week                     Priya
+6   revenue this week                    Priya
+7   backlog by stage                     Kofi
+8   backlog by hour                      Kofi
+9   average basket size by marketplace   Priya
+10  category mix                         Priya
+... 23 lines in all
+
+Rule: every line is a tile someone asked for. Nothing is struck yet.</div>
+      </div>
+      <div class="step">
+        <p><strong>Sieve 1: does it change a Monday decision?</strong> Session 1's decision column, applied as a yes or no. A "no" is not a deletion; it is a placement in the report layer, with the name of the report it goes to. Count what passes.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 2 · sieve 1, a Monday decision</span>#   tile                        Monday decision?    if no, where it goes
+1   late deliveries this week   yes (call carrier)  -
+5   orders this week            yes (promotion)     -
+9   basket size by marketplace  no                  -&gt; Priya's monthly report
+10  category mix                no                  -&gt; Priya's monthly report
+...
+
+Passed sieve 1:  11 of 23
+Placed in a report: 12   (named report for each, none "nowhere" yet)</div>
+      </div>
+      <div class="step">
+        <p><strong>Sieve 2: is it needed in the glance, or after it?</strong> Read session 1's line-4 sentence. A tile that fills a slot in that sentence stays on the screen. A tile that is only needed once a slot has gone wrong ("which carrier?", "which region?") goes one click behind the tile it explains. Write the parent tile next to each one that moves.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 3 · sieve 2, glance or click</span>#   tile                        slot in the glance sentence?   if no, behind which tile
+1   late deliveries this week   yes: "deliveries are fine / slipping"
+2   delivery days vs promise    yes: same slot, the size of the slip
+3   late orders by carrier      yes: the carrier is the decision
+4   late orders by region       no   -&gt; one click, behind tile 1
+8   backlog by hour             no   -&gt; one click, behind tile 7
+...
+
+On the screen:    6
+One click away:   5   (each with a parent tile named)</div>
+      </div>
+      <div class="step">
+        <p><strong>Tile or table, for each of the six.</strong> Two questions per survivor: does Nia check it or compare it, and does the answer come from one value or from differences between several? A table that survives sieve 2 is a warning: it usually means a comparison is being asked to do a check's job.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 4 · form</span>tile                        check / compare   one value / several   form
+late deliveries this week   check             one                   tile
+delivery days vs promise    check             one                   tile
+late orders by carrier      compare           several (3-4 rows)    short bar list
+orders this week            check             one                   tile
+revenue this week           check             one                   tile
+backlog by stage            compare           several (3 stages)    3 small tiles in a row
+
+Rule: one table on the screen at most, and only if the glance needs a "which".</div>
+      </div>
+      <div class="step">
+        <p><strong>Group by the question, in the reader's words.</strong> Assign each survivor to one of the four questions, write the heading as Nia would say it, and count tiles per group. A survivor that fits no question has just failed sieve 1 late, and goes back to worksheet 2.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 5 · groups</span>heading (Nia's words)          tiles                                    count
+Are deliveries slipping?       late this week · days vs promise · by carrier   3
+Did demand fall?               orders this week                              1
+Did the money fall?            revenue this week                             1
+Where is the backlog?          backlog by stage                              1
+
+Groups to hold: 4.  Tiles: 6.  Miller 1956 supports the four, not the six.
+Order of groups = order of the glance sentence (session 2).</div>
+      </div>
+      <div class="step">
+        <p><strong>The one-screen check, on the real screen.</strong> Open the layout on the device and in the room where it will be read, and from the reader's distance. Nothing may need a scroll; every value must be legible from where Nia sits; the space between groups must be wider than the space between tiles inside a group, so the groups read as groups. Then say the glance sentence out loud with no mouse.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 6 · the one-screen check</span>device and room:   meeting-room display, Monday 09:00, Nia at the table
+scroll needed?     no
+legible from the reader's seat?   values yes · labels yes · bar list: enlarge
+gap between groups &gt; gap inside groups?   yes
+glance sentence said with no mouse?       yes, by Nia, not by Tomas
+
+Fails any line -&gt; cut chrome first (shadows, logos, duplicate titles),
+then move a tile one click away. Never shrink the type.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the three counts on the wall: 6 · 5 · 12.</strong> When the next request arrives, the answer is a placement, not a yes or no: "it goes behind the deliveries tile" or "it goes in the monthly report". The screen count moves only when a slot in the glance sentence changes, and that is a session 1 conversation with the sponsor, not a layout tweak.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 4</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Run the two sieves on your own pile.</strong> List every candidate tile for a screen you own, sieve 1 for a decision, sieve 2 for the glance, and write the three counts. If the screen count is above eight, go back to the line-4 sentence and check how many slots it really has.</li>
+      <li><strong>Regroup one existing dashboard by question.</strong> Take a screen that is grouped by source or by team, write the reader's questions as headings, and move the tiles under them on paper. Count how many tiles the reader currently has to join by eye.</li>
+      <li><strong>Erase the chrome on one tile.</strong> Pick one card and list everything on it that is not a value, a direction, a label or a context band. Remove it in the tool or on paper, and note what the tile lost. Usually nothing.</li>
+      <li><strong>Bring your six.</strong> Session 4 draws the anatomy of a single card and gives each of your six a state; bring the list of survivors with their form (tile or table) decided.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 3 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · A colleague says the screen must have at most seven tiles because "Miller 1956 proved it". What does the paper, read at source, actually support?</p>
+      <button class="qopt" type="button">A · Exactly that: Miller measured how many items a screen can show and found seven</button>
+      <button class="qopt" type="button">B · Chunking, not a tile count: Miller measured laboratory judgments and memory spans, said nothing about screens, and called the match between his sevens a coincidence; what carries over is grouping tiles so the reader holds a few groups</button>
+      <button class="qopt" type="button">C · Nine tiles, because the paper says seven plus or minus two</button>
+      <button class="qopt" type="button">D · Five tiles, from the subitizing experiments with dots</button>
+      <p class="qwhy">Miller's seven is the span of absolute judgment for one-dimensional stimuli and the span of immediate memory in chunks, with no claim about displays of information. The paper's own words call the match "only a pernicious, Pythagorean coincidence". The usable idea is recoding: group so that the reader holds four questions, not nineteen tiles.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · The tool has laid Nia's six tiles out under four headings: Order system, Carrier feed, Marketplace, Warehouse. Her first question, "are deliveries slipping?", needs tiles from the first two. What is the fix?</p>
+      <button class="qopt" type="button">A · Keep the source headings, since they are accurate, and add a note telling Nia which tiles to combine</button>
+      <button class="qopt" type="button">B · Remove the headings altogether so nothing is split</button>
+      <button class="qopt" type="button">C · Put all six tiles in one row so every grouping is equally available</button>
+      <button class="qopt" type="button">D · Regroup under the four questions in Nia's own words, so the three deliveries tiles sit together under "Are deliveries slipping?" and she holds four groups instead of joining tiles by eye</button>
+      <p class="qwhy">The reader groups by the question in her head, and when the screen groups by the system the data came from she does the joining work herself every Monday. Headings that are her questions remove the join and tell a new reader what the screen is for. Removing headings or flattening everything into one row gives up the chunk, which is the one thing the grouping was providing.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · "Late orders by carrier" is a comparison across three carriers that Nia needs only when the late-deliveries tile is not fine. Where does it live?</p>
+      <button class="qopt" type="button">A · One click away, behind the late-deliveries tile it explains, as a short bar list; the screen keeps the check and the click answers "which carrier"</button>
+      <button class="qopt" type="button">B · On the screen beside the tile, as a table, so Nia never has to click</button>
+      <button class="qopt" type="button">C · In the monthly report, since it has more than one row</button>
+      <button class="qopt" type="button">D · Deleted, because the screen can only hold tiles</button>
+      <p class="qwhy">The screen answers "is anything wrong?"; the click answers "where, and which one?". A comparison that is needed only after the check has failed belongs in the second layer, behind its parent tile, designed with the same care. A table on the screen competes with the glance; the report is for "why, over the month", and nothing is deleted.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Few, S. (2004). Dashboard Confusion. Intelligent Enterprise, 20 March 2004</span><span class="note">"Consolidated and arranged on a single screen so the information can be monitored at a glance" and "The means is a single-screen display", read in the Perceptual Edge PDF</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Miller, G. A. (1956). The magical number seven, plus or minus two. Psychological Review, 63, 81-97</span><span class="note">Read at source for the span of absolute judgment, the chunk, recoding and the "pernicious, Pythagorean coincidence"; taught for what it does not claim about screens</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Tufte, E. (1983). The Visual Display of Quantitative Information. Graphics Press</span><span class="note">Reported: the data-ink ratio named as an idea; no number or page quoted because the book is not read here</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Tile or table, group by the question, and the three layers of disclosure</span><span class="note">Common practice assembled here from the single-screen condition and the decision column; no single source prescribes these exact sieves</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, the 23 candidates, 11, 6, 5 and 12</span><span class="note">Constructed for teaching; the only measured number on the page is Olist's median late share of 4.9 percent on the example card</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>One screen is a wall</b><span>Few, 2004: the means is a single-screen display. Below the fold is read, not glanced. Budget = room x reader, not number of metrics.</span></div>
+      <div class="cheat-item"><b>Tile or table</b><span>Check and one value: tile. Compare and several: table, and usually one click away. At most one table on the screen.</span></div>
+      <div class="cheat-item"><b>Group by the question</b><span>Headings in the reader's words, verbatim. Four groups to hold, not a tile count. Miller 1956 supports the chunk, not the seven.</span></div>
+      <div class="cheat-item"><b>Three layers, three readers</b><span>Screen: is anything wrong? Click: which one? Report: why, over the month? Each designed, each with a named reader.</span></div>
+      <div class="cheat-item"><b>Two sieves</b><span>Sieve 1: a Monday decision? Sieve 2: a slot in the glance sentence? Nothing is deleted; every tile is placed.</span></div>
+      <div class="cheat-item"><b>Erase before you shrink</b><span>Chrome first: shadows, logos, duplicate titles, legends for one series. Data-ink, Tufte, reported. Never shrink the type to fit.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Six tiles, four groups, three layers. Session 4 looks inside a single card: the value, the delta and the context band that make a number checkable, and then colour as state. Red, amber and green are drawn only as what a card's state is and never as decoration, colour is never the only channel, the contrast numbers are read from WCAG 2.2, and about one man in twelve sees red and green differently, which changes what the Saltmarsh late-deliveries card looks like in all four of its states.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 3 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="02-hierarchy-first-glance.html">← Prev: Hierarchy and the first glance</a> &nbsp;·&nbsp; <a href="04-colour-as-state.html">Next: Colour as state →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

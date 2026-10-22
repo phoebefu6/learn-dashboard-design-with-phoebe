@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 4 of 6. The KPI card taken apart: value, delta, context band. Red, amber and green as the card's state and never as decoration, with colour never the only channel (WCAG 2.2 1.4.1), the 4.5:1 and 3:1 contrast floors (1.4.3, 1.4.11), about 1 in 12 men with colour vision deficiency (NEI), and the cards where colour should mean nothing at all.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Colour as state - learn dashboard design with phoebe">
+<meta property="og:description" content="Session 4 of 6. A colour on a KPI card is a claim about the world. The card anatomy, the three states, the second channel, and the contrast floors read at source.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/courses/04-colour-as-state.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Colour as state - learn dashboard design with phoebe">
+<meta name="twitter:description" content="Session 4 of 6. Value, delta, context band. Red, amber, green as state, never decoration, never the only channel.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-dashboard-design-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 4 · Colour as state - learn dashboard design with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-dashboard-design-with-phoebe</a> / Session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Dashboard Design with Phoebe · Session 4 of 6</div>
+    <h1>Colour as <span class="accent">state</span></h1>
+    <p class="sub">A red tile is a sentence. It says "this is wrong, act", and the reader believes it in the half second before any number is read. That is why colour on a dashboard is the most powerful thing you control and the most abused: tools paint tiles by category, by brand, by whatever hue was next in the default list, and the reader's eye cannot tell a painted red from a meant one. Tonight we take the KPI card apart into its three pieces, give red, amber and green one job only, which is to state the card's condition, and then make sure that state survives a reader who cannot tell red from green, a projector that washes out amber, and a printout in black and white. Where the card shows numbers, they are Olist's; where they are Saltmarsh's, they are constructed, and the page says which.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Analysts and designers who build the screen</span>
+      <span class="chip audience">Leaders who read it on Monday</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The card, the three states, the second channel</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: late deliveries in four states</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Saltmarsh is constructed: an invented home-goods retailer, one warehouse, a Monday 09:00 stand-up where Nia, the operations lead, opens one screen of six cards to answer four questions. By the end of session 3 Tomas has the six cards placed and grouped. Every one of them is still the same ink blue, and Priya has already asked why nothing is red. Tonight answers her properly: a colour on a card is a claim, so each colour needs a rule behind it, a word beside it, and enough contrast that the claim can be read by everyone in the room. Where a Saltmarsh card shows numbers, the numbers are real daily aggregates from the Brazilian E-Commerce Public Dataset by Olist, named each time they appear.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = write it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> The three-part anatomy of a KPI card you can draw on a napkin: value, delta, context band. One rule for red, amber and green that stops them ever being decoration. The three WCAG 2.2 criteria that matter on a card, read at source with their numbers: colour never the only channel, 4.5:1 for text, 3:1 for the shapes and bands. The NEI figure for colour vision deficiency and what it does to a red-green card. And a worksheet that puts your own card into four states and strips the colour off to see whether the state survives.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the KPI card anatomy</span>
+      <h2>Value, delta, context band: three pieces, three questions</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A KPI card looks like a big number in a box, and most are built as exactly that. A big number alone answers only "what is it", and Nia's question on Monday is never that; it is "is it worse, and worse than what". So the card carries three pieces, each answering one question. The <strong>value</strong> says what it is now. The <strong>delta</strong> says which way it moved and by how much since the last glance. The <strong>context band</strong> says what normal has looked like lately, so the reader can see whether the value sits inside normal or outside it. Colour, when it arrives in Part 2, is a summary of that third piece, and nothing else.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One large hand-drawn KPI card for late deliveries, with three parts called out by arrows from the right. The value 4.9 percent is the biggest text, labelled what it is now, Olist's median late share. Under it the delta, plus 0.6 points on last week, labelled which way and how much, constructed. Below that a mini chart with a shaded horizontal band around the recent line and a dot for this week, labelled the context band, what normal has looked like, the recent weeks. A note says the three pieces answer three different questions and colour will only ever summarise the third.">
+        <defs>
+          <filter id="f4aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f4aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f4aH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f4aL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f4aS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f4aB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f4aV { font: 800 20px Inter, sans-serif; fill: #163C8A; }
+          .f4aA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f4aN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f4aH" x="30" y="26">THE KPI CARD HAS THREE PIECES, AND EACH ONE ANSWERS A DIFFERENT QUESTION</text>
+
+        <g filter="url(#f4aSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="60" y="50" width="330" height="240" rx="12" transform="rotate(-0.5 225 170)" fill="#FFFFFF"/>
+          <path d="M80 72 L370 72" stroke="#C5CEDF" stroke-width="1.2"/>
+          <rect x="80" y="86" width="150" height="40" rx="4" fill="#EDF3FD" stroke="none"/>
+          <rect x="80" y="140" width="190" height="20" rx="4" fill="#EDF3FD" stroke="none"/>
+          <rect x="80" y="178" width="290" height="92" rx="6" fill="#FFFFFF"/>
+          <rect x="92" y="208" width="266" height="30" rx="3" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <path d="M96 232 L124 220 L152 226 L180 214 L208 224 L236 216 L264 228 L292 218 L320 224" stroke="#2460D0"/>
+          <circle cx="344" cy="206" r="5" fill="#2DBE7A"/>
+          <path d="M410 108 L470 108" marker-end="url(#f4aAr)"/>
+          <path d="M410 152 L470 152" marker-end="url(#f4aAr)"/>
+          <path d="M410 226 L470 226" marker-end="url(#f4aAr)"/>
+          <rect x="480" y="84" width="370" height="48" rx="8" transform="rotate(0.4 665 108)" fill="#FFFFFF"/>
+          <rect x="480" y="130" width="370" height="48" rx="8" transform="rotate(-0.3 665 154)" fill="#FFFFFF"/>
+          <rect x="480" y="200" width="370" height="60" rx="8" transform="rotate(0.5 665 230)" fill="#E3F7EC" stroke="#2DBE7A"/>
+        </g>
+
+        <text class="f4aL" x="82" y="66">LATE DELIVERIES</text>
+        <text class="f4aS" x="368" y="66" text-anchor="end">this week</text>
+        <text class="f4aV" x="88" y="116">4.9%</text>
+        <text class="f4aS" x="88" y="155">+0.6 pts on last week</text>
+        <text class="f4aS" x="92" y="196">last 8 weeks, the band is where normal has been</text>
+        <text class="f4aS" x="92" y="258">older</text>
+        <text class="f4aB" x="358" y="258" text-anchor="end">this week, on the band</text>
+
+        <text class="f4aA" x="496" y="102">1 · THE VALUE</text>
+        <text class="f4aS" x="496" y="120">What is it now. Olist's median daily late share, 4.9 percent.</text>
+        <text class="f4aA" x="496" y="148">2 · THE DELTA</text>
+        <text class="f4aS" x="496" y="166">Which way, and how much, since the last glance. Constructed.</text>
+        <text class="f4aB" x="496" y="220">3 · THE CONTEXT BAND</text>
+        <text class="f4aS" x="496" y="238">What normal has looked like lately. Inside the band is normal;</text>
+        <text class="f4aS" x="496" y="252">outside is the only thing colour will ever be allowed to say.</text>
+
+        <text class="f4aN" x="30" y="322">Card layout constructed. The value is Olist's; the delta is illustrative. Session 6 decides how wide the band is and who draws it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the value answers "what", the delta answers "which way", the band answers "is that normal"; a card with only the first piece cannot be read on a Monday</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the big number is the least informative piece<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Put 4.9 percent on a card and hand it to someone who has never seen the series. They cannot tell whether that is a good week. Olist's daily late share, the series Saltmarsh's card borrows, has a median of 4.9 percent across 581 days and a worst day of 32.1 percent on 2 March 2018, with a mean of 2.7 percent over its first 28 days and 6.7 percent over the whole span. The same 4.9 is a bad week against the early data and an ordinary one against the whole. The value on its own cannot say which, and Nia's glance has no time to work it out.</p>
+        <p>The <strong>delta</strong> fixes half of that: up 0.6 points on last week is a direction and a size, and a direction is what a decision hangs on. The <strong>context band</strong> fixes the other half: a shaded stripe showing where the last several weeks have sat, so this week's dot is visibly inside it or outside it. The band is drawn from the series, not from a target; a target is a wish, and a card that colours against a wish goes red for a year while the business grows into it. Session 6 measures exactly that mistake. Tonight the band is simply the third piece of the card, and the piece colour is going to summarise.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Delta against what, and the direction of bad<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every delta needs a stated comparison, and the choice is a design decision the card must show. Against last week catches a sudden move and misses a slow drift; against the same week last year catches seasonality and misses this month; against the band's centre catches drift and is harder to read. Tomas writes the comparison on the card in words, "on last week", because a delta with an unstated base is a number the reader has to interpret, and interpretation is what the glance cannot afford.</p>
+        <p>The second thing the delta needs is a <strong>direction of bad</strong>. For late deliveries, up is bad; for orders and revenue, down is bad; for delivery days against the promise, a larger number is worse. A card that shows an upward arrow in the same style on every KPI makes the reader translate on every tile. Tomas orients each card so that the bad direction reads the same way across the screen, and writes the orientation into the card's definition sheet, because that same orientation is what the colour rule in Part 2 is going to use. This is also the point where "colour theory" ends and "card design" begins: how hues are built and which chart forms suit which data belong to the Dataviz course, <a href="https://phoebefu6.github.io/learn-dataviz-with-phoebe/courses/04-colour-that-works.html">https://phoebefu6.github.io/learn-dataviz-with-phoebe/courses/04-colour-that-works.html</a>; what a card says and when it is allowed to say it is ours.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The card that was always "up".</strong> A familiar pattern: a revenue card shows a green upward arrow every Monday because it compares this week with the same week three years ago, when the company was a third of the size. Everyone has stopped looking at the arrow, so the one Monday revenue actually fell on the week before, the arrow was still green and still up. Nothing on the card was false. The delta's base was never written down, and a delta nobody can read is decoration.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers colour as state, WCAG 2.2 1.4.1, 1.4.3 and 1.4.11, read</span>
+      <h2>Red, amber, green have one job, and colour is never the only channel</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">On a dashboard, red, amber and green are reserved words. They mean, and only mean, the <strong>state</strong> of a card: outside the band on the bad side (red), near the edge of it (amber), inside it (green). They are never a category, never a brand, never a highlight for the card someone finds interesting, and never the colour of a chart line that happens to be about something negative. The reason is the reader's reflex: a red anywhere on the screen triggers "act" before any number is read, and a red that did not mean "act" spends that reflex. Spend it twice and the reader stops reacting to red at all, which is the one failure a monitoring screen cannot survive.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left panel, labelled state, how a colour gets earned: a small card whose mini chart shows the band, with the dot for this week above it; three stacked swatches on the right of the card, green with the word inside band, amber with the word near the edge, red with the word outside on the bad side, and the red one connected to the dot; beside the red swatch the second channel is written out as the word red printed on the card plus the dot's position above the band. Right panel, in the universal reds and labelled the wrong way, painted, not earned: four small tiles each a different colour by category, with the note that the red one is the returns category and nothing is wrong this week; the reader's reflex fires anyway. A note says the taught colours are the state tokens, each with a word and a position, never on their own.">
+        <defs>
+          <filter id="f4bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f4bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#141C2E" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f4bH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f4bL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f4bS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f4bB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f4bV { font: 800 16px Inter, sans-serif; fill: #163C8A; }
+          .f4bW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .f4bA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f4bN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f4bH" x="30" y="26">A COLOUR IS EARNED BY THE BAND AND CARRIED BY A WORD; A COLOUR WITH NO RULE BEHIND IT IS PAINT</text>
+
+        <g filter="url(#f4bSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="480" height="290" rx="10" transform="rotate(-0.3 280 193)" fill="#FFFFFF"/>
+          <rect x="64" y="90" width="230" height="200" rx="10" transform="rotate(-0.6 179 190)" fill="#FDE8E6" stroke="#B42318"/>
+          <rect x="80" y="168" width="196" height="26" rx="3" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <path d="M86 186 L112 178 L138 184 L164 176 L190 182 L216 174 L242 180" stroke="#2460D0"/>
+          <circle cx="262" cy="150" r="6" fill="#B42318" stroke="#B42318"/>
+          <path d="M262 160 L262 166" stroke="#B42318" stroke-dasharray="3 3"/>
+          <rect x="88" y="258" width="46" height="18" rx="9" fill="#B42318" stroke="#B42318"/>
+          <rect x="340" y="92" width="160" height="40" rx="6" transform="rotate(0.8 420 112)" fill="#DCF5E6" stroke="#1E9E5A"/>
+          <rect x="340" y="146" width="160" height="40" rx="6" transform="rotate(-0.7 420 166)" fill="#FFF3D1" stroke="#E8A317"/>
+          <rect x="340" y="200" width="160" height="40" rx="6" transform="rotate(0.5 420 220)" fill="#FDE8E6" stroke="#B42318"/>
+          <path d="M276 150 C300 150 310 220 334 220" marker-end="url(#f4bAr)"/>
+          <path d="M420 246 L420 268" marker-end="url(#f4bAr)"/>
+
+          <rect x="560" y="48" width="290" height="290" rx="10" transform="rotate(0.4 705 193)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="584" y="98" width="110" height="64" rx="6" transform="rotate(-1 639 130)" fill="#EDF3FD"/>
+          <rect x="712" y="98" width="110" height="64" rx="6" transform="rotate(1.2 767 130)" fill="#E3F7EC"/>
+          <rect x="584" y="180" width="110" height="64" rx="6" transform="rotate(0.8 639 212)" fill="#FEF2F2" stroke="#991B1B"/>
+          <rect x="712" y="180" width="110" height="64" rx="6" transform="rotate(-1.1 767 212)" fill="#FFF3D1"/>
+        </g>
+
+        <text class="f4bA" x="56" y="72">STATE: HOW A COLOUR GETS EARNED</text>
+        <text class="f4bL" x="80" y="116">LATE DELIVERIES</text>
+        <text class="f4bV" x="80" y="142">11.8%</text>
+        <text class="f4bS" x="80" y="214">the band, from the recent weeks</text>
+        <text class="f4bS" x="80" y="240">this week's dot is above it, bad side</text>
+        <text class="f4bW" x="111" y="271" text-anchor="middle">RED</text>
+        <text class="f4bS" x="144" y="271">the word, printed on the card</text>
+        <text class="f4bL" x="420" y="116" text-anchor="middle">inside the band</text>
+        <text class="f4bL" x="420" y="170" text-anchor="middle">near its edge</text>
+        <text class="f4bL" x="420" y="224" text-anchor="middle">outside, bad side</text>
+        <text class="f4bB" x="420" y="290" text-anchor="middle">three channels, same claim:</text>
+        <text class="f4bS" x="420" y="306" text-anchor="middle">the colour, the word, the dot's position</text>
+        <text class="f4bS" x="280" y="320" text-anchor="middle">take any one away and the other two still say it</text>
+
+        <text class="f4bA" x="576" y="72">THE WRONG WAY: PAINTED, NOT EARNED</text>
+        <text class="f4bS" x="639" y="126" text-anchor="middle">orders · blue</text>
+        <text class="f4bS" x="767" y="126" text-anchor="middle">revenue · green</text>
+        <text class="f4bS" x="639" y="208" text-anchor="middle">returns · red</text>
+        <text class="f4bS" x="767" y="208" text-anchor="middle">backlog · yellow</text>
+        <text class="f4bS" x="705" y="272" text-anchor="middle">one colour per category, by the tool's list</text>
+        <text class="f4bS" x="705" y="288" text-anchor="middle">nothing is wrong this week, and the reader's</text>
+        <text class="f4bS" x="705" y="304" text-anchor="middle">reflex fires on the returns tile anyway</text>
+
+        <text class="f4bN" x="30" y="364">Left card: Olist's median late share after 8 November 2017, 11.8 percent; band and layout constructed. Right panel is the wrong way.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - on the left the red is a conclusion the band reached and the word repeats; on the right the red is a category, and the reader's reflex cannot tell the difference</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The reserved-word rule, and the three states<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Tomas writes one sentence on the Saltmarsh (constructed) design sheet and reads it to Priya: "Red, amber and green on this screen mean one thing, where this week sits against the band, and nothing else gets those three colours." Every other colour on the screen, the chart lines, the group headers, the one accent, comes from the palette, which is ink blue with a signal green used only as a fill under dark text. That separation is physical: the three state colours are their own tokens in the stylesheet, and nothing in the palette is allowed to look like them. A chart line is never red because it is about a problem. A header is never green because the team hit a target last quarter.</p>
+        <p><strong>Green</strong> means inside the band: normal, no action. <strong>Amber</strong> means near its edge: watch, ask a question. <strong>Red</strong> means outside the band on the bad side: act, this week. Where exactly the edges sit, and how many days a value must stay outside before the card changes, are the two decisions session 6 scores against 581 real days; tonight's rule is only that there are three states, that every one of them is earned by the band and not by a feeling, and that a card with no band cannot have a colour at all. That last clause is Part 3.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>WCAG 2.2 on a card: 1.4.1, 1.4.3 and 1.4.11, read at source<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three criteria of the W3C's Web Content Accessibility Guidelines 2.2 (the 12 December 2024 Recommendation) decide whether a state can be read. <strong>1.4.1 Use of Color, Level A:</strong> "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element." A red card with nothing else saying red fails it. So the state is carried three ways on Tomas's card: the colour, the word ("RED", "AMBER", "GREEN") printed in the corner, and the position of this week's dot against the band. Any one of the three can go missing, on a projector, in a printout, in a reader's eyes, and the other two still state it.</p>
+        <p><strong>1.4.3 Contrast (Minimum), Level AA:</strong> text has "a contrast ratio of at least 4.5:1", large-scale text "at least 3:1", where large scale is "at least 18 point or 14 point bold". The value on a card is large; the delta and the word are not, so they need 4.5:1. That is why the taught state colours are a pair each: a strong tone for the border and the dot, and a pale tint for the fill, with dark ink text on the tint. White text sits only on the strong red. <strong>1.4.11 Non-text Contrast, Level AA:</strong> graphical objects needed to understand content "have a contrast ratio of at least 3:1 against adjacent color(s)". The band, the dot and the card border are graphical objects, so a dot has to be visible against the band it sits on, not only distinguishable by hue. 1.4.6 Contrast (Enhanced), Level AAA, raises the text floor to 7:1 and is worth meeting on the one card the reader looks at first.</p>
+        <p>Checked with the WCAG relative-luminance formula on this page's own tokens, so you can re-check with any contrast checker: ink on each of the three tints clears 14:1; white on the strong red is 6.57:1; white on the strong amber is 2.17:1 and on the strong green 3.45:1, which is why neither carries small text; and the strong red against the strong green is 1.91:1, which means a red dot on a green band is not a visible dot by 1.4.11, whatever the reader's eyes can do. The white-on-primary figure for the palette, 5.74:1, is recorded in the source map.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Say the rule in the first line of the screen's definition sheet.</strong> "Red, amber, green: card state only, from the band, with the word printed." A team that has read that sentence stops asking for the returns tile to be red because returns are bad, and starts asking the right question instead: what band, and who draws it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers colour vision deficiency and the cards where colour means nothing</span>
+      <h2>Strip the colour off and see what is left</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The National Eye Institute's page on colour blindness says "About 1 in 12 men have color vision deficiency", and that "The most common type of color vision deficiency makes it hard to tell the difference between red and green." The page gives no figure for women, so none is given here. In a Monday stand-up of twelve people, the odds are that someone is reading a red-amber-green card without the red and the green. The test for that is not a simulator; it is a question you can ask of any card by covering its colour with your hand: what is left, and does it still say the state?</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three small cards drawn as a strip test. Left: the card with its colour, the red state shown by a red border and tint, a red dot above the band, and the word red printed. Middle: the same card with the colour stripped, drawn in the palette's faint grey only, where the dot above the band and the printed word still state red. Right: a card whose colour has been stripped and which carried only colour, drawn as a blank box with the note that nothing is left and the state is gone. Under the strip, three channels listed with a tick-style pill for each card: colour, word, position. A note gives the NEI figure, about 1 in 12 men, and says the test is covering the colour with your hand.">
+        <defs>
+          <filter id="f4cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#2460D0" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f4cH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f4cL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f4cS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f4cB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f4cV { font: 800 16px Inter, sans-serif; fill: #163C8A; }
+          .f4cW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .f4cA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f4cN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f4cH" x="30" y="26">THE STRIP TEST: COVER THE COLOUR AND ASK WHETHER THE CARD STILL SAYS ITS STATE</text>
+
+        <g filter="url(#f4cSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="70" width="250" height="170" rx="10" transform="rotate(-0.6 165 155)" fill="#FDE8E6" stroke="#B42318"/>
+          <rect x="58" y="150" width="214" height="26" rx="3" fill="#E3F7EC" stroke="#2DBE7A"/>
+          <path d="M64 168 L94 160 L124 166 L154 158 L184 164 L214 156 L244 162" stroke="#2460D0"/>
+          <circle cx="262" cy="132" r="6" fill="#B42318" stroke="#B42318"/>
+          <rect x="60" y="206" width="46" height="18" rx="9" fill="#B42318" stroke="#B42318"/>
+
+          <rect x="315" y="70" width="250" height="170" rx="10" transform="rotate(0.5 440 155)" fill="#FFFFFF" stroke="#566178"/>
+          <rect x="333" y="150" width="214" height="26" rx="3" fill="#E3E9F3" stroke="#C5CEDF"/>
+          <path d="M339 168 L369 160 L399 166 L429 158 L459 164 L489 156 L519 162" stroke="#566178"/>
+          <circle cx="537" cy="132" r="6" fill="#566178" stroke="#566178"/>
+          <rect x="335" y="206" width="46" height="18" rx="9" fill="#566178" stroke="#566178"/>
+
+          <rect x="590" y="70" width="250" height="170" rx="10" transform="rotate(-0.4 715 155)" fill="#FFFFFF" stroke="#566178"/>
+          <path d="M616 150 L814 150 M616 176 L814 176" stroke="#C5CEDF" stroke-width="1.2"/>
+
+          <rect x="40" y="276" width="66" height="18" rx="9" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="112" y="276" width="66" height="18" rx="9" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="184" y="276" width="66" height="18" rx="9" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="315" y="276" width="66" height="18" rx="9" fill="url(#f4cHc)"/>
+          <rect x="387" y="276" width="66" height="18" rx="9" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="459" y="276" width="66" height="18" rx="9" fill="#2DBE7A" stroke="#2DBE7A"/>
+          <rect x="590" y="276" width="66" height="18" rx="9" fill="url(#f4cHc)"/>
+          <rect x="662" y="276" width="66" height="18" rx="9" fill="url(#f4cHc)"/>
+          <rect x="734" y="276" width="66" height="18" rx="9" fill="url(#f4cHc)"/>
+        </g>
+
+        <text class="f4cA" x="56" y="58">1 · WITH ITS COLOUR</text>
+        <text class="f4cL" x="58" y="96">LATE DELIVERIES</text>
+        <text class="f4cV" x="58" y="122">24.3%</text>
+        <text class="f4cW" x="83" y="219" text-anchor="middle">RED</text>
+        <text class="f4cS" x="116" y="219">above the band, bad side</text>
+
+        <text class="f4cA" x="331" y="58">2 · COLOUR COVERED, STILL SAYS RED</text>
+        <text class="f4cL" x="333" y="96">LATE DELIVERIES</text>
+        <text class="f4cV" x="333" y="122">24.3%</text>
+        <text class="f4cW" x="358" y="219" text-anchor="middle">RED</text>
+        <text class="f4cS" x="391" y="219">the dot is still above the band</text>
+
+        <text class="f4cA" x="606" y="58">3 · COLOUR COVERED, CARRIED COLOUR ONLY</text>
+        <text class="f4cL" x="608" y="96">LATE DELIVERIES</text>
+        <text class="f4cV" x="608" y="122">24.3%</text>
+        <text class="f4cS" x="715" y="212" text-anchor="middle">no word, no band, no dot</text>
+        <text class="f4cS" x="715" y="228" text-anchor="middle">the state left with the colour</text>
+
+        <text class="f4cS" x="73" y="262" text-anchor="middle">colour</text>
+        <text class="f4cS" x="145" y="262" text-anchor="middle">word</text>
+        <text class="f4cS" x="217" y="262" text-anchor="middle">position</text>
+        <text class="f4cS" x="348" y="262" text-anchor="middle">colour</text>
+        <text class="f4cS" x="420" y="262" text-anchor="middle">word</text>
+        <text class="f4cS" x="492" y="262" text-anchor="middle">position</text>
+        <text class="f4cS" x="623" y="262" text-anchor="middle">colour</text>
+        <text class="f4cS" x="695" y="262" text-anchor="middle">word</text>
+        <text class="f4cS" x="767" y="262" text-anchor="middle">position</text>
+        <text class="f4cB" x="145" y="314" text-anchor="middle">three channels carry it</text>
+        <text class="f4cB" x="420" y="314" text-anchor="middle">two still do</text>
+        <text class="f4cS" x="695" y="314" text-anchor="middle">none left: this card fails 1.4.1</text>
+
+        <text class="f4cN" x="30" y="340">Value is Olist's median late share after 11 February 2018, 24.3 percent; layout constructed. NEI: about 1 in 12 men have colour vision deficiency.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the middle card is what about one man in twelve sees anyway, and it still reads; the right card is the one that fails him, and it fails the printer and the projector too</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Red-green is the common case, and the second channel is the fix<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The NEI figure is the only prevalence number worth carrying into a design review, because it is read at source and it is enough: about 1 in 12 men, most commonly a difficulty telling red from green, which is precisely the pair a state card leans on. The response is not to abandon red and green; readers without the deficiency find them instantly, and the convention is understood in every meeting room. The response is the second channel from Part 2, made mandatory: the word printed on the card, and the dot's position against the band. A red-green reader sees two tiles of similar tone, reads "RED" on one and "GREEN" on the other, and sees one dot above its band and one inside. The state arrives. Colour was a shortcut for the people it works for, never the message.</p>
+        <p>Two cheap habits make this real. Tomas keeps the strong tones for borders and dots, and the pale tints for fills, so even a reader who sees red and green as the same hue sees a light card and a strong border, which is a luminance difference and survives. And he never puts two states next to each other as colour alone: a red dot on a green band fails 1.4.11 at 1.91:1 regardless of eyes, so the band is drawn in the palette's signal green tint and the dot in the state's strong tone, with the word doing the rest.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>When colour should mean nothing, and the Okabe-Ito palette, reported<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Not every card earns a state. On Saltmarsh's (constructed) screen the backlog card shows where orders are sitting, picking or packing or dispatch, and Kofi moves people on the shape of it, not on a threshold. It has no band, so it has no state, so it has no red, amber or green, ever; it stays ink blue, and that absence is itself information: this card is read, not triaged. The same holds for any card whose question is "which" or "where" rather than "is it worse". A screen where every tile is coloured has told the reader nothing about which tiles are being watched. A screen where two of six carry a state has told her exactly where the rule lives.</p>
+        <p>Where a chart on the screen needs several hues for categories, the hues come from the palette and never from the three state tokens, and they are chosen for readers with colour vision deficiency. The widely reproduced Okabe and Ito "Color Universal Design" set is the usual starting point: black #000000, orange #E69F00, sky blue #56B4E9, bluish green #009E73, yellow #F0E442, blue #0072B2, vermilion #D55E00, reddish purple #CC79A7. That set is reported here, not read at source, and it is not the palette drawn on these cards; it is named so that you know what to look up when a category chart lands on your screen. Categorical colour, sequential scales and how a hue is built belong to the Dataviz course at <a href="https://phoebefu6.github.io/learn-dataviz-with-phoebe/">https://phoebefu6.github.io/learn-dataviz-with-phoebe/</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The projector that ate amber.</strong> A familiar pattern: a screen looks perfect on the analyst's monitor, and on the meeting-room projector every amber card reads as a pale nothing next to the whites. For three weeks the stand-up discusses only the red cards, because amber has physically disappeared from the room. Nobody in that room has a colour deficiency. The card carried its warning as a tint alone, and a tint is the first thing a bad projector removes. A printed word would have survived; so would a dot sitting visibly at the band's edge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>The late-deliveries card in four states</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Tomas takes the one card Nia reads first, late deliveries, and draws it four times: green, amber, red, and the state that is no state, a card that carries no colour because it has no band yet. The layout is constructed and the band's edges are placeholders he writes as such; the values on the cards are Olist's, the median daily late share across the whole series and the medians after two of the three changes the session 6 rule finds. Write the same worksheets for a card of your own as you go. If you have none, borrow this one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four hand-drawn versions of the late-deliveries card in a row. Green: value 4.9 percent, inside the band, word green printed, pale green tint with a strong green border. Amber: value 6.2 percent, near the band's edge, word amber, pale amber tint with a strong amber border. Red: value 24.3 percent, above the band, word red in white on a strong red pill, pale red tint. The fourth card is plain white with the value 4.9 percent, no band and the words no state, no band yet, in the palette's ink blue. Under each card the three channels are written: colour, word, position. A note says the values are Olist's medians, the band edges are placeholders Tomas writes as such, and session 6 draws them for real.">
+        <defs>
+          <filter id="f4dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+        </defs>
+        <style>
+          .f4dH { font: 800 12px Inter, sans-serif; fill: #141C2E; }
+          .f4dL { font: 600 12px Inter, sans-serif; fill: #141C2E; }
+          .f4dS { font: 400 11px Inter, sans-serif; fill: #566178; }
+          .f4dB { font: 800 11px Inter, sans-serif; fill: #0B5A3B; }
+          .f4dV { font: 800 18px Inter, sans-serif; fill: #163C8A; }
+          .f4dW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .f4dA { font: 700 11px Inter, sans-serif; fill: #2460D0; }
+          .f4dN { font: 400 12px Inter, sans-serif; fill: #566178; }
+        </style>
+
+        <text class="f4dH" x="30" y="26">ONE CARD, FOUR STATES: THREE EARNED BY THE BAND, AND ONE THAT HAS NO BAND TO EARN FROM</text>
+
+        <g filter="url(#f4dSk)" fill="none" stroke="#141C2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="34" y="60" width="192" height="170" rx="10" transform="rotate(-0.7 130 145)" fill="#DCF5E6" stroke="#1E9E5A"/>
+          <rect x="48" y="148" width="164" height="26" rx="3" fill="#FFFFFF" stroke="#C5CEDF"/>
+          <path d="M54 166 L78 160 L102 164 L126 158 L150 162 L174 156 L198 160" stroke="#2460D0"/>
+          <circle cx="206" cy="161" r="6" fill="#1E9E5A" stroke="#1E9E5A"/>
+          <rect x="48" y="196" width="60" height="18" rx="9" fill="#1E9E5A" stroke="#1E9E5A"/>
+
+          <rect x="244" y="60" width="192" height="170" rx="10" transform="rotate(0.6 340 145)" fill="#FFF3D1" stroke="#E8A317"/>
+          <rect x="258" y="148" width="164" height="26" rx="3" fill="#FFFFFF" stroke="#C5CEDF"/>
+          <path d="M264 166 L288 160 L312 164 L336 158 L360 162 L384 156 L408 160" stroke="#2460D0"/>
+          <circle cx="416" cy="149" r="6" fill="#E8A317" stroke="#E8A317"/>
+          <rect x="258" y="196" width="60" height="18" rx="9" fill="#E8A317" stroke="#E8A317"/>
+
+          <rect x="454" y="60" width="192" height="170" rx="10" transform="rotate(-0.5 550 145)" fill="#FDE8E6" stroke="#B42318"/>
+          <rect x="468" y="148" width="164" height="26" rx="3" fill="#FFFFFF" stroke="#C5CEDF"/>
+          <path d="M474 166 L498 160 L522 164 L546 158 L570 162 L594 156 L618 160" stroke="#2460D0"/>
+          <circle cx="626" cy="126" r="6" fill="#B42318" stroke="#B42318"/>
+          <rect x="468" y="196" width="60" height="18" rx="9" fill="#B42318" stroke="#B42318"/>
+
+          <rect x="664" y="60" width="192" height="170" rx="10" transform="rotate(0.8 760 145)" fill="#FFFFFF"/>
+          <path d="M684 166 L708 160 L732 164 L756 158 L780 162 L804 156 L828 160" stroke="#2460D0"/>
+          <rect x="678" y="196" width="100" height="18" rx="9" fill="#EDF3FD" stroke="#2460D0"/>
+        </g>
+
+        <text class="f4dL" x="48" y="84">LATE DELIVERIES</text>
+        <text class="f4dV" x="48" y="112">4.9%</text>
+        <text class="f4dS" x="48" y="132">inside the band</text>
+        <text class="f4dL" x="78" y="209" text-anchor="middle">GREEN</text>
+        <text class="f4dS" x="130" y="252" text-anchor="middle">colour · word · position</text>
+        <text class="f4dB" x="130" y="268" text-anchor="middle">no action; Nia moves on</text>
+
+        <text class="f4dL" x="258" y="84">LATE DELIVERIES</text>
+        <text class="f4dV" x="258" y="112">6.2%</text>
+        <text class="f4dS" x="258" y="132">at the band's edge</text>
+        <text class="f4dL" x="288" y="209" text-anchor="middle">AMBER</text>
+        <text class="f4dS" x="340" y="252" text-anchor="middle">colour · word · position</text>
+        <text class="f4dB" x="340" y="268" text-anchor="middle">watch; Nia asks Kofi one question</text>
+
+        <text class="f4dL" x="468" y="84">LATE DELIVERIES</text>
+        <text class="f4dV" x="468" y="112">24.3%</text>
+        <text class="f4dS" x="468" y="132">above the band, bad side</text>
+        <text class="f4dW" x="498" y="209" text-anchor="middle">RED</text>
+        <text class="f4dS" x="550" y="252" text-anchor="middle">colour · word · position</text>
+        <text class="f4dB" x="550" y="268" text-anchor="middle">act; Nia calls the carrier today</text>
+
+        <text class="f4dL" x="678" y="84">LATE DELIVERIES</text>
+        <text class="f4dV" x="678" y="112">4.9%</text>
+        <text class="f4dS" x="678" y="132">no band drawn yet</text>
+        <text class="f4dA" x="728" y="209" text-anchor="middle">NO STATE</text>
+        <text class="f4dS" x="760" y="252" text-anchor="middle">a line, a value, no claim</text>
+        <text class="f4dB" x="760" y="268" text-anchor="middle">read it; nothing to triage</text>
+
+        <text class="f4dN" x="30" y="312">Olist's medians: 4.9 whole series, 6.2 after 11 July 2018, 24.3 after 11 February 2018. Band edges are placeholders; session 6 draws them.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the fourth card is the honest one until a band exists; colouring it before then would be a claim nobody has made</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Draw the three pieces for your card.</strong> Value, delta with its stated base, and the band with its stated window. Write the direction of bad in words. Tomas fills it for late deliveries; the values are Olist's, the rest is constructed.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 1 · the card anatomy</span>Card:       Late deliveries (share of this week's deliveries after the promised date)
+Value:      4.9%            (Olist's median daily late share, whole series)
+Delta:      +0.6 pts        base: last week   (constructed)
+Band:       last 8 weeks    (window stated on the card; width decided in session 6)
+Bad is:     UP              (a larger share is worse)
+
+Test: can a stranger read all three pieces without asking you anything?  yes</div>
+      </div>
+      <div class="step">
+        <p><strong>Decide whether this card earns a state at all.</strong> A card has a state only if it has a band and a direction of bad. Go down your six cards and mark each one. Expect fewer than you think.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 2 · which cards carry a colour</span>late deliveries        band + bad direction   -&gt; carries a state
+delivery days vs promise  band + bad direction   -&gt; carries a state
+orders this week       band + bad direction   -&gt; carries a state
+revenue this week      band + bad direction   -&gt; carries a state
+backlog by stage       a shape, no threshold  -&gt; NO state, stays ink blue
+carrier share of late  a "which", not a "worse" -&gt; NO state, stays ink blue
+
+Four of six carry colour. Two never will, and the screen says so by staying blue.</div>
+      </div>
+      <div class="step">
+        <p><strong>Write the three states as sentences, with the action each one triggers.</strong> If a state has no action, it is not a state; merge it into its neighbour. The edges are placeholders tonight, written as such.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 3 · the three states, and what each one does on Monday</span>GREEN   inside the band              -&gt; no action, Nia moves to the next card
+AMBER   at the band's edge           -&gt; Nia asks Kofi one question before the meeting ends
+RED     outside the band, bad side   -&gt; Nia calls the carrier today, or books the second one
+
+Band edges: PLACEHOLDER until session 6 scores them against 581 real days.
+Shown tonight: 4.9% green, 6.2% amber, 24.3% red (Olist's medians, Tomas's placeholder edges).</div>
+      </div>
+      <div class="step">
+        <p><strong>Add the second and third channels.</strong> The word, printed on the card in the state's strong tone or on its pill; the dot's position against the band. Then cover the colour with your hand and read the card again.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 4 · the strip test</span>Channel 1  colour     pale tint fill + strong border + strong dot    (state tokens only)
+Channel 2  word       "GREEN" / "AMBER" / "RED" printed bottom-left
+Channel 3  position   this week's dot drawn against the band
+
+Cover the colour:   word still there?  yes    dot still above the band?  yes
+Print in greyscale: word still there?  yes    dot still above the band?  yes
+Projector:          tint washes out; border, word and dot survive
+
+A card that fails any row of this test fails WCAG 2.2 1.4.1 (colour as the only means).</div>
+      </div>
+      <div class="step">
+        <p><strong>Check the contrast of every text and every shape on the card.</strong> 4.5:1 for small text, 3:1 for large text and for the band, dot and border against what they sit on. Use any contrast checker; the numbers below are this page's own tokens, computed with the WCAG formula.</p>
+        <div class="prompt-box good"><span class="label">★ Worksheet 5 · the contrast floors (WCAG 2.2 1.4.3 and 1.4.11)</span>ink #141C2E on red tint #FDE8E6       14.46 : 1   small text  PASS (4.5 needed)
+ink #141C2E on amber tint #FFF3D1     15.38 : 1   small text  PASS
+ink #141C2E on green tint #DCF5E6     14.77 : 1   small text  PASS
+white on strong red #B42318            6.57 : 1   small text  PASS   (the only white-on-state pair)
+white on strong amber #E8A317          2.17 : 1   FAIL for any text: ink only on amber
+white on strong green #1E9E5A          3.45 : 1   large text or shapes only, never small text
+strong red dot on strong green band    1.91 : 1   FAIL 1.4.11: never a state dot on a state band
+
+Rule that falls out: tint under ink text, strong tone for border and dot, white only on red.</div>
+      </div>
+      <div class="step">
+        <p><strong>Read the four cards back to Nia.</strong> Four sentences, one per state, out loud. The test is whether she says the action before you do.</p>
+        <div class="prompt-box good"><span class="label">★ The read-back</span>"Green: deliveries are where they have been, I move on.
+ Amber: they are at the edge, I ask Kofi what Thursday looked like.
+ Red: they are outside, I call the carrier before lunch.
+ Blue: that card has no line to cross; I read it, I do not triage it."
+
+If Nia reaches the action before you finish the sentence, the state is doing its job.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the state tokens in one place and the palette in another.</strong> One stylesheet block for red, amber and green, named as states; one for everything else. When a chart line "needs to be red because it is about complaints", the question becomes "which state is it in", and the request answers itself.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 5</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Audit the colour on one screen you own.</strong> List every red, amber or green on it and write beside each what it means. Any one that means a category, a brand or "important" rather than a state is paint; note what you would replace it with.</li>
+      <li><strong>Draw your first card in four states</strong> on paper, with the value, the delta and its base, the band and its window, the word and the dot. Cover the colour with your hand and check it still reads.</li>
+      <li><strong>Run the contrast floors</strong> on your real tokens with any checker: 4.5:1 for small text, 3:1 for large text and for every band, dot and border against its background. Bring the one pair that failed.</li>
+      <li><strong>Note which of your six cards carry no state at all</strong>, and why. Session 5 puts the whole screen in front of five readers and three tasks, and the first task is "which card would you act on".</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 4 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Priya asks for the returns card to be red "because returns are a problem for us". Nothing on the returns card is outside its band this week. What does the reserved-word rule say?</p>
+      <button class="qopt" type="button">A · Make it red; the sponsor's priorities decide the colours</button>
+      <button class="qopt" type="button">B · Keep it uncoloured or green; red means outside the band on the bad side and nothing else, and a red that does not mean "act" spends the reflex the screen depends on</button>
+      <button class="qopt" type="button">C · Make it red but smaller, so the reflex is weaker</button>
+      <button class="qopt" type="button">D · Make it amber as a compromise between the sponsor and the rule</button>
+      <p class="qwhy">Red, amber and green are reserved for the card's state, earned by the band. A category or a priority is not a state. A compromise colour is still an unearned colour, and the reader cannot tell it from an earned one.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · A late-deliveries card shows a pale red fill and nothing else to mark its state. Which WCAG 2.2 criterion does it fail, as read, and what fixes it?</p>
+      <button class="qopt" type="button">A · 1.4.3, fixed by making the red darker until it reaches 4.5:1</button>
+      <button class="qopt" type="button">B · 1.4.11, fixed by adding a border of 3:1 against the page</button>
+      <button class="qopt" type="button">C · Nothing; a tint is a legitimate way to show a state if the legend explains it</button>
+      <button class="qopt" type="button">D · 1.4.1, because colour is the only visual means of conveying the state; fixed by a second channel, the word printed on the card and the dot's position against the band</button>
+      <p class="qwhy">1.4.1 Use of Color: "Color is not used as the only visual means of conveying information". Darkening the red or adding a border changes contrast, not the number of channels. A legend is still colour as the only channel on the card itself.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · The backlog card shows where orders sit in the warehouse, picking, packing or dispatch, and Kofi acts on its shape. Should it carry a red, amber or green?</p>
+      <button class="qopt" type="button">A · No; it has no band and no direction of bad, so it has no state, and leaving it in the palette's ink blue tells the reader it is read, not triaged</button>
+      <button class="qopt" type="button">B · Yes, green by default, so the screen looks consistent</button>
+      <button class="qopt" type="button">C · Yes, red when the backlog is large, because a large backlog is bad</button>
+      <button class="qopt" type="button">D · Yes, one state colour per stage, so the stages are easy to tell apart</button>
+      <p class="qwhy">A state needs a band and a direction of bad. "Large" without a band is a feeling, and one colour per stage is a category wearing state colours. A screen where only the cards with a rule carry a colour tells the reader exactly where the rule lives.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">W3C (2024). Web Content Accessibility Guidelines (WCAG) 2.2, W3C Recommendation, 12 December 2024 version: 1.4.1, 1.4.3, 1.4.6, 1.4.11</span><span class="note">Use of Color, Contrast (Minimum) with 4.5:1 and 3:1 and the large-scale definition, Contrast (Enhanced) at 7:1, Non-text Contrast at 3:1, read in the W3C text; the ratios on this page's own tokens are computed with the WCAG formula and can be re-checked with any checker</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">National Eye Institute (2025). Color Blindness. nei.nih.gov, updated 5 November 2025</span><span class="note">"About 1 in 12 men have color vision deficiency" and the most common type being red against green, read; the page gives no figure for women and none is quoted</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Okabe, M. and Ito, K. Color Universal Design (CUD). jfly.uni-koeln.de/color</span><span class="note">Reported: the eight values are widely reproduced but the page could not be read at source; named as what to look up for categorical colour, never as the palette on these cards</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Olist and Sionek, A. (2018). Brazilian E-Commerce Public Dataset by Olist, v2. Kaggle. CC BY-NC-SA 4.0</span><span class="note">Read (dataset API) and computed (the series): the late-share median 4.9 percent, the 32.1 percent worst day, the first-28-day and whole-span means, and the medians after the 8 November 2017, 11 February 2018 and 11 July 2018 changes</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The card anatomy, the reserved-word rule, the strip test and the four states</span><span class="note">Common practice assembled here around the three WCAG criteria; no single source prescribes these exact pieces</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Saltmarsh, Nia, Tomas, Priya, Kofi, the deltas, the band window and the placeholder edges</span><span class="note">Constructed for teaching; no number about them is a measurement, and the band edges are placeholders until session 6</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Three pieces, three questions</b><span>Value: what is it. Delta, with its base written: which way, how much. Context band, with its window written: is that normal.</span></div>
+      <div class="cheat-item"><b>Reserved words</b><span>Red, amber, green mean the card's state against the band and nothing else. Never a category, a brand or "important". State tokens, never the palette.</span></div>
+      <div class="cheat-item"><b>Never the only channel</b><span>WCAG 2.2 1.4.1, read. Colour plus the word printed on the card plus the dot's position. Cover the colour; it must still read.</span></div>
+      <div class="cheat-item"><b>The contrast floors</b><span>1.4.3: 4.5:1 small text, 3:1 large. 1.4.11: 3:1 for bands, dots, borders. Tint under ink text; white only on the strong red.</span></div>
+      <div class="cheat-item"><b>About 1 in 12 men</b><span>NEI, read. Most commonly red against green. The second channel is not optional; it is the message for one reader in the room.</span></div>
+      <div class="cheat-item"><b>No band, no colour</b><span>A card with no band and no direction of bad has no state. Leave it ink blue; the blue says "read, not triaged". Chart hues: Dataviz, colour that works.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>The card now says its state three ways and the screen says which cards have a state at all. Session 5 puts the whole thing in front of people: the filters and drill that sit one click away, the default view most readers will never change, and the five-user task test read at source with its formula, its typical 31 percent, and its comparable-users caveat. Session 6 then draws the band edges tonight left as placeholders, and scores them against 581 real days.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 4 of 6 · learn-dashboard-design-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="03-density-grouping-white-space.html">← Prev: Density, grouping and white space</a> &nbsp;·&nbsp; <a href="05-interaction-defaults-usability-test.html">Next: Interaction, defaults and the usability test →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
